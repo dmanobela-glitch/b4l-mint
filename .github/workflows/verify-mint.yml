@@ -87,8 +87,13 @@ jobs:
                 if git push origin HEAD:master; then ok=1; break; fi
                 echo "[mint] push raced (attempt $i) — refetch + retry"; sleep $((i*3))
               else
-                echo "[mint] remote advanced mid-run — discarding stale local mint, re-syncing + re-minting on the fresh tip"
+                echo "[mint] remote advanced mid-run — PRESERVING banked credits, re-syncing + re-minting on the fresh tip"
+                cp -f compute/verified_credits.json /tmp/b4l_local_credits.json 2>/dev/null || true
                 git reset --hard origin/master
+                # verified_credits is MONOTONIC (per-node coresec only grows). git reset restored origin's OLDER credits
+                # and would DROP the credits this run just banked (root cause of the h147 stall). Merge per-node MAX so
+                # the freshly-banked credits survive, then --mint appends the delta onto the fresh chain tip.
+                python -c "import json; L=json.load(open('/tmp/b4l_local_credits.json')); R=json.load(open('compute/verified_credits.json')); M={k:max(float(L.get(k,0)),float(R.get(k,0))) for k in set(L)|set(R)}; json.dump(M,open('compute/verified_credits.json','w'),indent=2); print('[mint] merged credits:',len(M),'nodes, total',round(sum(M.values()),1))" || true
                 python b4l_chain/chain.py --mint || true
                 for p in strategies compute/verified_credits.json compute/grid_results b4l_chain/b4l_chain.jsonl; do git add "$p" 2>/dev/null || true; done
                 if git diff --cached --quiet; then echo "[mint] nothing new to mint after resync"; ok=2; break; fi
