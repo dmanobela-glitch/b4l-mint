@@ -75,7 +75,26 @@ jobs:
             echo "no new verified winners / no new mint this run"
           else
             git commit -m "CI verify+mint (public): banked verified donor credits + minted B4L blocks [skip ci]"
-            # rebase onto any concurrent Master push, then fast-forward push (public is the sole minter once cutover)
-            git pull --rebase origin master 2>/dev/null || true
-            git push origin HEAD:master
+            # Robust land (fixes the stall where a rejected push silently DROPPED a whole mint cycle): push ONLY on a
+            # true fast-forward — never textually rebase minted blocks onto a moved tip (that would break the PoVC
+            # hash-links = chain corruption). On real divergence, re-sync to the fresh tip and RE-MINT so the chain
+            # still advances; --verify before every push so a bad chain can never be published.
+            ok=0
+            for i in 1 2 3 4 5; do
+              git fetch -q origin master || { echo "[mint] fetch failed (attempt $i)"; sleep $((i*3)); continue; }
+              if git merge-base --is-ancestor origin/master HEAD; then
+                python b4l_chain/chain.py --verify >/dev/null 2>&1 || { echo "[mint] local chain FAILED verify — refusing to push"; exit 1; }
+                if git push origin HEAD:master; then ok=1; break; fi
+                echo "[mint] push raced (attempt $i) — refetch + retry"; sleep $((i*3))
+              else
+                echo "[mint] remote advanced mid-run — discarding stale local mint, re-syncing + re-minting on the fresh tip"
+                git reset --hard origin/master
+                python b4l_chain/chain.py --mint || true
+                for p in strategies compute/verified_credits.json compute/grid_results b4l_chain/b4l_chain.jsonl; do git add "$p" 2>/dev/null || true; done
+                if git diff --cached --quiet; then echo "[mint] nothing new to mint after resync"; ok=2; break; fi
+                git commit -m "CI verify+mint (public): re-minted on fresh tip after concurrent push [skip ci]"
+              fi
+            done
+            [ "$ok" = 0 ] && { echo "[mint] could NOT land mint after 5 attempts (retries next cycle)"; exit 1; }
+            echo "[mint] land done (status=$ok: 1=pushed, 2=noop-after-resync)"
           fi
