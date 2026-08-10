@@ -155,6 +155,17 @@ jobs:
             echo "[mkt] not the 06:00 UTC window (hour=$HOUR) and not forced — skip"; exit 0
           fi
           mkdir -p "$B4L_BRIDGE_DIR/assets"
+          # ACCUMULATE the showcase (same pattern as configs): each cycle verify only regenerates the handful of hofs the
+          # grid fed, so a from-scratch render would reset the showcase to those few. Restore the PRIOR published bundle
+          # (real charts/replays for all previously-rendered slugs; the clone's marketed/ are gitignored empty skeletons),
+          # then render this cycle's fresh slugs ON TOP, then re-tar the UNION -> the showcase grows to the full set + is
+          # monotonic. The manifest (reads every marketed/<slug>/info.json) then lists the accumulated set, not just today's.
+          if gh release download marketing -R dmanobela-glitch/b4l-mint -p marketing_bundle.tgz -O /tmp/prior_mkt.tgz 2>/dev/null; then
+            tar xzf /tmp/prior_mkt.tgz -C marketing_purpose_strategy_results marketed 2>/dev/null && echo "[mkt] restored prior showcase (accumulate)"
+            tar xzf /tmp/prior_mkt.tgz -C "$GITHUB_WORKSPACE/engine" _site_assets 2>/dev/null || true
+          else
+            echo "[mkt] no prior marketing bundle (first render) — starting fresh"
+          fi
           echo "=== organize_marketing --render ==="; python tools/organize_marketing.py --render || echo "[mkt] organize rc=$?"
           echo "=== multi_replay (master hero) ===";  python portfolio_sim/multi_replay.py          || echo "[mkt] replay rc=$?"
           echo "=== site_manifest ===";               python tools/site_manifest.py                 || echo "[mkt] manifest rc=$?"
