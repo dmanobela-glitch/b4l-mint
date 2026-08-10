@@ -1,0 +1,140 @@
+name: Parallel verify + mint (shard matrix)
+# Fills the 158k genesis bank FASTER than single-stream. N verify shards run in PARALLEL: each drains an ATOMIC
+# /drain batch (so shards get DISJOINT diamonds — Cludia 0562), re-runs the canonical verify, and credits its work
+# under a UNIQUE key `genesis-remint#<shard>` (aggregator B4L_CREDIT_SHARD → no monotonic-max collision). Each shard
+# uploads its verified_credits.json as an ARTIFACT (no git contention). ONE mint job then downloads all shards,
+# merges per-key MAX (credits are monotonic), and appends the chain SINGLE-WRITER. Separate from verify-mint.yml
+# (which keeps working); this is the parallel drainer. Public repo = free minutes.
+on:
+  workflow_dispatch:
+concurrency:
+  group: parallel-verify-mint
+  cancel-in-progress: false
+jobs:
+  verify:
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Clone engine source (read)
+        run: git clone --depth 1 "https://x-access-token:${ENGINE_TOKEN}@github.com/Bull4Life/bull4life-engine.git" engine 2>/dev/null
+        env:
+          ENGINE_TOKEN: ${{ secrets.ENGINE_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install deps
+        working-directory: engine
+        run: pip install -r requirements-node.txt ccxt
+      - name: Pull coordinator candles
+        working-directory: engine
+        env:
+          B4L_COORDINATOR: https://compute.bull4life.com
+        run: |
+          mkdir -p "$HOME/b4l_candles"
+          echo "B4L_CANDLE_DIR=$HOME/b4l_candles" >> "$GITHUB_ENV"
+          B4L_CANDLE_DIR="$HOME/b4l_candles" python tools/ci_pull_candles.py || true
+      - name: Verify shard ${{ matrix.shard }} (atomic drain → canonical verify → genesis-remint#${{ matrix.shard }})
+        working-directory: engine
+        env:
+          B4L_COORDINATOR: https://compute.bull4life.com
+          B4L_DRAIN_TOKEN: ${{ secrets.B4L_DRAIN_TOKEN }}
+          B4L_CANON_SIZING: '1'
+          B4L_CREDIT_SHARD: ${{ matrix.shard }}
+          B4L_CYCLE_BUDGET_SEC: '3900'
+        run: python strategy_plan.py --once --no-deliver || true
+      - name: Upload shard credits
+        uses: actions/upload-artifact@v4
+        with:
+          name: credits-shard-${{ matrix.shard }}
+          path: engine/compute/verified_credits.json
+          retention-days: 1
+          if-no-files-found: warn
+  mint:
+    needs: verify
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Clone engine source (read+write)
+        run: |
+          git clone "https://x-access-token:${ENGINE_TOKEN}@github.com/Bull4Life/bull4life-engine.git" engine 2>/dev/null
+          cd engine && git config user.name "Bull4Life CI (parallel mint)" && git config user.email "dmanobela@gmail.com"
+        env:
+          ENGINE_TOKEN: ${{ secrets.ENGINE_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install deps
+        working-directory: engine
+        run: pip install -r requirements-node.txt
+      - name: Download all shard credit artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: credits-shard-*
+          path: shards
+      - name: Merge shard credits (per-key MAX — monotonic) into verified_credits.json
+        working-directory: engine
+        run: |
+          python - <<'PY'
+          import json, glob, os
+          base = {}
+          if os.path.exists('compute/verified_credits.json'):
+              try: base = json.load(open('compute/verified_credits.json'))
+              except Exception: base = {}
+          n = 0
+          for f in glob.glob('../shards/**/verified_credits.json', recursive=True):
+              try: s = json.load(open(f))
+              except Exception: continue
+              n += 1
+              for k, v in (s or {}).items():
+                  base[k] = max(float(base.get(k, 0) or 0), float(v or 0))
+          json.dump(base, open('compute/verified_credits.json', 'w'), indent=2)
+          gk = [k for k in base if str(k).startswith('genesis-remint')]
+          print(f'[merge] {n} shard file(s); {len(base)} keys; genesis-remint* total coresec = {round(sum(base[k] for k in gk),1)}')
+          PY
+      - name: Mint B4L (append PoVC blocks — single-writer)
+        working-directory: engine
+        run: |
+          python b4l_chain/chain.py --mint || true
+          echo "--- chain state after mint ---"
+          python b4l_chain/chain.py --verify | tail -3 || true
+      - name: Commit + push chain + credits (ff-only; re-mint on divergence)
+        working-directory: engine
+        run: |
+          for p in compute/verified_credits.json b4l_chain/b4l_chain.jsonl; do git add "$p" 2>/dev/null || true; done
+          echo "--- staged ---"; git diff --cached --stat
+          if git diff --cached --quiet; then
+            echo "no new mint this run"
+          else
+            git commit -m "CI parallel verify+mint: banked shard credits + minted B4L [skip ci]"
+            ok=0
+            for i in 1 2 3 4 5; do
+              git fetch -q origin master || { echo "[mint] fetch failed ($i)"; sleep $((i*3)); continue; }
+              if git merge-base --is-ancestor origin/master HEAD; then
+                python b4l_chain/chain.py --verify >/dev/null 2>&1 || { echo "[mint] chain FAILED verify — refusing to push"; exit 1; }
+                if git push origin HEAD:master; then ok=1; break; fi
+                echo "[mint] push raced ($i) — refetch + retry"; sleep $((i*3))
+              else
+                echo "[mint] remote advanced — preserve credits, resync + re-mint on fresh tip"
+                cp -f compute/verified_credits.json /tmp/b4l_local_credits.json 2>/dev/null || true
+                git reset --hard origin/master
+                python -c "import json; L=json.load(open('/tmp/b4l_local_credits.json')); R=json.load(open('compute/verified_credits.json')); M={k:max(float(L.get(k,0)),float(R.get(k,0))) for k in set(L)|set(R)}; json.dump(M,open('compute/verified_credits.json','w'),indent=2); print('[mint] merged credits',len(M),'nodes')" || true
+                python b4l_chain/chain.py --mint || true
+                for p in compute/verified_credits.json b4l_chain/b4l_chain.jsonl; do git add "$p" 2>/dev/null || true; done
+                if git diff --cached --quiet; then echo "[mint] nothing new after resync"; ok=2; break; fi
+                git commit -m "CI parallel verify+mint: re-minted on fresh tip after concurrent push [skip ci]"
+              fi
+            done
+            [ "$ok" = 0 ] && { echo "[mint] could NOT land after 5 attempts"; exit 1; }
+            echo "[mint] land done (status=$ok)"
+          fi
