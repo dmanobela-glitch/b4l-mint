@@ -1,0 +1,83 @@
+name: Marketing render (daily, fleet)
+# Fleet-distributed 24h marketing delivery (Master 2026-08-10: "on marketing we should do it every 24 hours ... the
+# entire fleet could handle that task" + "fleet cron for both"). Runs on the BUILDS account's own pool (dmanobela-glitch/
+# b4l-mint) so it never contends with the compute grid. Clones the private engine (read-only), pulls coordinator candles,
+# runs the SAME render _deliver_all uses (organize_marketing --render -> multi_replay master hero -> site_manifest), then
+# publishes ONE tarball as the public `marketing` release asset. The site pulls that asset (no laptop, no SSH key —
+# Master laptop-offload). Bridge paths are redirected into the workspace via B4L_BRIDGE_DIR (laptop default untouched).
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * *'      # daily 06:00 UTC — public schedules fire reliably
+concurrency:
+  group: marketing
+  cancel-in-progress: false
+jobs:
+  marketing:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write        # publish the marketing bundle as a release asset on this public repo
+    timeout-minutes: 300      # full re-render (per-slug replays are heavy); well under the 6h public ceiling
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Clone private engine source (read token, never logged)
+        run: |
+          git clone --depth 1 "https://x-access-token:${ENGINE_TOKEN}@github.com/Bull4Life/bull4life-engine.git" engine 2>/dev/null
+        env:
+          ENGINE_TOKEN: ${{ secrets.ENGINE_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install deps (render needs matplotlib + ccxt)
+        working-directory: engine
+        run: pip install -r requirements-node.txt ccxt matplotlib
+      - name: Cache coordinator candles
+        uses: actions/cache@v4
+        with:
+          path: ~/b4l_candles
+          key: b4l-candles-mkt-${{ github.run_id }}
+          restore-keys: |
+            b4l-candles-
+      - name: Pull coordinator candles (replays need them)
+        working-directory: engine
+        env:
+          B4L_COORDINATOR: https://compute.bull4life.com
+        run: |
+          mkdir -p "$HOME/b4l_candles"
+          echo "B4L_CANDLE_DIR=$HOME/b4l_candles" >> "$GITHUB_ENV"
+          B4L_CANDLE_DIR="$HOME/b4l_candles" python tools/ci_pull_candles.py || true
+      - name: Full marketing re-render (bundles -> master hero replay -> site manifest)
+        working-directory: engine
+        env:
+          B4L_BRIDGE_DIR: ${{ github.workspace }}/engine/_site_assets   # redirect the laptop bridge mirror into the workspace
+          B4L_REPLAY_TIMEOUT: '2400'                                    # per-slug replay ceiling (CI is slower than the 24/7 laptop)
+        run: |
+          mkdir -p "$B4L_BRIDGE_DIR/assets"
+          echo "=== organize_marketing --render ==="; python tools/organize_marketing.py --render || echo "[mkt] organize rc=$?"
+          echo "=== multi_replay (master hero) ===";  python portfolio_sim/multi_replay.py   || echo "[mkt] replay rc=$?"
+          echo "=== site_manifest ===";               python tools/site_manifest.py          || echo "[mkt] manifest rc=$?"
+          echo "--- rendered marketed slugs ---"; ls -1 marketing_purpose_strategy_results/marketed/ 2>/dev/null | head -60
+          echo "--- site assets ---"; find "$B4L_BRIDGE_DIR/assets" -maxdepth 2 -name 'manifest.json' -o -name '*.html' 2>/dev/null | head
+      - name: Bundle + publish the marketing release asset
+        working-directory: engine
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          OUT=marketing_bundle.tgz
+          # the marketed/ bundles (charts + replay.html + info.json per slug) + the site assets (manifest.json + mirrored replays)
+          tar czf "$OUT" \
+            -C marketing_purpose_strategy_results marketed \
+            -C "$GITHUB_WORKSPACE/engine" _site_assets 2>/dev/null || tar czf "$OUT" -C marketing_purpose_strategy_results marketed
+          SZ=$(du -h "$OUT" | cut -f1); N=$(ls -1 marketing_purpose_strategy_results/marketed/ 2>/dev/null | wc -l)
+          echo "[mkt] bundle $OUT ($SZ, $N slugs)"
+          [ -s "$OUT" ] || { echo "[mkt] empty bundle — nothing to publish"; exit 0; }
+          if gh release view marketing -R dmanobela-glitch/b4l-mint >/dev/null 2>&1; then
+            gh release upload marketing "$OUT" --clobber -R dmanobela-glitch/b4l-mint
+          else
+            gh release create marketing "$OUT" -R dmanobela-glitch/b4l-mint -t "Marketing bundle (daily)" \
+              -n "Full showcase re-render (marketed/<slug>/ charts + replays + master-hero + manifest.json). Regenerated every 24h by the fleet. The site pulls this asset."
+          fi
+          echo "[mkt] LIVE -> https://github.com/dmanobela-glitch/b4l-mint/releases/download/marketing/marketing_bundle.tgz"
