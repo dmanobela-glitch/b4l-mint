@@ -120,6 +120,12 @@ jobs:
           # The verify above refreshed the PERSISTENT HoFs (committed with the chain), so they hold the all-time best per
           # target. Export the best config per BYBIT-PERP strategy in the bot's exact tag schema (Cludia 0728) and publish
           # it as a PUBLIC release asset the bot curls -> incoming_configs/ (no SSH key, no private-repo auth — clean chain).
+          # ACCUMULATE across cycles: the release asset is the persistent all-time store (git doesn't carry best_configs.json).
+          # Pull the current published bundle as the MERGE prior, so this cycle's regenerated targets ADD to it instead of
+          # replacing it. Without this, --clobber would reset the release to only the ~handful of targets verified this run.
+          mkdir -p compute
+          gh release download best-configs -R dmanobela-glitch/b4l-mint -p best_configs.json -O compute/best_configs.json 2>/dev/null \
+            && echo "[configs] merged onto the prior published bundle" || echo "[configs] no prior release asset (first run) — starting fresh"
           python tools/export_best_configs.py || { echo "[configs] export failed — skip (mint unaffected)"; exit 0; }
           [ -f compute/best_configs.json ] || { echo "[configs] no bundle produced — skip"; exit 0; }
           N=$(python -c "import json;print(json.load(open('compute/best_configs.json')).get('count',0))" 2>/dev/null || echo '?')
