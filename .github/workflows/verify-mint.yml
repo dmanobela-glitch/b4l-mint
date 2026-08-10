@@ -54,7 +54,6 @@ jobs:
           B4L_COORDINATOR: https://compute.bull4life.com
           B4L_DRAIN_TOKEN: ${{ secrets.B4L_DRAIN_TOKEN }}
           B4L_CANON_SIZING: '1'   # fresh-chain canonical sizing: re-verify the 158,884 re-inject with apply_canonical (Cludia 0549)
-          B4L_ATTEST_TRUST: '1'   # #83 (Master 2026-08-10): trust our OWN attested nodes' verified diamonds -> skip the redundant re-run, bank credits fast; untrusted donors still full-verify + canary re-runs ~1/N
           # __B4L_CYCLE_BUDGET__: soft-stop the verify loop at 3900s so the mint+commit steps ALWAYS run inside
           # the 90-min job ceiling (else a full-cycle overrun times out the job => seeds upload but tokens don't mint).
           B4L_CYCLE_BUDGET_SEC: '3900'
