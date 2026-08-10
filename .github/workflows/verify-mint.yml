@@ -8,6 +8,11 @@ name: Verify + mint (public, reliable)
 # (whose schedule gets disabled once this is confirmed live).
 on:
   workflow_dispatch:
+    inputs:
+      render_marketing:
+        description: 'force the marketing render+publish this run (else it self-gates to ~once/24h at 06:00 UTC)'
+        type: boolean
+        default: false
   schedule:
     - cron: '0 */3 * * *'   # every 3h — public schedules fire reliably; tighter than the old (skipped) 6h
 concurrency:
@@ -18,7 +23,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write          # publish best_configs.json as a release asset on this (public) repo for the bot
-    timeout-minutes: 90
+    timeout-minutes: 180      # verify (~70m) + optional daily marketing render; mint+push run BEFORE marketing so a render overrun never costs tokens
     defaults:
       run:
         shell: bash
@@ -126,3 +131,38 @@ jobs:
               -n "Best VERIFIED config per Bybit-perp strategy, in the bot tag schema. Regenerated every mint cycle (~3h) from the persistent HoFs. The bot curls this asset into incoming_configs/."
           fi
           echo "[configs] LIVE -> https://github.com/dmanobela-glitch/b4l-mint/releases/download/best-configs/best_configs.json"
+      - name: Marketing render + publish (fleet, ~once/24h) — reuses the hofs verify just regenerated
+        working-directory: engine
+        continue-on-error: true          # NEVER break the token mint over marketing
+        env:
+          GH_TOKEN: ${{ github.token }}
+          B4L_BRIDGE_DIR: ${{ github.workspace }}/engine/_site_assets   # redirect the laptop bridge mirror into the workspace
+          B4L_REPLAY_TIMEOUT: '900'                                     # per-slug replay ceiling (bound the render on a CI core)
+          FORCE_MKT: ${{ github.event.inputs.render_marketing }}
+        run: |
+          # Self-gate to ~once/24h (06:00 UTC) so the 3h mint doesn't re-render every cycle; a manual dispatch with
+          # render_marketing=true forces it. Runs AFTER mint+push, so an overrun/timeout here never costs tokens. The
+          # hofs verify regenerated (this job's workspace) feed showcase.resolve_showcase (optimizer-hof fallback under
+          # the grid-first HOLD), so the render always has content — unlike a standalone clone (hofs are gitignored).
+          HOUR=$(date -u +%H)
+          if [ "${FORCE_MKT}" != "true" ] && [ "$HOUR" != "06" ]; then
+            echo "[mkt] not the 06:00 UTC window (hour=$HOUR) and not forced — skip"; exit 0
+          fi
+          mkdir -p "$B4L_BRIDGE_DIR/assets"
+          echo "=== organize_marketing --render ==="; python tools/organize_marketing.py --render || echo "[mkt] organize rc=$?"
+          echo "=== multi_replay (master hero) ===";  python portfolio_sim/multi_replay.py          || echo "[mkt] replay rc=$?"
+          echo "=== site_manifest ===";               python tools/site_manifest.py                 || echo "[mkt] manifest rc=$?"
+          N=$(ls -1 marketing_purpose_strategy_results/marketed/ 2>/dev/null | wc -l)
+          echo "[mkt] rendered $N marketed slug dir(s)"
+          OUT=marketing_bundle.tgz
+          tar czf "$OUT" -C marketing_purpose_strategy_results marketed -C "$GITHUB_WORKSPACE/engine" _site_assets 2>/dev/null \
+            || tar czf "$OUT" -C marketing_purpose_strategy_results marketed
+          SZ=$(du -h "$OUT" | cut -f1); echo "[mkt] bundle $OUT ($SZ)"
+          [ -s "$OUT" ] || { echo "[mkt] empty bundle — skip"; exit 0; }
+          if gh release view marketing -R dmanobela-glitch/b4l-mint >/dev/null 2>&1; then
+            gh release upload marketing "$OUT" --clobber -R dmanobela-glitch/b4l-mint
+          else
+            gh release create marketing "$OUT" -R dmanobela-glitch/b4l-mint -t "Marketing bundle (daily)" \
+              -n "Full showcase re-render (marketed/<slug>/ charts + replays + master-hero + manifest.json). Regenerated ~daily by the fleet from the hofs the mint verify regenerates. The site pulls this asset."
+          fi
+          echo "[mkt] LIVE -> https://github.com/dmanobela-glitch/b4l-mint/releases/download/marketing/marketing_bundle.tgz"
