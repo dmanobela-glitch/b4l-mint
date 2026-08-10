@@ -11,6 +11,8 @@ on:
       version:
         description: 'release tag (no leading v)'
         default: 'engine-app-1.0'
+permissions:
+  contents: write        # needed for gh release create/upload (default GITHUB_TOKEN is read-only -> HTTP 403)
 jobs:
   publish:
     runs-on: ubuntu-latest
