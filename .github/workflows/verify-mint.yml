@@ -16,6 +16,8 @@ concurrency:
 jobs:
   verify-mint:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write          # publish best_configs.json as a release asset on this (public) repo for the bot
     timeout-minutes: 90
     defaults:
       run:
@@ -104,3 +106,23 @@ jobs:
             [ "$ok" = 0 ] && { echo "[mint] could NOT land mint after 5 attempts (retries next cycle)"; exit 1; }
             echo "[mint] land done (status=$ok: 1=pushed, 2=noop-after-resync)"
           fi
+      - name: Export + publish best configs (Bybit perps) for the bot
+        working-directory: engine
+        continue-on-error: true          # NEVER break the token mint over config delivery
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # The verify above refreshed the PERSISTENT HoFs (committed with the chain), so they hold the all-time best per
+          # target. Export the best config per BYBIT-PERP strategy in the bot's exact tag schema (Cludia 0728) and publish
+          # it as a PUBLIC release asset the bot curls -> incoming_configs/ (no SSH key, no private-repo auth — clean chain).
+          python tools/export_best_configs.py || { echo "[configs] export failed — skip (mint unaffected)"; exit 0; }
+          [ -f compute/best_configs.json ] || { echo "[configs] no bundle produced — skip"; exit 0; }
+          N=$(python -c "import json;print(json.load(open('compute/best_configs.json')).get('count',0))" 2>/dev/null || echo '?')
+          echo "[configs] publishing $N Bybit-perp configs to the best-configs release"
+          if gh release view best-configs -R dmanobela-glitch/b4l-mint >/dev/null 2>&1; then
+            gh release upload best-configs compute/best_configs.json --clobber -R dmanobela-glitch/b4l-mint
+          else
+            gh release create best-configs compute/best_configs.json -R dmanobela-glitch/b4l-mint -t "Best configs (Bybit perps)" \
+              -n "Best VERIFIED config per Bybit-perp strategy, in the bot tag schema. Regenerated every mint cycle (~3h) from the persistent HoFs. The bot curls this asset into incoming_configs/."
+          fi
+          echo "[configs] LIVE -> https://github.com/dmanobela-glitch/b4l-mint/releases/download/best-configs/best_configs.json"
