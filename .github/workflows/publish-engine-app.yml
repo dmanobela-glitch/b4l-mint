@@ -1,0 +1,50 @@
+name: Publish engine app release
+# Server-side (GitHub -> GitHub) release of the engine-app binaries from a "Build engine app" run — no laptop download
+# (Master laptop-offload). Reuses an existing build run's artifacts (Windows .exe, macOS .app, Linux). The site points
+# its OS-labelled download slots at this release's asset URLs. Bump `version` per release.
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: 'the "Build engine app" run id whose artifacts to publish'
+        required: true
+      version:
+        description: 'release tag (no leading v)'
+        default: 'engine-app-1.0'
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Download build artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run download "${{ inputs.run_id }}" -R "${{ github.repository }}" -D dl
+          echo "--- downloaded ---"; find dl -maxdepth 2 | head -40
+      - name: Package assets (zip the mac .app; keep single-file win/linux)
+        run: |
+          mkdir -p rel
+          # windows exe
+          f=$(find dl -type f -name 'Bull4LifeEngine-windows.exe' | head -1); [ -n "$f" ] && cp "$f" rel/Bull4LifeEngine-windows.exe
+          # linux binary
+          f=$(find dl -type f -name 'Bull4LifeEngine-linux' | head -1); [ -n "$f" ] && cp "$f" rel/Bull4LifeEngine-linux
+          # macOS .app — it's a directory (artifact); zip it into a single downloadable asset
+          d=$(find dl -maxdepth 2 -type d -name 'Bull4LifeEngine-macos.app' | head -1)
+          if [ -n "$d" ]; then ( cd "$(dirname "$d")" && zip -qr - "$(basename "$d")" ) > rel/Bull4LifeEngine-macos.app.zip; fi
+          echo "--- release assets ---"; ls -la rel; du -sh rel/* 2>/dev/null
+      - name: Create / update the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          V="${{ inputs.version }}"
+          NOTES="Bull4Life Engine app $V — the ONE program (engine + node + B4L chain). Windows (.exe, native window), macOS (.app.zip, native window), Linux (opens the dashboard in your browser). Auto-detects GPU or CPU and contributes on any hardware. If the Windows window doesn't open, install the free Microsoft Edge WebView2 Runtime."
+          if gh release view "$V" -R "${{ github.repository }}" >/dev/null 2>&1; then
+            gh release upload "$V" rel/* -R "${{ github.repository }}" --clobber
+          else
+            gh release create "$V" rel/* -R "${{ github.repository }}" -t "Bull4Life Engine $V" -n "$NOTES"
+          fi
+          echo "=== published assets ==="
+          gh release view "$V" -R "${{ github.repository }}" --json assets --jq '.assets[] | "  \(.name)  \(.size)b  \(.url)"'
