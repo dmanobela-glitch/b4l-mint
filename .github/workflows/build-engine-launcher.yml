@@ -1,0 +1,137 @@
+name: Build engine launcher + bundle
+# #68 (Master 2026-08-09): the PEX-style auto-update model for the Bull4Life engine app. Builds TWO artifacts, both OFF
+# Master's laptop on FREE public CI:
+#   1) Bull4LifeLauncher.exe  — the thin permanent Nuitka launcher (bull4life_launch.py) that fetches+verifies+runs the bundle.
+#   2) Bull4LifeEngine-<ver>-windows-x64.tar.gz — the app BUNDLE = an embeddable Python runtime + deps + the engine source,
+#      so the launcher's sibling-python runs engine_app.py from SOURCE (no frozen-onefile component-spawn breakage).
+# Private engine source cloned read-only, discarded with the runner.
+on:
+  workflow_dispatch:
+    inputs:
+      app_version:
+        description: 'app version (semver, e.g. 1.2.0)'
+        required: true
+        default: '1.2.0'
+      launcher_only:
+        description: 'rebuild ONLY the launcher exe + clobber it onto the existing release (keeps bundle+manifest valid)'
+        required: false
+        default: 'false'
+      zip_only:
+        description: 'build the AV-safe zip (bundle + .vbs script launcher, no compiled exe) + clobber ONLY the zip onto the release'
+        required: false
+        default: 'false'
+permissions:
+  contents: write        # needed for `gh release create`
+jobs:
+  build:
+    runs-on: windows-latest
+    timeout-minutes: 120
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Clone private engine source (read-only token, never logged)
+        run: git clone --depth 1 "https://x-access-token:${ENGINE_TOKEN}@github.com/Bull4Life/bull4life-engine.git" engine 2>/dev/null
+        env:
+          ENGINE_TOKEN: ${{ secrets.ENGINE_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build the thin launcher (Nuitka onefile + cryptography, no console)
+        if: ${{ github.event.inputs.zip_only != 'true' }}
+        working-directory: engine
+        run: |
+          pip install "nuitka[onefile]" cryptography
+          python -m nuitka --onefile --standalone --assume-yes-for-downloads \
+            --include-package=cryptography --include-package=cffi \
+            --windows-console-mode=disable \
+            --output-dir=out_launcher --output-filename=Bull4LifeLauncher.exe \
+            launcher/bull4life_launch.py
+          f=$(find out_launcher -name 'Bull4LifeLauncher.exe' | head -1)
+          [ -n "$f" ] && cp "$f" ../Bull4LifeLauncher.exe && echo "launcher: $(du -h ../Bull4LifeLauncher.exe | cut -f1)"
+          test -f ../Bull4LifeLauncher.exe
+      - name: Assemble the app bundle (embeddable Python + deps + engine source)
+        if: ${{ github.event.inputs.launcher_only != 'true' }}
+        working-directory: engine
+        run: |
+          set -e
+          VER="${{ github.event.inputs.app_version }}"
+          PYV=3.12.7
+          mkdir -p bundle/runtime
+          curl -sSL -o pyembed.zip "https://www.python.org/ftp/python/$PYV/python-$PYV-embed-amd64.zip"
+          unzip -q pyembed.zip -d bundle/runtime
+          # enable `import site` so pip works inside the embeddable python
+          pth=$(ls bundle/runtime/python*._pth); sed -i 's/^#import site/import site/' "$pth"
+          curl -sSL -o get-pip.py https://bootstrap.pypa.io/get-pip.py
+          bundle/runtime/python.exe get-pip.py --no-warn-script-location
+          # setuptools+wheel FIRST (embeddable python lacks them → source-build deps fail with BackendUnavailable);
+          # then install deps preferring prebuilt wheels (all these ship Windows wheels → no source builds)
+          bundle/runtime/python.exe -m pip install --no-warn-script-location setuptools wheel
+          bundle/runtime/python.exe -m pip install --no-warn-script-location --prefer-binary \
+            pywebview cryptography pandas numpy psutil requests certifi pyyaml ccxt pythonnet
+          # copy engine source FLAT into the bundle root via tar-pipe (rsync isn't on Windows runners); runtime/ stays put
+          tar --exclude='./.git' --exclude='./candles' --exclude='./__pycache__' --exclude='*.pyc' \
+              --exclude='./bundle' --exclude='./out_launcher' --exclude='./pyembed.zip' --exclude='./get-pip.py' \
+              --exclude='./liquidity_sweep_test/gpu_spike/venv' --exclude='./marketing_purpose_strategy_results' \
+              --exclude='./reproducibility' --exclude='./_retired' \
+              -cf - . | (cd bundle && tar -xf -)
+          tar -C bundle -czf "../Bull4LifeEngine-$VER-windows-x64.tar.gz" .
+          echo "bundle: $(du -h ../Bull4LifeEngine-$VER-windows-x64.tar.gz | cut -f1)"
+          sha256sum "../Bull4LifeEngine-$VER-windows-x64.tar.gz" | tee ../bundle.sha256
+          # AV-SAFE ZIP: bundle + a .vbs SCRIPT launcher (interpreted script, NOT a compiled exe -> not AV-heuristic-
+          # flagged/quarantined like the Nuitka onefile). Double-click 'Start Bull4Life.vbs' -> runs the bundled app
+          # windowless via the embeddable pythonw. CRLF line-endings for Windows Script Host.
+          printf 'Set fso = CreateObject("Scripting.FileSystemObject")\r\nroot = fso.GetParentFolderName(WScript.ScriptFullName)\r\nSet sh = CreateObject("WScript.Shell")\r\nsh.CurrentDirectory = root\r\nsh.Run """" & root & "\\runtime\\pythonw.exe"" engine_app.py --port 8770 --gui --managed", 0, False\r\n' > "bundle/Start Bull4Life.vbs"
+          powershell -Command "Compress-Archive -Path 'bundle/*' -DestinationPath '../Bull4LifeEngine-$VER-windows.zip' -Force"
+          echo "zip: $(du -h ../Bull4LifeEngine-$VER-windows.zip | cut -f1)"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Bull4LifeLauncher-windows
+          path: Bull4LifeLauncher.exe
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        if: ${{ github.event.inputs.launcher_only != 'true' }}
+        with:
+          name: Bull4LifeEngine-bundle
+          path: |
+            Bull4LifeEngine-*-windows-x64.tar.gz
+            bundle.sha256
+          retention-days: 14
+      - name: LAUNCHER-ONLY — clobber just the launcher onto the existing release (bundle + manifest untouched)
+        if: ${{ github.event.inputs.launcher_only == 'true' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VER="${{ github.event.inputs.app_version }}"
+          TAG="engine-app-v$VER"
+          gh release upload "$TAG" "Bull4LifeLauncher.exe" --clobber -R Bull4Life/bull4life-build
+          echo "=== LAUNCHER_URL https://github.com/Bull4Life/bull4life-build/releases/download/$TAG/Bull4LifeLauncher.exe ==="
+          echo "=== launcher-only: bundle + signed manifest for $VER left intact ==="
+      - name: ZIP-ONLY — clobber just the AV-safe zip onto the existing release (launcher/bundle/manifest untouched)
+        if: ${{ github.event.inputs.zip_only == 'true' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VER="${{ github.event.inputs.app_version }}"
+          TAG="engine-app-v$VER"
+          gh release upload "$TAG" "Bull4LifeEngine-$VER-windows.zip" --clobber -R Bull4Life/bull4life-build
+          echo "=== ZIP_URL https://github.com/Bull4Life/bull4life-build/releases/download/$TAG/Bull4LifeEngine-$VER-windows.zip ==="
+          echo "=== zip-only: launcher + bundle.tar.gz + signed manifest for $VER left intact ==="
+      - name: Publish a GitHub release (public assets — launcher + bundle.tar.gz + AV-safe zip)
+        if: ${{ github.event.inputs.launcher_only != 'true' && github.event.inputs.zip_only != 'true' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          VER="${{ github.event.inputs.app_version }}"
+          TAG="engine-app-v$VER"
+          BUNDLE="Bull4LifeEngine-$VER-windows-x64.tar.gz"
+          ZIP="Bull4LifeEngine-$VER-windows.zip"
+          SHA=$(sha256sum "$BUNDLE" | cut -d' ' -f1)
+          echo "=== BUNDLE_SHA256 $SHA ==="
+          gh release delete "$TAG" -R Bull4Life/bull4life-build --yes --cleanup-tag 2>/dev/null || true
+          gh release create "$TAG" -R Bull4Life/bull4life-build --title "Engine App $VER" \
+            --notes "Bull4Life Engine app $VER — thin launcher + bundle + AV-safe zip. bundle sha256=$SHA" \
+            "Bull4LifeLauncher.exe" "$BUNDLE" "$ZIP"
+          echo "=== LAUNCHER_URL https://github.com/Bull4Life/bull4life-build/releases/download/$TAG/Bull4LifeLauncher.exe ==="
+          echo "=== BUNDLE_URL https://github.com/Bull4Life/bull4life-build/releases/download/$TAG/$BUNDLE ==="
+          echo "=== ZIP_URL https://github.com/Bull4Life/bull4life-build/releases/download/$TAG/$ZIP ==="
