@@ -144,6 +144,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           B4L_BRIDGE_DIR: ${{ github.workspace }}/engine/_site_assets   # redirect the laptop bridge mirror into the workspace
           B4L_REPLAY_TIMEOUT: '900'                                     # per-slug replay ceiling (bound the render on a CI core)
+          B4L_MARKETING_MAX_SLUGS: '6'                                   # top-6 by ROE per cycle (replays are sequential ~15min ea); accumulate grows coverage across days
           FORCE_MKT: ${{ github.event.inputs.render_marketing }}
         run: |
           # Self-gate to ~once/24h (06:00 UTC) so the 3h mint doesn't re-render every cycle; a manual dispatch with
