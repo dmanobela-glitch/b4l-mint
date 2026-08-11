@@ -151,9 +151,21 @@ jobs:
           # render_marketing=true forces it. Runs AFTER mint+push, so an overrun/timeout here never costs tokens. The
           # hofs verify regenerated (this job's workspace) feed showcase.resolve_showcase (optimizer-hof fallback under
           # the grid-first HOLD), so the render always has content — unlike a standalone clone (hofs are gitignored).
-          HOUR=$(date -u +%H)
-          if [ "${FORCE_MKT}" != "true" ] && [ "$HOUR" != "06" ]; then
-            echo "[mkt] not the 06:00 UTC window (hour=$HOUR) and not forced — skip"; exit 0
+          # Gate ~once/24h by the AGE of the last published bundle, NOT the execution hour: GitHub schedules here fire
+          # 30-76min late, so an "hour==06" gate would SKIP marketing entirely on any day the 06:00 cron slips past 06:59.
+          # Age-based = the first mint cycle after the 20h mark renders it, robust to schedule drift. Force always renders.
+          if [ "${FORCE_MKT}" != "true" ]; then
+            LAST=$(gh release view marketing -R dmanobela-glitch/b4l-mint --json assets \
+                   --jq '.assets[]|select(.name=="marketing_bundle.tgz")|.updatedAt' 2>/dev/null || true)
+            if [ -n "$LAST" ]; then
+              AGE=$(( $(date -u +%s) - $(date -u -d "$LAST" +%s) ))
+              if [ "$AGE" -lt 72000 ]; then
+                echo "[mkt] last bundle is ${AGE}s old (<20h) — skip this cycle"; exit 0
+              fi
+              echo "[mkt] last bundle ${AGE}s old (>=20h) — rendering the daily refresh"
+            else
+              echo "[mkt] no prior bundle — rendering first"
+            fi
           fi
           mkdir -p "$B4L_BRIDGE_DIR/assets"
           # ACCUMULATE the showcase (same pattern as configs): each cycle verify only regenerates the handful of hofs the
