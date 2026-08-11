@@ -14,7 +14,7 @@ on:
         type: boolean
         default: false
   schedule:
-    - cron: '0 */3 * * *'   # every 3h — public schedules fire reliably; tighter than the old (skipped) 6h
+    - cron: '0 * * * *'   # every 1h (Master 2026-08-11: drain the pool hourly so mints never wait; free public pool, own runners, concurrency-guarded)
 concurrency:
   group: verify-mint
   cancel-in-progress: false
