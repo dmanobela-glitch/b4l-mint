@@ -39,7 +39,7 @@ jobs:
           python-version: '3.12'
       - name: Install deps
         working-directory: engine
-        run: pip install -r requirements-node.txt ccxt
+        run: pip install -r requirements-node.txt ccxt matplotlib   # matplotlib for the marketing chart render (folded-in step; #90 — was missing -> 0 PNGs)
       - name: Cache coordinator candles (delta top-up after first run)
         uses: actions/cache@v4
         with:
