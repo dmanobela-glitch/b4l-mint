@@ -1,0 +1,91 @@
+name: Build engine app
+# Public CI (FREE minutes) builds THE ONE PROGRAM (engine app: node + B4L chain + UI in-process) per OS.
+# AV-SAFE PACKAGING (2026-08-14): --standalone FOLDER zipped (NOT --onefile). A onefile self-extracts to temp at
+# launch, and Windows Defender heuristically QUARANTINES that self-extraction (Master's desktop blocked the onefile).
+# A standalone folder (exe + DLLs beside it, no self-extraction) is far less AV-prone. User unzips + runs the .exe.
+# Off Master's laptop, out of the billed private repo. Engine source cloned READ-ONLY, compiled, discarded.
+# fail-fast:false → each OS builds independently (a Mac/Linux hiccup never blocks the Windows build).
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    name: build-${{ matrix.arch }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: windows-latest
+            arch: windows-x64
+            out: Bull4LifeEngine-windows.zip
+          - runner: macos-latest
+            arch: macos-arm64
+            out: Bull4LifeEngine-macos.zip
+          - runner: ubuntu-latest
+            arch: linux-x64
+            out: Bull4LifeEngine-linux.zip
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 120
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Clone private engine source (read-only token, never logged)
+        run: |
+          git clone --depth 1 "https://x-access-token:${{ secrets.ENGINE_TOKEN }}@github.com/Bull4Life/bull4life-engine.git" engine 2>/dev/null
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install build deps (+ the native-window backend for THIS OS)
+        run: |
+          pip install "nuitka[onefile]" zstandard numpy pandas psutil cryptography certifi requests
+          case "${{ matrix.runner }}" in
+            windows-latest) pip install pywebview ;;                                              # WebView2 (native window)
+            macos-latest)   pip install pywebview pyobjc-framework-WebKit pyobjc-framework-Cocoa imageio ;; # WKWebView + imageio (Nuitka PNG->.icns app icon)
+            ubuntu-latest)  echo "linux: no pywebview — the app opens the dashboard in the user's browser (fallback)" ;;
+          esac
+      - name: Force AV-safe standalone FOLDER build (patch out --onefile; mac stays an .app bundle)
+        working-directory: engine
+        run: |
+          # A onefile exe self-extracts at launch → Defender quarantines it. Force the --standalone folder path by
+          # neutralizing the --onefile append in the build script (idempotent; no-op if the script already omits it).
+          python - <<'PY'
+          import re, io
+          p = 'build_engine_app.py'
+          s = open(p, encoding='utf-8').read()
+          s2 = re.sub(r"cmd\.append\(\s*'--onefile'\s*\)", "pass  # CI AV-safe: standalone folder, not onefile", s)
+          open(p, 'w', encoding='utf-8').write(s2)
+          print('patched --onefile ->', 'changed' if s2 != s else 'already folder-mode')
+          PY
+      - name: Build (Nuitka standalone)
+        working-directory: engine
+        run: python build_engine_app.py
+      - name: Package (zip the standalone folder / .app into ONE downloadable asset)
+        working-directory: engine
+        run: |
+          set -e
+          echo "--- dist contents ---"; ls -la dist || true
+          case "${{ matrix.runner }}" in
+            windows-latest)
+              cd dist
+              [ -f engine_app.dist/engine_app.exe ] && mv engine_app.dist/engine_app.exe engine_app.dist/Bull4LifeEngine.exe || true
+              mv engine_app.dist Bull4LifeEngine
+              powershell -Command "Compress-Archive -Path Bull4LifeEngine -DestinationPath ../../${{ matrix.out }} -Force"
+              ;;
+            ubuntu-latest)
+              cd dist
+              if [ -f engine_app.dist/engine_app.bin ]; then mv engine_app.dist/engine_app.bin engine_app.dist/Bull4LifeEngine; elif [ -f engine_app.dist/engine_app ]; then mv engine_app.dist/engine_app engine_app.dist/Bull4LifeEngine; fi
+              mv engine_app.dist Bull4LifeEngine
+              zip -qry "../../${{ matrix.out }}" Bull4LifeEngine
+              ;;
+            macos-latest)
+              cd dist
+              [ -d engine_app.app ] && mv engine_app.app Bull4LifeEngine.app || true
+              zip -qry "../../${{ matrix.out }}" Bull4LifeEngine.app
+              ;;
+          esac
+          echo "--- asset ---"; ls -la "../${{ matrix.out }}" || (cd .. && ls -la "${{ matrix.out }}")
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.out }}
+          path: ${{ matrix.out }}
+          retention-days: 14
