@@ -63,29 +63,29 @@ jobs:
         working-directory: engine
         run: |
           set -e
+          OUT="${{ matrix.out }}"
           echo "--- dist contents ---"; ls -la dist || true
+          # rename the friendly exe/bin inside the standalone folder (win/linux)
+          [ -f dist/engine_app.dist/engine_app.exe ] && mv dist/engine_app.dist/engine_app.exe dist/engine_app.dist/Bull4LifeEngine.exe || true
+          [ -f dist/engine_app.dist/engine_app.bin ] && mv dist/engine_app.dist/engine_app.bin dist/engine_app.dist/Bull4LifeEngine || true
+          [ -f dist/engine_app.dist/engine_app ] && mv dist/engine_app.dist/engine_app dist/engine_app.dist/Bull4LifeEngine || true
+          [ -d dist/engine_app.dist ] && mv dist/engine_app.dist dist/Bull4LifeEngine || true
+          [ -d dist/engine_app.app ]  && mv dist/engine_app.app  dist/Bull4LifeEngine.app || true
+          # zip into engine/$OUT (subshell keeps CWD scoped; folder sits at the zip root)
           case "${{ matrix.runner }}" in
             windows-latest)
-              cd dist
-              [ -f engine_app.dist/engine_app.exe ] && mv engine_app.dist/engine_app.exe engine_app.dist/Bull4LifeEngine.exe || true
-              mv engine_app.dist Bull4LifeEngine
-              powershell -Command "Compress-Archive -Path Bull4LifeEngine -DestinationPath ../../${{ matrix.out }} -Force"
+              powershell -Command "Compress-Archive -Path dist/Bull4LifeEngine -DestinationPath $OUT -Force"
               ;;
             ubuntu-latest)
-              cd dist
-              if [ -f engine_app.dist/engine_app.bin ]; then mv engine_app.dist/engine_app.bin engine_app.dist/Bull4LifeEngine; elif [ -f engine_app.dist/engine_app ]; then mv engine_app.dist/engine_app engine_app.dist/Bull4LifeEngine; fi
-              mv engine_app.dist Bull4LifeEngine
-              zip -qry "../../${{ matrix.out }}" Bull4LifeEngine
+              ( cd dist && zip -qry "../$OUT" Bull4LifeEngine )
               ;;
             macos-latest)
-              cd dist
-              [ -d engine_app.app ] && mv engine_app.app Bull4LifeEngine.app || true
-              zip -qry "../../${{ matrix.out }}" Bull4LifeEngine.app
+              ( cd dist && zip -qry "../$OUT" Bull4LifeEngine.app )
               ;;
           esac
-          echo "--- asset ---"; ls -la "../${{ matrix.out }}" || (cd .. && ls -la "${{ matrix.out }}")
+          echo "--- asset ---"; ls -la "$OUT"
       - uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.out }}
-          path: ${{ matrix.out }}
+          path: engine/${{ matrix.out }}
           retention-days: 14
