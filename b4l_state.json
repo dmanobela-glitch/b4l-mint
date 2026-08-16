@@ -1,19 +1,19 @@
 {
   "schema": "b4l-state-1",
   "header": {
-    "height": 5,
-    "hash": "111de74173d6ab301a23a059c230e4014a3344aaac787c75c97572be841fa79e",
+    "height": 6,
+    "hash": "cd9c41477d10dbae816f758808a9668260375b8a68ec55517a66377608e7164e",
     "genesis_hash": "e7965d9834210e88130281e7e06afe7bf0107bb8c378229eeeabe3c9eb7fbe38"
   },
   "account": {
     "b4l17vbwkmcutfxano6rakpi3a6qheykpct2u5mohi": 1000000.0
   },
   "mint_status": {
-    "verified_total": 43800.0,
+    "verified_total": 47400.0,
     "verified_total_source": "verified_credits.json",
     "last_mint_height": null,
-    "tip_total_coresec": 43800.0,
-    "total_b4l": 1000000.0438
+    "tip_total_coresec": 47400.0,
+    "total_b4l": 1000000.0474
   },
   "nav": {
     "as_of_height": null,
@@ -29,9 +29,15 @@
     "oracle_marks": {},
     "committed": false
   },
+  "total_b4l": 1000000.0474,
+  "mint_reward_budget": {
+    "cap": 0.0,
+    "redistributed": 0.0,
+    "remaining": 0.0
+  },
   "chain_wallets": {},
   "genesis_agnostic_note": "chain-side read surface; nav.* echoes the last on-chain nav_commit (Cludia produces + signs NAV).",
-  "sig": "84e76220f591030571388cdbb33fe182dbc064cb9b846f5858a009d7bef46b1495afe73ff8ea4efa8494d3d43d4b8ae2bc1a49ba0ed62a0439ddec8525813c0a",
+  "sig": "5f88e4c7727edc9ab6937158645650ac4972118dba46f9764c1178a434e52b08a8ee4acfca1d88e1c9e76cd17ea5a39276d7f5306624a68289aa7253c5117d02",
   "pubkey": "aac44d07cf44e663402fd4f42107a167756647d059cb6e8534f96c8c8f05a053",
   "signed": true
 }
