@@ -1,0 +1,49 @@
+name: Drain pending tx (fast NAV lane)
+# verify-mint runs `chain.py --mint` (PoVC blocks only) and NEVER runs --drain — so bot_records/nav_commits POSTed to
+# the coordinator /bot_record never land (found 2026-08-17: Cludia's nav_commit stuck ~50min). This lightweight lane
+# runs `chain.py --drain` every 15 min: clone engine, fetch+drain the coordinator's pending queue into b4l_chain.jsonl,
+# push to master. Isolated from the ~70-min verify+mint so NAV/bot_records land in <=15 min, not <=2h.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/15 * * * *'
+concurrency:
+  group: drain-pending
+  cancel-in-progress: false
+jobs:
+  drain:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Clone private engine (read+write, never logged)
+        run: |
+          git clone "https://x-access-token:${ENGINE_TOKEN}@github.com/Bull4Life/bull4life-engine.git" engine 2>/dev/null
+          cd engine && git config user.name "Bull4Life CI (drain)" && git config user.email "dmanobela@gmail.com"
+        env:
+          ENGINE_TOKEN: ${{ secrets.ENGINE_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install deps
+        run: pip install cryptography
+      - name: Drain pending bot_records (incl nav_commit) into the chain
+        working-directory: engine
+        env:
+          B4L_COORDINATOR: https://compute.bull4life.com
+          B4L_DRAIN_TOKEN: ${{ secrets.B4L_DRAIN_TOKEN }}
+        run: |
+          python b4l_chain/chain.py --drain || true
+          echo "--- tip after drain ---"; tail -1 b4l_chain/b4l_chain.jsonl | head -c 200; echo
+      - name: Commit + push drained chain to master
+        working-directory: engine
+        run: |
+          git add b4l_chain/b4l_chain.jsonl
+          if git diff --cached --quiet; then
+            echo "nothing drained this run"
+          else
+            git commit -m "CI drain: land pending bot_records/nav_commit [skip ci]"
+            for i in 1 2 3; do git pull --rebase --autostash 2>/dev/null || true; if git push; then echo "pushed (attempt $i)"; break; fi; sleep 3; done
+          fi
