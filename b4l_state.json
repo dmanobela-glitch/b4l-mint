@@ -1,43 +1,88 @@
 {
   "schema": "b4l-state-1",
   "header": {
-    "height": 6,
-    "hash": "cd9c41477d10dbae816f758808a9668260375b8a68ec55517a66377608e7164e",
-    "genesis_hash": "e7965d9834210e88130281e7e06afe7bf0107bb8c378229eeeabe3c9eb7fbe38"
+    "height": 7,
+    "hash": "a3c9e16e172cebe77186623d57bd40ebd65fb46d883e517cb1db74722687a68d",
+    "genesis_hash": "22648a4d9a6a9a2a472ed81f2b023d95a32994565be6130c53875a2dae9a6c60"
   },
   "account": {
-    "b4l17vbwkmcutfxano6rakpi3a6qheykpct2u5mohi": 1000000.0
+    "b4l12h3b67w2xbshqg7i4wuv2hstv74aklcwocr2ta": 1000000.0
   },
   "mint_status": {
-    "verified_total": 890400.0,
+    "verified_total": 0,
     "verified_total_source": "verified_credits.json",
     "last_mint_height": null,
-    "tip_total_coresec": 47400.0,
-    "total_b4l": 1000000.0474
+    "tip_total_coresec": 0,
+    "total_b4l": 1000000.0
   },
   "nav": {
-    "as_of_height": null,
-    "as_of_ts": null,
-    "nav_per_b4l_usd": null,
+    "as_of_height": 6,
+    "as_of_ts": 1786944284,
+    "nav_per_b4l_usd": 0.00207716,
     "supply_total": 1000000.0,
     "supply_circulating": 0.0,
-    "reserves_usd_total": null,
+    "reserves_usd_total": 2077.16,
     "reserves": {
       "chain_wallets": {},
       "fund_exchange_equity_usd": null
     },
     "oracle_marks": {},
-    "committed": false
+    "committed": true
   },
-  "total_b4l": 1000000.0474,
+  "total_b4l": 1000000.0,
   "mint_reward_budget": {
-    "cap": 0.0,
+    "cap": 1000000.0,
     "redistributed": 0.0,
-    "remaining": 0.0
+    "remaining": 1000000.0
   },
-  "chain_wallets": {},
+  "chain_wallets": {
+    "arbitrum": {
+      "deposit_addr": "0x80f20c483f65b98853332b5a9d84e7e9690d4bbf",
+      "payout_addr": "0x80f20c483f65b98853332b5a9d84e7e9690d4bbf",
+      "gas": {
+        "gas_usd": 0.1,
+        "min_redeem_usd": 10,
+        "updated_ts": 1786943051.7071536
+      },
+      "set_by": "b4l12h3b67w2xbshqg7i4wuv2hstv74aklcwocr2ta",
+      "ts": 1786943051.711
+    },
+    "optimism": {
+      "deposit_addr": "0x80f20c483f65b98853332b5a9d84e7e9690d4bbf",
+      "payout_addr": "0x80f20c483f65b98853332b5a9d84e7e9690d4bbf",
+      "gas": {
+        "gas_usd": 0.1,
+        "min_redeem_usd": 10,
+        "updated_ts": 1786943051.7071536
+      },
+      "set_by": "b4l12h3b67w2xbshqg7i4wuv2hstv74aklcwocr2ta",
+      "ts": 1786943051.713
+    },
+    "solana": {
+      "deposit_addr": "GfqWjDGcwFHoYK5v5CUe28bNKUuLyURehJN5CnamV5hh",
+      "payout_addr": "GfqWjDGcwFHoYK5v5CUe28bNKUuLyURehJN5CnamV5hh",
+      "gas": {
+        "gas_usd": 0.02,
+        "min_redeem_usd": 10,
+        "updated_ts": 1786943051.7071536
+      },
+      "set_by": "b4l12h3b67w2xbshqg7i4wuv2hstv74aklcwocr2ta",
+      "ts": 1786943051.714
+    },
+    "tron": {
+      "deposit_addr": "THQDyEABKY1R9F2aDnvpFeBD8J5hoedJhb",
+      "payout_addr": "THQDyEABKY1R9F2aDnvpFeBD8J5hoedJhb",
+      "gas": {
+        "gas_usd": 1.2,
+        "min_redeem_usd": 12,
+        "updated_ts": 1786943051.7071536
+      },
+      "set_by": "b4l12h3b67w2xbshqg7i4wuv2hstv74aklcwocr2ta",
+      "ts": 1786943051.715
+    }
+  },
   "genesis_agnostic_note": "chain-side read surface; nav.* echoes the last on-chain nav_commit (Cludia produces + signs NAV).",
-  "sig": "e0eb1a4f816a0b0c5d73e53d7fd77dea73feca2c7f9a908a9fd3aa0130a0643949750c7b56fbfe3aa0423ce98d15b611f2dfeed5129f4e7f6bc430ef6aa68900",
+  "sig": "a33dc82f1373c22e40ad5594f2b3ffc08728cc1a6fddbf60eafd45142ed0e2d9aa45c8722cd34939bf56c57f6a1399413f018812a4ac2e8e070530dbc620c707",
   "pubkey": "aac44d07cf44e663402fd4f42107a167756647d059cb6e8534f96c8c8f05a053",
   "signed": true
 }
