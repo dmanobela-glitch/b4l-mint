@@ -1,18 +1,18 @@
 {
   "schema": "b4l-state-1",
   "header": {
-    "height": 39,
-    "hash": "c39671fc5792492b6a8264964612e9300f99809557f03cc1ac495c3596e60988",
+    "height": 40,
+    "hash": "9417ebe6bde9c546ca32c53e0bac2f675efa083e8e6404fa5302eec0be235b23",
     "genesis_hash": "22648a4d9a6a9a2a472ed81f2b023d95a32994565be6130c53875a2dae9a6c60"
   },
   "account": {
-    "b4l12h3b67w2xbshqg7i4wuv2hstv74aklcwocr2ta": 999999.613
+    "b4l12h3b67w2xbshqg7i4wuv2hstv74aklcwocr2ta": 999999.586
   },
   "mint_status": {
-    "verified_total": 387000.0,
+    "verified_total": 414000.0,
     "verified_total_source": "verified_credits.json",
     "last_mint_height": null,
-    "tip_total_coresec": 387000.0,
+    "tip_total_coresec": 414000.0,
     "total_b4l": 1000000.0
   },
   "nav": {
@@ -21,7 +21,7 @@
     "nav_per_b4l_usd": 0.002012167457,
     "nav_per_b4l": 0.002012167457,
     "supply_total": 1000000.0,
-    "supply_circulating": 0.387,
+    "supply_circulating": 0.414,
     "reserves_usd_total": 2012.167457,
     "reserves": {
       "chain_wallets": {},
@@ -33,8 +33,8 @@
   "total_b4l": 1000000.0,
   "mint_reward_budget": {
     "cap": 1000000.0,
-    "redistributed": 0.387,
-    "remaining": 999999.613
+    "redistributed": 0.414,
+    "remaining": 999999.586
   },
   "chain_wallets": {
     "arbitrum": {
@@ -163,7 +163,7 @@
     }
   },
   "genesis_agnostic_note": "chain-side read surface; nav.* echoes the last on-chain nav_commit (Cludia produces + signs NAV).",
-  "sig": "dff6c8734eae0b63643985d6da707d0e528391f3ca0642d511a155d96a26e3f13dafe354055c5cb75dbfe9b80498b59891cd88068eb256400c61cac4a037c40c",
+  "sig": "593e483cf0ca1d0e70f005278acdf4a006daee80aea3f31e5b48ae327d6943584a4d8ac0db63eacee8506aeebf03d6ffce81856aa216eee627955a0d99e8d20f",
   "pubkey": "aac44d07cf44e663402fd4f42107a167756647d059cb6e8534f96c8c8f05a053",
   "signed": true
 }
