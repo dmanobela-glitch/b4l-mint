@@ -3,7 +3,7 @@
  "symbol": "B4L/USDT",
  "balances": {
   "b4l12h3b67w2xbshqg7i4wuv2hstv74aklcwocr2ta": {
-   "B4L": 999999.9172
+   "B4L": 999499.9172
   },
   "bull4life-gcp-boost-a": {
    "B4L": 0.0024
@@ -21,7 +21,11 @@
    "B4L": 0.0006
   }
  },
- "reserved": {},
+ "reserved": {
+  "b4l12h3b67w2xbshqg7i4wuv2hstv74aklcwocr2ta": {
+   "B4L": 500.0
+  }
+ },
  "holdings": {
   "b4l12h3b67w2xbshqg7i4wuv2hstv74aklcwocr2ta": {
    "B4L": 999999.9172
@@ -44,16 +48,30 @@
  },
  "depth": {
   "bids": [],
-  "asks": []
+  "asks": [
+   [
+    0.002076,
+    500.0
+   ]
+  ]
  },
  "top": {
   "bid": null,
-  "ask": null
+  "ask": 0.002076
  },
- "orders": [],
+ "orders": [
+  {
+   "oid": 1,
+   "acct": "b4l12h3b67w2xbshqg7i4wuv2hstv74aklcwocr2ta",
+   "side": "sell",
+   "price": 0.002076,
+   "qty": 500.0,
+   "ts": 1786957576.118
+  }
+ ],
  "stops": [],
  "fills": [],
  "n_fills": 0,
- "open_orders": 0,
+ "open_orders": 1,
  "last_price": null
 }
