@@ -1,0 +1,16 @@
+{
+ "schema": "b4l-proof-of-reserve-1",
+ "ok": true,
+ "backed_1to1": true,
+ "statement": "wrapped B4L supply == canonical B4L reserved for it (1:1), independently checked against live external chain supply",
+ "ts": 1787006523,
+ "verifier": "peg-drift-watch (dmanobela-glitch/b4l-mint CI, every 15 min, canonical-sourced, fail-closed)",
+ "chains": {
+  "solana": {
+   "reserve": 10000.0,
+   "external_supply": 10000.0,
+   "drift": 0.0,
+   "status": "OK"
+  }
+ }
+}
