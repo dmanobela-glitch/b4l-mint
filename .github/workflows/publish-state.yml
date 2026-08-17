@@ -39,16 +39,17 @@ jobs:
         env:
           B4L_STATE_KEY: ${{ secrets.B4L_STATE_KEY }}
         run: |
+          python tools/multichain/reserve_drift_check.py --json peg_status.json || echo "proof-of-reserve skipped (best-effort)"
           python tools/emit_b4l_state.py
           test -f compute/b4l_state.json || { echo "emit produced no b4l_state.json"; exit 1; }
-          python -c "import json;d=json.load(open('compute/b4l_state.json'));print('signed=',d.get('signed'),'h',d.get('header',{}).get('height'),'genesis',(d.get('header',{}).get('genesis_hash') or '')[:16])"
+          python -c "import json;d=json.load(open('compute/b4l_state.json'));print('signed=',d.get('signed'),'h',d.get('header',{}).get('height'),'genesis',(d.get('header',{}).get('genesis_hash') or '')[:16],'independent=',bool((d.get('reserve_proof') or {}).get('independent')))"
           python -c "import sys;sys.path.insert(0,'b4l_chain');import chain,json;json.dump(chain.exchange_state(),open('exchange_state.json','w'),indent=1);print('exchange_state open_orders',json.load(open('exchange_state.json')).get('open_orders'))"
-          python tools/multichain/reserve_drift_check.py --json ../pub/peg_status.json || echo "proof-of-reserve skipped (best-effort)"
       - name: Publish b4l_state.json to this public repo
         run: |
           cp engine/compute/b4l_state.json pub/b4l_state.json
           cp engine/b4l_chain/b4l_chain.jsonl pub/b4l_chain.jsonl
           cp engine/exchange_state.json pub/exchange_state.json
+          cp engine/peg_status.json pub/peg_status.json 2>/dev/null || true
           cd pub
           git config user.name "Bull4Life CI (state publisher)"
           git config user.email "dmanobela@gmail.com"
