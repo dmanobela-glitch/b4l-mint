@@ -1,0 +1,64 @@
+name: Peg drift watch (independent, consensus-side)
+# Independent verifier for the wrapped-B4L peg: external token supply(chain) == on-chain reserve_b4l(chain).
+# Cludia's desk-side monitor HALTS the desk in real-time; THIS is the independent consensus-side check so a desk bug
+# (or a leaked wrap-desk key minting external tokens beyond reserve) cannot hide drift. Standalone — read-only clone of
+# the private engine, no coupling to the mint/publish pipelines (cannot wedge minting). On RED it fails loud (email +
+# red Actions) and opens/updates a GH issue. Reserve source = the CANONICAL chain (engine origin/master replay), NOT
+# the published mirror — see tools/multichain/reserve_drift_check.py (canonical-sourced + fail-closed).
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/15 * * * *'   # every 15 min — independent peg verification (Cludia's desk monitor is the real-time halt)
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: peg-drift-watch
+  cancel-in-progress: true
+jobs:
+  drift:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Clone private engine source (read-only token, never logged)
+        run: git clone --depth 1 "https://x-access-token:${ENGINE_TOKEN}@github.com/Bull4Life/bull4life-engine.git" engine 2>/dev/null
+        env:
+          ENGINE_TOKEN: ${{ secrets.ENGINE_TOKEN }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install deps
+        working-directory: engine
+        run: pip install -r requirements-node.txt
+      - name: Independent peg-drift check (canonical vs external supply)
+        working-directory: engine
+        env:
+          B4L_SOLANA_RPC: ${{ secrets.B4L_SOLANA_RPC }}   # optional; falls back to public mainnet-beta
+        run: |
+          set +e
+          python tools/multichain/reserve_drift_check.py | tee /tmp/drift.txt
+          rc=${PIPESTATUS[0]}
+          echo "DRIFT_RC=$rc" >> "$GITHUB_ENV"
+          echo "peg-drift rc=$rc"
+          exit 0
+      - name: Alert on drift (GH issue + fail loud)
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ "${DRIFT_RC:-1}" != "0" ]; then
+            ts=$(date -u '+%Y-%m-%d %H:%M UTC')
+            body=$(printf '🚨 reserve_drift_check exited %s at %s.\n\n```\n%s\n```\n\nMeaning: on some chain the external wrapped-token supply != the on-chain reserve_b4l, OR the check could not verify a trustworthy source (fail-closed). The peg (1:1 backing) is at risk — HALT wrapping and investigate (leaked wrap-desk key? unmirrored mint/burn?). Cross-check Cludia'"'"'s desk-side monitor + the canonical chain.' "${DRIFT_RC}" "$ts" "$(cat /tmp/drift.txt)")
+            existing=$(gh issue list --repo "$GITHUB_REPOSITORY" --state open --search 'PEG DRIFT in:title' --json number --jq '.[0].number // empty')
+            if [ -n "$existing" ]; then
+              gh issue comment "$existing" --repo "$GITHUB_REPOSITORY" --body "$body"
+            else
+              gh issue create --repo "$GITHUB_REPOSITORY" --title "🚨 PEG DRIFT — peg-check RED" --body "$body"
+            fi
+            echo "::error::PEG DRIFT / peg-check RED (rc=${DRIFT_RC})"
+            exit 1
+          fi
+          echo "peg OK — external supply == on-chain reserve on every deployed chain"
