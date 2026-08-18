@@ -7,6 +7,9 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '*/10 * * * *'   # every 10 min — fresh signed snapshot + full chain + exchange_state (Cludia self-verify + MM oids)
+  workflow_run:             # 2026-08-17: sync the mirror IMMEDIATELY after a drain (kills the lag that tripped the live peg verify twice)
+    workflows: ["Drain pending tx (fast NAV lane)"]
+    types: [completed]
 permissions:
   contents: write
 concurrency:
