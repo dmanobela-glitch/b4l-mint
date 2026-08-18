@@ -5,12 +5,12 @@
     "peg_ok": true,
     "supply_b4l": 1000000.0,
     "reserve_b4l": 87126.0,
-    "reserves_usd": 1967.74,
-    "nav_per_b4l_usd": 0.001967735451,
+    "reserves_usd": 1949.78,
+    "nav_per_b4l_usd": 0.001949781133,
     "live_chains": [
       "solana"
     ],
-    "last_verified_ts": 1787021009,
+    "last_verified_ts": 1787022271,
     "verifier": "Bull4Life peg-drift-watch CI (independent, every 15 min) \u2014 supply verified vs live external chain supply",
     "freeze_authority": "revoked",
     "description": "Bull4Life (B4L) \u2014 reserve-backed 1:1 by the canonical fund; NAV-priced; freeze authority revoked; wrapped supply verifiably == on-chain reserve.",
@@ -24,6 +24,11 @@
           "max_wrapped_supply": 100000,
           "pool_id": "D3gmPCJztXPHjQij6WL4hM9p14turRKcxGe8g9wyjURS",
           "seed": "10000 B4L + 22.6 USDT",
+          "b4l_reserve": 86194.35,
+          "usdt_reserve": 205.8,
+          "price_usdt": 0.0023876,
+          "tvl_usd": 411.59,
+          "deepened": "2026-08-17: $17.57 -> $411.59 (23x); at-ratio add, zero slippage, peg GREEN (reserve_b4l 87126 == wrapped == getTokenSupply, drift 0)",
           "trade_url": "https://raydium.io/swap/?inputMint=Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB&outputMint=E12u4QcyhAnmrREHUUsgdySGjtTXeL4W26QdiLB6DUND",
           "chart_url": "https://dexscreener.com/solana/D3gmPCJztXPHjQij6WL4hM9p14turRKcxGe8g9wyjURS"
         }
@@ -39,12 +44,12 @@
           "status": "OK"
         }
       },
-      "checked_ts": 1787021009
+      "checked_ts": 1787022271
     }
   },
   "header": {
-    "height": 63,
-    "hash": "5131f5424787fdc0bc5abc896a43d5e58069c84ff2dc74e3118388192204e90d",
+    "height": 64,
+    "hash": "c9b3d1ed414824ac7722f79185499b99fdcf6b4493357a2469fc2b084c17d178",
     "genesis_hash": "22648a4d9a6a9a2a472ed81f2b023d95a32994565be6130c53875a2dae9a6c60"
   },
   "account": {
@@ -58,13 +63,13 @@
     "total_b4l": 1000000.0
   },
   "nav": {
-    "as_of_height": 62,
-    "as_of_ts": 1787020621,
-    "nav_per_b4l_usd": 0.001967735451,
-    "nav_per_b4l": 0.001967735451,
+    "as_of_height": 63,
+    "as_of_ts": 1787021232,
+    "nav_per_b4l_usd": 0.001949781133,
+    "nav_per_b4l": 0.001949781133,
     "supply_total": 1000000.0,
     "supply_circulating": 87126.6774,
-    "reserves_usd_total": 1967.735451,
+    "reserves_usd_total": 1949.781133,
     "reserves": {
       "chain_wallets": {
         "solana_mm": {
@@ -140,8 +145,8 @@
   },
   "chain_mm": {
     "arbitrum": {
-      "nav_per_b4l_usd": 0.001967735451,
-      "nav_per_b4l": 0.001967735451,
+      "nav_per_b4l_usd": 0.001949781133,
+      "nav_per_b4l": 0.001949781133,
       "token_address": null,
       "decimals": null,
       "deposit_addr": "0x80f20c483f65b98853332b5a9d84e7e9690d4bbf",
@@ -153,8 +158,8 @@
       "pool": null
     },
     "optimism": {
-      "nav_per_b4l_usd": 0.001967735451,
-      "nav_per_b4l": 0.001967735451,
+      "nav_per_b4l_usd": 0.001949781133,
+      "nav_per_b4l": 0.001949781133,
       "token_address": null,
       "decimals": null,
       "deposit_addr": "0x80f20c483f65b98853332b5a9d84e7e9690d4bbf",
@@ -166,8 +171,8 @@
       "pool": null
     },
     "base": {
-      "nav_per_b4l_usd": 0.001967735451,
-      "nav_per_b4l": 0.001967735451,
+      "nav_per_b4l_usd": 0.001949781133,
+      "nav_per_b4l": 0.001949781133,
       "token_address": null,
       "decimals": null,
       "deposit_addr": null,
@@ -179,8 +184,8 @@
       "pool": null
     },
     "solana": {
-      "nav_per_b4l_usd": 0.001967735451,
-      "nav_per_b4l": 0.001967735451,
+      "nav_per_b4l_usd": 0.001949781133,
+      "nav_per_b4l": 0.001949781133,
       "token_address": "E12u4QcyhAnmrREHUUsgdySGjtTXeL4W26QdiLB6DUND",
       "decimals": 9,
       "deposit_addr": "GfqWjDGcwFHoYK5v5CUe28bNKUuLyURehJN5CnamV5hh",
@@ -195,13 +200,18 @@
         "max_wrapped_supply": 100000,
         "pool_id": "D3gmPCJztXPHjQij6WL4hM9p14turRKcxGe8g9wyjURS",
         "seed": "10000 B4L + 22.6 USDT",
+        "b4l_reserve": 86194.35,
+        "usdt_reserve": 205.8,
+        "price_usdt": 0.0023876,
+        "tvl_usd": 411.59,
+        "deepened": "2026-08-17: $17.57 -> $411.59 (23x); at-ratio add, zero slippage, peg GREEN (reserve_b4l 87126 == wrapped == getTokenSupply, drift 0)",
         "trade_url": "https://raydium.io/swap/?inputMint=Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB&outputMint=E12u4QcyhAnmrREHUUsgdySGjtTXeL4W26QdiLB6DUND",
         "chart_url": "https://dexscreener.com/solana/D3gmPCJztXPHjQij6WL4hM9p14turRKcxGe8g9wyjURS"
       }
     },
     "ethereum": {
-      "nav_per_b4l_usd": 0.001967735451,
-      "nav_per_b4l": 0.001967735451,
+      "nav_per_b4l_usd": 0.001949781133,
+      "nav_per_b4l": 0.001949781133,
       "token_address": null,
       "decimals": null,
       "deposit_addr": null,
@@ -213,8 +223,8 @@
       "pool": null
     },
     "bsc": {
-      "nav_per_b4l_usd": 0.001967735451,
-      "nav_per_b4l": 0.001967735451,
+      "nav_per_b4l_usd": 0.001949781133,
+      "nav_per_b4l": 0.001949781133,
       "token_address": null,
       "decimals": null,
       "deposit_addr": null,
@@ -226,8 +236,8 @@
       "pool": null
     },
     "tron": {
-      "nav_per_b4l_usd": 0.001967735451,
-      "nav_per_b4l": 0.001967735451,
+      "nav_per_b4l_usd": 0.001949781133,
+      "nav_per_b4l": 0.001949781133,
       "token_address": null,
       "decimals": null,
       "deposit_addr": "THQDyEABKY1R9F2aDnvpFeBD8J5hoedJhb",
@@ -240,7 +250,7 @@
     }
   },
   "genesis_agnostic_note": "chain-side read surface; nav.* echoes the last on-chain nav_commit (Cludia produces + signs NAV).",
-  "sig": "f2e13cbddcf458253718d956d034d03858b20e5ff263ce5dcdf43c7fdb2efd16c6e09a2b586943355b9c848b267928babb38bb8dfb00a1b8e2bb2aae8d1e2f09",
+  "sig": "b4c2358e7bcd2d1a7dcbee23433fb6d35afab26262c3f8c5b56cddcf141b594e093e727ac8ad66930d75750e99c6d1fed1f4a2491dbf00437690eed55cfa3309",
   "pubkey": "aac44d07cf44e663402fd4f42107a167756647d059cb6e8534f96c8c8f05a053",
   "signed": true
 }
