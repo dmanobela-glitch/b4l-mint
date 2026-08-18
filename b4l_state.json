@@ -10,7 +10,7 @@
     "live_chains": [
       "solana"
     ],
-    "last_verified_ts": 1787030236,
+    "last_verified_ts": 1787031046,
     "verifier": "Bull4Life peg-drift-watch CI (independent, every 15 min) \u2014 supply verified vs live external chain supply",
     "freeze_authority": "revoked",
     "description": "Bull4Life (B4L) \u2014 reserve-backed 1:1 by the canonical fund; NAV-priced; freeze authority revoked; wrapped supply verifiably == on-chain reserve.",
@@ -44,22 +44,22 @@
           "status": "OK"
         }
       },
-      "checked_ts": 1787030236
+      "checked_ts": 1787031046
     }
   },
   "header": {
-    "height": 70,
-    "hash": "2c9f3753f820357742d9a06370959d1c09e76d7106bc6d0510c3e87da4bc7fe5",
+    "height": 71,
+    "hash": "3f09f59f5a1e1ef7723436f662d45e609cf4e94bea6c427dfbc99a27f00d1a68",
     "genesis_hash": "22648a4d9a6a9a2a472ed81f2b023d95a32994565be6130c53875a2dae9a6c60"
   },
   "account": {
-    "b4l12h3b67w2xbshqg7i4wuv2hstv74aklcwocr2ta": 912873.262
+    "b4l12h3b67w2xbshqg7i4wuv2hstv74aklcwocr2ta": 912873.2392
   },
   "mint_status": {
-    "verified_total": 738000.0,
+    "verified_total": 760800.0,
     "verified_total_source": "verified_credits.json",
     "last_mint_height": null,
-    "tip_total_coresec": 738000.0,
+    "tip_total_coresec": 760800.0,
     "total_b4l": 1000000.0
   },
   "nav": {
@@ -68,7 +68,7 @@
     "nav_per_b4l_usd": 0.001992208023,
     "nav_per_b4l": 0.001992208023,
     "supply_total": 1000000.0,
-    "supply_circulating": 87126.738,
+    "supply_circulating": 87126.7608,
     "reserves_usd_total": 1992.208023,
     "reserves": {
       "chain_wallets": {
@@ -86,8 +86,8 @@
   "total_b4l": 1000000.0,
   "mint_reward_budget": {
     "cap": 1000000.0,
-    "redistributed": 0.738,
-    "remaining": 999999.262
+    "redistributed": 0.7608,
+    "remaining": 999999.2392
   },
   "chain_wallets": {
     "arbitrum": {
@@ -250,7 +250,7 @@
     }
   },
   "genesis_agnostic_note": "chain-side read surface; nav.* echoes the last on-chain nav_commit (Cludia produces + signs NAV).",
-  "sig": "abb804d71db63495be716753666a3bcc177012335e17cf5f10bf1a2eaf81467987ff5a0deedde22ecab81b8678ee82ba62b5bae9021117a7c5ec8eb3b1140000",
+  "sig": "9c6e793ac2ffa6a73b959437c971ea1ffbd6166ee0232c15743a1a7d1fff2743fee75a60cc7015bcde8382b0f9c25fa1150d07e651837f5f376609ffabaa8c0d",
   "pubkey": "aac44d07cf44e663402fd4f42107a167756647d059cb6e8534f96c8c8f05a053",
   "signed": true
 }
