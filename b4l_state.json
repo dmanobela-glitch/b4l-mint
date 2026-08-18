@@ -10,7 +10,7 @@
     "live_chains": [
       "solana"
     ],
-    "last_verified_ts": 1787044613,
+    "last_verified_ts": 1787045095,
     "verifier": "Bull4Life peg-drift-watch CI (independent, every 15 min) \u2014 supply verified vs live external chain supply",
     "freeze_authority": "revoked",
     "description": "Bull4Life (B4L) \u2014 reserve-backed 1:1 by the canonical fund; NAV-priced; freeze authority revoked; wrapped supply verifiably == on-chain reserve.",
@@ -44,12 +44,12 @@
           "status": "OK"
         }
       },
-      "checked_ts": 1787044613
+      "checked_ts": 1787045095
     }
   },
   "header": {
-    "height": 86,
-    "hash": "0b316754a3d62b12d1aca054ae51afb30cb8c6135cb6d043969f7979c3703a20",
+    "height": 87,
+    "hash": "f397e0c57d20cd6cb1d849f2268bf01a6754736a13754e456f7de2a65f984308",
     "genesis_hash": "22648a4d9a6a9a2a472ed81f2b023d95a32994565be6130c53875a2dae9a6c60"
   },
   "account": {
@@ -144,6 +144,7 @@
     }
   },
   "mandates": {},
+  "billing_delegate": "944f59fbe01cbb5f38d9d8ef68145e332dea4f4fa1158854d3d3969b18c27399",
   "chain_mm": {
     "arbitrum": {
       "nav_per_b4l_usd": 0.001928630505,
@@ -251,7 +252,7 @@
     }
   },
   "genesis_agnostic_note": "chain-side read surface; nav.* echoes the last on-chain nav_commit (Cludia produces + signs NAV).",
-  "sig": "1fce321ad09590ea87f60ec71c7435f1aa4d95a08195efd9ca95a06cd6c82bc65f82b1ff853674c23b6397bafb2078fb6635bfcddc7064a46b7eef4b80331e0f",
+  "sig": "c892394ba2712f229392b09a6c92cbc14beadc3e90989a86a4fd80bc7811e3d62ef96fa50031d7da78001f8a2d8b248234336ffbdfde9a06da4486d56704b20d",
   "pubkey": "aac44d07cf44e663402fd4f42107a167756647d059cb6e8534f96c8c8f05a053",
   "signed": true
 }
