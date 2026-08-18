@@ -10,7 +10,7 @@
     "live_chains": [
       "solana"
     ],
-    "last_verified_ts": 1787045095,
+    "last_verified_ts": 1787045706,
     "verifier": "Bull4Life peg-drift-watch CI (independent, every 15 min) \u2014 supply verified vs live external chain supply",
     "freeze_authority": "revoked",
     "description": "Bull4Life (B4L) \u2014 reserve-backed 1:1 by the canonical fund; NAV-priced; freeze authority revoked; wrapped supply verifiably == on-chain reserve.",
@@ -44,22 +44,22 @@
           "status": "OK"
         }
       },
-      "checked_ts": 1787045095
+      "checked_ts": 1787045706
     }
   },
   "header": {
-    "height": 87,
-    "hash": "f397e0c57d20cd6cb1d849f2268bf01a6754736a13754e456f7de2a65f984308",
+    "height": 88,
+    "hash": "9cda7dcb6eb89b151b7c647f7148ed81a2f6d7976a0bb387f39f391bf7f11d14",
     "genesis_hash": "22648a4d9a6a9a2a472ed81f2b023d95a32994565be6130c53875a2dae9a6c60"
   },
   "account": {
-    "b4l12h3b67w2xbshqg7i4wuv2hstv74aklcwocr2ta": 912873.0868
+    "b4l12h3b67w2xbshqg7i4wuv2hstv74aklcwocr2ta": 912873.0334
   },
   "mint_status": {
-    "verified_total": 913200.0,
+    "verified_total": 966600.0,
     "verified_total_source": "verified_credits.json",
     "last_mint_height": null,
-    "tip_total_coresec": 913200.0,
+    "tip_total_coresec": 966600.0,
     "total_b4l": 1000000.0
   },
   "nav": {
@@ -68,7 +68,7 @@
     "nav_per_b4l_usd": 0.001928630505,
     "nav_per_b4l": 0.001928630505,
     "supply_total": 1000000.0,
-    "supply_circulating": 87126.9132,
+    "supply_circulating": 87126.9666,
     "reserves_usd_total": 1928.630505,
     "reserves": {
       "chain_wallets": {
@@ -86,8 +86,8 @@
   "total_b4l": 1000000.0,
   "mint_reward_budget": {
     "cap": 1000000.0,
-    "redistributed": 0.9132,
-    "remaining": 999999.0868
+    "redistributed": 0.9666,
+    "remaining": 999999.0334
   },
   "chain_wallets": {
     "arbitrum": {
@@ -252,7 +252,7 @@
     }
   },
   "genesis_agnostic_note": "chain-side read surface; nav.* echoes the last on-chain nav_commit (Cludia produces + signs NAV).",
-  "sig": "c892394ba2712f229392b09a6c92cbc14beadc3e90989a86a4fd80bc7811e3d62ef96fa50031d7da78001f8a2d8b248234336ffbdfde9a06da4486d56704b20d",
+  "sig": "9143d4c30c3e7e36ac47e03e1dcff30be0370000f8bbf17d2f520a8e630f4e69ccb98cec3ad837ee69cfccc34b72e79aedcca80b84d3dc2b77618637417e7c06",
   "pubkey": "aac44d07cf44e663402fd4f42107a167756647d059cb6e8534f96c8c8f05a053",
   "signed": true
 }
