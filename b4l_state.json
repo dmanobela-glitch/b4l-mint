@@ -10,7 +10,7 @@
     "live_chains": [
       "solana"
     ],
-    "last_verified_ts": 1787065999,
+    "last_verified_ts": 1787066960,
     "verifier": "Bull4Life peg-drift-watch CI (independent, every 15 min) \u2014 supply verified vs live external chain supply",
     "freeze_authority": "revoked",
     "description": "Bull4Life (B4L) \u2014 reserve-backed 1:1 by the canonical fund; NAV-priced; freeze authority revoked; wrapped supply verifiably == on-chain reserve.",
@@ -44,22 +44,22 @@
           "status": "OK"
         }
       },
-      "checked_ts": 1787065999
+      "checked_ts": 1787066959
     }
   },
   "header": {
-    "height": 104,
-    "hash": "c48057162e64e52f3f185aa934ace607e79ec2bf6c0ec3c889cda5e8f0edc137",
+    "height": 105,
+    "hash": "bd9c4d801b310672f97a78915785fce59163ad348b37304774beeaf87aeadd37",
     "genesis_hash": "22648a4d9a6a9a2a472ed81f2b023d95a32994565be6130c53875a2dae9a6c60"
   },
   "account": {
-    "b4l12h3b67w2xbshqg7i4wuv2hstv74aklcwocr2ta": 912872.8228
+    "b4l12h3b67w2xbshqg7i4wuv2hstv74aklcwocr2ta": 912872.7772
   },
   "mint_status": {
-    "verified_total": 1177200.0,
+    "verified_total": 1222800.0,
     "verified_total_source": "verified_credits.json",
     "last_mint_height": null,
-    "tip_total_coresec": 1177200.0,
+    "tip_total_coresec": 1222800.0,
     "total_b4l": 1000000.0
   },
   "nav": {
@@ -68,7 +68,7 @@
     "nav_per_b4l_usd": 0.001981979138,
     "nav_per_b4l": 0.001981979138,
     "supply_total": 1000000.0,
-    "supply_circulating": 87127.1772,
+    "supply_circulating": 87127.2228,
     "reserves_usd_total": 1981.979138,
     "reserves": {
       "chain_wallets": {
@@ -86,8 +86,8 @@
   "total_b4l": 1000000.0,
   "mint_reward_budget": {
     "cap": 1000000.0,
-    "redistributed": 1.1772,
-    "remaining": 999998.8228
+    "redistributed": 1.2228,
+    "remaining": 999998.7772
   },
   "chain_wallets": {
     "arbitrum": {
@@ -315,7 +315,7 @@
       }
     ],
     "catalog": {
-      "count": 111,
+      "count": 112,
       "strategies": [
         {
           "tag": "ena_wide_low_lev_3m_counter",
@@ -563,12 +563,12 @@
           "symbol_trade": "DOGE/USDT:USDT",
           "bybit_tradeable": true,
           "stats": {
-            "roe": 33059.09,
+            "roe": 33478.18,
             "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 5.342,
-            "winrate": 54.71,
-            "dd": -85.0,
+            "roe_yearly": 519.59,
+            "pf": 5.338,
+            "winrate": 54.7,
+            "dd": -84.99,
             "trades": 187471.0
           }
         },
@@ -1083,6 +1083,23 @@
           }
         },
         {
+          "tag": "sweep_xag_26m_tight",
+          "kind": "sweep",
+          "asset": "XAG",
+          "tf": 26,
+          "symbol_trade": "XAG/USDT:USDT",
+          "bybit_tradeable": false,
+          "stats": {
+            "roe": 1211.84,
+            "roe_monthly": 49.453,
+            "roe_yearly": 12272.12,
+            "pf": 61353.789,
+            "winrate": 100.0,
+            "dd": -69.22,
+            "trades": 27.0
+          }
+        },
+        {
           "tag": "xrp_wide_low_lev_3m_counter",
           "kind": "wt",
           "asset": "XRP",
@@ -1165,6 +1182,23 @@
             "winrate": 70.56,
             "dd": -69.39,
             "trades": 412861.0
+          }
+        },
+        {
+          "tag": "sweep_xag_9m_wide",
+          "kind": "sweep",
+          "asset": "XAG",
+          "tf": 9,
+          "symbol_trade": "XAG/USDT:USDT",
+          "bybit_tradeable": false,
+          "stats": {
+            "roe": 979.93,
+            "roe_monthly": 40.956,
+            "roe_yearly": 6032.33,
+            "pf": 49769.957,
+            "winrate": 100.0,
+            "dd": -52.09,
+            "trades": 44.0
           }
         },
         {
@@ -2018,23 +2052,6 @@
           }
         },
         {
-          "tag": "sweep_xag_26m_tight",
-          "kind": "sweep",
-          "asset": "XAG",
-          "tf": 26,
-          "symbol_trade": "XAG/USDT:USDT",
-          "bybit_tradeable": false,
-          "stats": {
-            "roe": 48.181,
-            "roe_monthly": 15808791.863,
-            "roe_yearly": 90.9,
-            "pf": 242.888,
-            "winrate": 100.0,
-            "dd": -15.47,
-            "trades": 26.0
-          }
-        },
-        {
           "tag": "sweep_xag_1m_tight",
           "kind": "sweep",
           "asset": "XAG",
@@ -2313,8 +2330,77 @@
       "pool": null
     }
   },
+  "chain_telemetry": {
+    "height": 105,
+    "total_b4l": 1000000.0,
+    "consensus_ops": [
+      {
+        "type": "nav_commit",
+        "count": 11,
+        "ts_ms": 1787065131375
+      },
+      {
+        "type": "gov_delegate_billing_key",
+        "count": 1,
+        "ts_ms": 1787045060608
+      },
+      {
+        "type": "subscription_authorize",
+        "count": 1,
+        "ts_ms": 1787046378129
+      }
+    ],
+    "recent_ops": [
+      {
+        "type": "nav_commit",
+        "ts_ms": 1787065131375,
+        "height": 104
+      },
+      {
+        "type": "nav_commit",
+        "ts_ms": 1787063620720,
+        "height": 103
+      },
+      {
+        "type": "nav_commit",
+        "ts_ms": 1787062412969,
+        "height": 101
+      },
+      {
+        "type": "nav_commit",
+        "ts_ms": 1787060896891,
+        "height": 100
+      },
+      {
+        "type": "nav_commit",
+        "ts_ms": 1787058469052,
+        "height": 98
+      },
+      {
+        "type": "nav_commit",
+        "ts_ms": 1787058175673,
+        "height": 97
+      },
+      {
+        "type": "nav_commit",
+        "ts_ms": 1787056965967,
+        "height": 96
+      },
+      {
+        "type": "nav_commit",
+        "ts_ms": 1787053308131,
+        "height": 94
+      },
+      {
+        "type": "nav_commit",
+        "ts_ms": 1787050620491,
+        "height": 92
+      }
+    ],
+    "sync_lag_s": 148
+  },
   "genesis_agnostic_note": "chain-side read surface; nav.* echoes the last on-chain nav_commit (Cludia produces + signs NAV).",
-  "sig": "bfe1a984876f9552fb78fbcad8a3eee2fbaa65f2ab628d009d65a9cfd4773f2dadb151716ce4c51d52c072aa24941ea5436949b61e9cf523c5958ac52a73e608",
+  "sig": "a59132b181bfb8f965fffb6ba204c3ca74b8b43f230130c26ecbe8fc9f06686b9423891af8e9a8550bb021fecf2444ef938ba8ef76800241589e69dff44f5a01",
   "pubkey": "aac44d07cf44e663402fd4f42107a167756647d059cb6e8534f96c8c8f05a053",
   "signed": true
 }
