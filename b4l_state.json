@@ -10,7 +10,7 @@
     "live_chains": [
       "solana"
     ],
-    "last_verified_ts": 1787097069,
+    "last_verified_ts": 1787097280,
     "verifier": "Bull4Life peg-drift-watch CI (independent, every 15 min) \u2014 supply verified vs live external chain supply",
     "freeze_authority": "revoked",
     "description": "Bull4Life (B4L) \u2014 reserve-backed 1:1 by the canonical fund; NAV-priced; freeze authority revoked; wrapped supply verifiably == on-chain reserve.",
@@ -44,22 +44,22 @@
           "status": "OK"
         }
       },
-      "checked_ts": 1787097069
+      "checked_ts": 1787097280
     }
   },
   "header": {
-    "height": 124,
-    "hash": "eea622d33fbc55b31b1b1a669fba17aa09741a9a391e82457782e40dd9716aeb",
+    "height": 125,
+    "hash": "c0878023b724498db45a3d8b0a597e0f2e2dcafb9df4a633cf839b181870b7cc",
     "genesis_hash": "22648a4d9a6a9a2a472ed81f2b023d95a32994565be6130c53875a2dae9a6c60"
   },
   "account": {
-    "b4l12h3b67w2xbshqg7i4wuv2hstv74aklcwocr2ta": 912872.4376
+    "b4l12h3b67w2xbshqg7i4wuv2hstv74aklcwocr2ta": 912872.3512
   },
   "mint_status": {
-    "verified_total": 1562400.0,
+    "verified_total": 1648800.0,
     "verified_total_source": "verified_credits.json",
     "last_mint_height": null,
-    "tip_total_coresec": 1562400.0,
+    "tip_total_coresec": 1648800.0,
     "total_b4l": 1000000.0
   },
   "nav": {
@@ -68,7 +68,7 @@
     "nav_per_b4l_usd": 0.001910162176,
     "nav_per_b4l": 0.001910162176,
     "supply_total": 1000000.0,
-    "supply_circulating": 87127.5624,
+    "supply_circulating": 87127.6488,
     "reserves_usd_total": 1910.162176,
     "reserves": {
       "chain_wallets": {
@@ -86,8 +86,8 @@
   "total_b4l": 1000000.0,
   "mint_reward_budget": {
     "cap": 1000000.0,
-    "redistributed": 1.5624,
-    "remaining": 999998.4376
+    "redistributed": 1.6488,
+    "remaining": 999998.3512
   },
   "chain_wallets": {
     "arbitrum": {
@@ -315,1944 +315,1196 @@
       }
     ],
     "catalog": {
-      "count": 114,
+      "count": 70,
       "strategies": [
         {
-          "tag": "ena_wide_low_lev_3m_counter",
+          "tag": "XRP9mW_C",
           "kind": "wt",
-          "asset": "ENA",
+          "asset": "XRP",
+          "tf": 9,
+          "symbol_trade": "XRP/USDT:USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 168596.36,
+            "roe_monthly": 21.47,
+            "roe_yearly": null,
+            "pf": 2.694,
+            "winrate": 68.75,
+            "dd": -84.49,
+            "trades": 259392
+          }
+        },
+        {
+          "tag": "XRP9mT_C",
+          "kind": "wt",
+          "asset": "XRP",
+          "tf": 9,
+          "symbol_trade": "XRP/USDT:USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 75333.33,
+            "roe_monthly": 18.94,
+            "roe_yearly": null,
+            "pf": 4.396,
+            "winrate": 70.02,
+            "dd": -79.71,
+            "trades": 310411
+          }
+        },
+        {
+          "tag": "XRP1mT_C",
+          "kind": "wt",
+          "asset": "XRP",
+          "tf": 1,
+          "symbol_trade": "XRP/USDT:USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 57759.09,
+            "roe_monthly": 18.13,
+            "roe_yearly": null,
+            "pf": 1.969,
+            "winrate": 75.21,
+            "dd": -84.69,
+            "trades": 2326502
+          }
+        },
+        {
+          "tag": "XRP1mW_C",
+          "kind": "wt",
+          "asset": "XRP",
+          "tf": 1,
+          "symbol_trade": "XRP/USDT:USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 47860.4,
+            "roe_monthly": 17.54,
+            "roe_yearly": null,
+            "pf": 2.8,
+            "winrate": 75.87,
+            "dd": -69.07,
+            "trades": 572408
+          }
+        },
+        {
+          "tag": "XRP6mT_C",
+          "kind": "wt",
+          "asset": "XRP",
+          "tf": 6,
+          "symbol_trade": "XRP/USDT:USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 23438.78,
+            "roe_monthly": 15.38,
+            "roe_yearly": null,
+            "pf": 2.566,
+            "winrate": 68.76,
+            "dd": -84.92,
+            "trades": 609185
+          }
+        },
+        {
+          "tag": "XRP6mW_C",
+          "kind": "wt",
+          "asset": "XRP",
+          "tf": 6,
+          "symbol_trade": "XRP/USDT:USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 16330.89,
+            "roe_monthly": 14.29,
+            "roe_yearly": null,
+            "pf": 1.934,
+            "winrate": 75.93,
+            "dd": -79.43,
+            "trades": 353481
+          }
+        },
+        {
+          "tag": "XRP3mW_C",
+          "kind": "wt",
+          "asset": "XRP",
           "tf": 3,
-          "symbol_trade": "ENA/USDT:USDT",
-          "bybit_tradeable": true,
+          "symbol_trade": "XRP/USDT:USDT",
+          "bybit_tradeable": null,
           "stats": {
-            "roe": 117662740.92,
-            "roe_monthly": null,
+            "roe": 12025.6,
+            "roe_monthly": 13.39,
             "roe_yearly": null,
-            "pf": 2.732,
-            "winrate": 69.29,
-            "dd": -83.81,
-            "trades": 591874.0
-          }
-        },
-        {
-          "tag": "doge_wide_low_lev_3m_counter",
-          "kind": "wt",
-          "asset": "DOGE",
-          "tf": 3,
-          "symbol_trade": "DOGE/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 42709357.07,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 10.055,
-            "winrate": 79.58,
-            "dd": -84.89,
-            "trades": 424532.0
-          }
-        },
-        {
-          "tag": "ada_tight_low_lev_6m_counter",
-          "kind": "wt",
-          "asset": "ADA",
-          "tf": 6,
-          "symbol_trade": "ADA/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 16890148.73,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 10.452,
-            "winrate": 69.21,
-            "dd": -84.9,
-            "trades": 651920.0
-          }
-        },
-        {
-          "tag": "doge_wide_low_lev_6m_counter",
-          "kind": "wt",
-          "asset": "DOGE",
-          "tf": 6,
-          "symbol_trade": "DOGE/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 10487330.93,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 3.439,
-            "winrate": 74.22,
-            "dd": -84.7,
-            "trades": 433846.0
-          }
-        },
-        {
-          "tag": "near_wide_low_lev_6m_counter",
-          "kind": "wt",
-          "asset": "NEAR",
-          "tf": 6,
-          "symbol_trade": "NEAR/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 7475430.65,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 2.405,
-            "winrate": 69.68,
+            "pf": 2.274,
+            "winrate": 77.34,
             "dd": -84.43,
-            "trades": 572219.0
+            "trades": 270525
           }
         },
         {
-          "tag": "ada_wide_low_lev_3m_counter",
+          "tag": "XRP3mT_C",
           "kind": "wt",
-          "asset": "ADA",
+          "asset": "XRP",
           "tf": 3,
-          "symbol_trade": "ADA/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 7385887.69,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 1.785,
-            "winrate": 74.07,
-            "dd": -81.36,
-            "trades": 754557.0
-          }
-        },
-        {
-          "tag": "doge_wide_low_lev_26m_counter",
-          "kind": "wt",
-          "asset": "DOGE",
-          "tf": 26,
-          "symbol_trade": "DOGE/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 4161512.71,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 22.32,
-            "winrate": 67.59,
-            "dd": -84.96,
-            "trades": 144465.0
-          }
-        },
-        {
-          "tag": "ada_wide_low_lev_9m_counter",
-          "kind": "wt",
-          "asset": "ADA",
-          "tf": 9,
-          "symbol_trade": "ADA/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 989099.66,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 5.048,
-            "winrate": 67.8,
-            "dd": -84.98,
-            "trades": 398546.0
-          }
-        },
-        {
-          "tag": "ena_wide_low_lev_9m_counter",
-          "kind": "wt",
-          "asset": "ENA",
-          "tf": 9,
-          "symbol_trade": "ENA/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 945157.45,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 4.544,
-            "winrate": 68.84,
-            "dd": -84.97,
-            "trades": 335402.0
-          }
-        },
-        {
-          "tag": "near_tight_low_lev_26m_counter",
-          "kind": "wt",
-          "asset": "NEAR",
-          "tf": 26,
-          "symbol_trade": "NEAR/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 357446.4,
-            "roe_monthly": null,
-            "roe_yearly": 1200.87,
-            "pf": 3.726,
-            "winrate": 62.02,
-            "dd": -85.0,
-            "trades": 155677.0
-          }
-        },
-        {
-          "tag": "ena_tight_low_lev_26m_counter",
-          "kind": "wt",
-          "asset": "ENA",
-          "tf": 26,
-          "symbol_trade": "ENA/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 296689.85,
-            "roe_monthly": null,
-            "roe_yearly": 2900.59,
-            "pf": 6.018,
-            "winrate": 65.08,
-            "dd": -84.99,
-            "trades": 117382.0
-          }
-        },
-        {
-          "tag": "ena_wide_low_lev_26m_counter",
-          "kind": "wt",
-          "asset": "ENA",
-          "tf": 26,
-          "symbol_trade": "ENA/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 291043.62,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 2.872,
-            "winrate": 66.02,
-            "dd": -84.96,
-            "trades": 118189.0
-          }
-        },
-        {
-          "tag": "sweep_xrp_1440m_tight",
-          "kind": "sweep",
-          "asset": "XRP",
-          "tf": 1440,
           "symbol_trade": "XRP/USDT:USDT",
-          "bybit_tradeable": true,
+          "bybit_tradeable": null,
           "stats": {
-            "roe": 83517.37,
-            "roe_monthly": 7.064,
-            "roe_yearly": 126.69,
-            "pf": 4640359.9,
-            "winrate": 100.0,
-            "dd": -80.66,
-            "trades": 36.0
-          }
-        },
-        {
-          "tag": "sweep_xrp_1440m_wide",
-          "kind": "sweep",
-          "asset": "XRP",
-          "tf": 1440,
-          "symbol_trade": "XRP/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 47345.41,
-            "roe_monthly": 6.45,
-            "roe_yearly": 111.59,
-            "pf": 2518731.714,
-            "winrate": 100.0,
-            "dd": -84.64,
-            "trades": 18.0
-          }
-        },
-        {
-          "tag": "doge_tight_low_lev_26m_counter",
-          "kind": "wt",
-          "asset": "DOGE",
-          "tf": 26,
-          "symbol_trade": "DOGE/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 33478.18,
-            "roe_monthly": null,
-            "roe_yearly": 519.59,
-            "pf": 5.338,
-            "winrate": 54.7,
-            "dd": -84.99,
-            "trades": 187471.0
-          }
-        },
-        {
-          "tag": "near_tight_low_lev_counter",
-          "kind": "wt",
-          "asset": "NEAR",
-          "tf": 1,
-          "symbol_trade": "NEAR/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 25437.79,
-            "roe_monthly": null,
+            "roe": 7646.47,
+            "roe_monthly": 12.06,
             "roe_yearly": null,
-            "pf": 3.276,
-            "winrate": 70.72,
-            "dd": -71.98,
-            "trades": 1061385.0
+            "pf": 2.617,
+            "winrate": 73.02,
+            "dd": -74.49,
+            "trades": 940693
           }
         },
         {
-          "tag": "sweep_xrp_180m_tight",
-          "kind": "sweep",
-          "asset": "XRP",
-          "tf": 180,
-          "symbol_trade": "XRP/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 23158.66,
-            "roe_monthly": 5.683,
-            "roe_yearly": 94.02,
-            "pf": 1177353.406,
-            "winrate": 100.0,
-            "dd": -75.97,
-            "trades": 134.0
-          }
-        },
-        {
-          "tag": "sweep_xrp_4320m_tight",
-          "kind": "sweep",
-          "asset": "XRP",
-          "tf": 4320,
-          "symbol_trade": "XRP/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 23152.74,
-            "roe_monthly": 5.685,
-            "roe_yearly": 94.05,
-            "pf": 1353759.505,
-            "winrate": 100.0,
-            "dd": -63.95,
-            "trades": 29.0
-          }
-        },
-        {
-          "tag": "sweep_doge_26m_tight",
-          "kind": "sweep",
-          "asset": "DOGE",
-          "tf": 26,
-          "symbol_trade": "DOGE/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 20672.62,
-            "roe_monthly": 14.976,
-            "roe_yearly": 432.97,
-            "pf": 1593995.01,
-            "winrate": 100.0,
-            "dd": -61.37,
-            "trades": 325.0
-          }
-        },
-        {
-          "tag": "ada_tight_low_lev_counter",
+          "tag": "PBTC3mW_C",
           "kind": "wt",
-          "asset": "ADA",
-          "tf": 1,
-          "symbol_trade": "ADA/USDT:USDT",
-          "bybit_tradeable": true,
+          "asset": "BTC",
+          "tf": 3,
+          "symbol_trade": "BTC/USDT:USDT",
+          "bybit_tradeable": null,
           "stats": {
-            "roe": 18777.04,
-            "roe_monthly": null,
+            "roe": 2754.57,
+            "roe_monthly": 9.18,
             "roe_yearly": null,
-            "pf": 1.774,
-            "winrate": 74.73,
-            "dd": -80.03,
-            "trades": 2193931.0
+            "pf": 1.436,
+            "winrate": 82.42,
+            "dd": -81.92,
+            "trades": 112049
           }
         },
         {
-          "tag": "sweep_xrp_9m_tight",
-          "kind": "sweep",
-          "asset": "XRP",
-          "tf": 9,
-          "symbol_trade": "XRP/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 10407.47,
-            "roe_monthly": 12.839,
-            "roe_yearly": 325.62,
-            "pf": 564493.32,
-            "winrate": 100.0,
-            "dd": -81.98,
-            "trades": 716.0
-          }
-        },
-        {
-          "tag": "ada_wide_low_lev_6m_counter",
+          "tag": "PBTC6mW_C",
           "kind": "wt",
-          "asset": "ADA",
+          "asset": "BTC",
           "tf": 6,
-          "symbol_trade": "ADA/USDT:USDT",
-          "bybit_tradeable": true,
+          "symbol_trade": "BTC/USDT:USDT",
+          "bybit_tradeable": null,
           "stats": {
-            "roe": 9412.12,
-            "roe_monthly": null,
+            "roe": 2743.89,
+            "roe_monthly": 9.17,
             "roe_yearly": null,
-            "pf": 2.542,
-            "winrate": 73.59,
-            "dd": -74.86,
-            "trades": 490921.0
+            "pf": 1.51,
+            "winrate": 91.19,
+            "dd": -81.42,
+            "trades": 139176
           }
         },
         {
-          "tag": "doge_wide_low_lev_counter",
+          "tag": "PBTC6mT_C",
           "kind": "wt",
-          "asset": "DOGE",
-          "tf": 1,
-          "symbol_trade": "DOGE/USDT:USDT",
-          "bybit_tradeable": true,
+          "asset": "BTC",
+          "tf": 6,
+          "symbol_trade": "BTC/USDT:USDT",
+          "bybit_tradeable": null,
           "stats": {
-            "roe": 6717.96,
-            "roe_monthly": null,
+            "roe": 2193.18,
+            "roe_monthly": 8.56,
             "roe_yearly": null,
-            "pf": 2.247,
-            "winrate": 79.06,
-            "dd": -70.85,
-            "trades": 547641.0
+            "pf": 1.691,
+            "winrate": 80.37,
+            "dd": -41.01,
+            "trades": 131155
           }
         },
         {
-          "tag": "sweep_xrp_180m_wide",
-          "kind": "sweep",
-          "asset": "XRP",
-          "tf": 180,
-          "symbol_trade": "XRP/USDT:USDT",
-          "bybit_tradeable": true,
+          "tag": "PBTC3mT_C",
+          "kind": "wt",
+          "asset": "BTC",
+          "tf": 3,
+          "symbol_trade": "BTC/USDT:USDT",
+          "bybit_tradeable": null,
           "stats": {
-            "roe": 5919.91,
-            "roe_monthly": 4.244,
-            "roe_yearly": 64.61,
-            "pf": 316454.392,
-            "winrate": 100.0,
-            "dd": -73.96,
-            "trades": 21.0
+            "roe": 1681.13,
+            "roe_monthly": 7.84,
+            "roe_yearly": null,
+            "pf": 1.558,
+            "winrate": 87.44,
+            "dd": -78.11,
+            "trades": 324111
           }
         },
         {
-          "tag": "sweep_doge_9m_wide",
-          "kind": "sweep",
-          "asset": "DOGE",
+          "tag": "PBTC9mW_C",
+          "kind": "wt",
+          "asset": "BTC",
           "tf": 9,
-          "symbol_trade": "DOGE/USDT:USDT",
-          "bybit_tradeable": true,
+          "symbol_trade": "BTC/USDT:USDT",
+          "bybit_tradeable": null,
           "stats": {
-            "roe": 5514.53,
-            "roe_monthly": 11.108,
-            "roe_yearly": 253.62,
-            "pf": 321030.823,
-            "winrate": 100.0,
-            "dd": -57.91,
-            "trades": 130.0
-          }
-        },
-        {
-          "tag": "near_wide_low_lev_3m_counter",
-          "kind": "wt",
-          "asset": "NEAR",
-          "tf": 3,
-          "symbol_trade": "NEAR/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 5378.71,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 1.496,
-            "winrate": 74.81,
-            "dd": -76.68,
-            "trades": 878033.0
-          }
-        },
-        {
-          "tag": "sweep_doge_3m_wide",
-          "kind": "sweep",
-          "asset": "DOGE",
-          "tf": 3,
-          "symbol_trade": "DOGE/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 4116.67,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 260915.438,
-            "winrate": 100.0,
-            "dd": -81.47,
-            "trades": 322.0
-          }
-        },
-        {
-          "tag": "near_tight_low_lev_3m_counter",
-          "kind": "wt",
-          "asset": "NEAR",
-          "tf": 3,
-          "symbol_trade": "NEAR/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 3840.35,
-            "roe_monthly": null,
+            "roe": 1142.11,
+            "roe_monthly": 6.82,
             "roe_yearly": null,
             "pf": 1.45,
-            "winrate": 87.12,
-            "dd": -84.93,
-            "trades": 476912.0
+            "winrate": 74.21,
+            "dd": -72.55,
+            "trades": 271034
           }
         },
         {
-          "tag": "sweep_xrp_26m_tight",
-          "kind": "sweep",
-          "asset": "XRP",
-          "tf": 26,
-          "symbol_trade": "XRP/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 3753.5,
-            "roe_monthly": 10.195,
-            "roe_yearly": 220.28,
-            "pf": 192108.876,
-            "winrate": 100.0,
-            "dd": -57.6,
-            "trades": 240.0
-          }
-        },
-        {
-          "tag": "ada_wide_low_lev_counter",
-          "kind": "wt",
-          "asset": "ADA",
-          "tf": 1,
-          "symbol_trade": "ADA/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 3468.41,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 1.441,
-            "winrate": 83.48,
-            "dd": -76.51,
-            "trades": 783726.0
-          }
-        },
-        {
-          "tag": "sweep_ena_9m_tight",
-          "kind": "sweep",
-          "asset": "ENA",
-          "tf": 9,
-          "symbol_trade": "ENA/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 2840.58,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 145116.938,
-            "winrate": 100.0,
-            "dd": -51.63,
-            "trades": 696.0
-          }
-        },
-        {
-          "tag": "sweep_near_1m_wide",
-          "kind": "sweep",
-          "asset": "NEAR",
-          "tf": 1,
-          "symbol_trade": "NEAR/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 2829.8,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 144186.999,
-            "winrate": 100.0,
-            "dd": -84.43,
-            "trades": 513.0
-          }
-        },
-        {
-          "tag": "sweep_near_6m_wide",
-          "kind": "sweep",
-          "asset": "NEAR",
-          "tf": 6,
-          "symbol_trade": "NEAR/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 2263.19,
-            "roe_monthly": 8.622,
-            "roe_yearly": 169.58,
-            "pf": 117230.38,
-            "winrate": 100.0,
-            "dd": -77.43,
-            "trades": 242.0
-          }
-        },
-        {
-          "tag": "near_tight_low_lev_6m_counter",
-          "kind": "wt",
-          "asset": "NEAR",
-          "tf": 6,
-          "symbol_trade": "NEAR/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 2159.85,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 1.517,
-            "winrate": 71.76,
-            "dd": -83.16,
-            "trades": 427768.0
-          }
-        },
-        {
-          "tag": "sweep_doge_1m_wide",
-          "kind": "sweep",
-          "asset": "DOGE",
-          "tf": 1,
-          "symbol_trade": "DOGE/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 2079.71,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 157036.922,
-            "winrate": 100.0,
-            "dd": -53.47,
-            "trades": 749.0
-          }
-        },
-        {
-          "tag": "ada_tight_low_lev_3m_counter",
-          "kind": "wt",
-          "asset": "ADA",
-          "tf": 3,
-          "symbol_trade": "ADA/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 2038.56,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 1.614,
-            "winrate": 74.8,
-            "dd": -77.97,
-            "trades": 799059.0
-          }
-        },
-        {
-          "tag": "sweep_near_3m_wide",
-          "kind": "sweep",
-          "asset": "NEAR",
-          "tf": 3,
-          "symbol_trade": "NEAR/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 1947.99,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 101297.053,
-            "winrate": 100.0,
-            "dd": -72.57,
-            "trades": 388.0
-          }
-        },
-        {
-          "tag": "sweep_ada_26m_tight",
-          "kind": "sweep",
-          "asset": "ADA",
-          "tf": 26,
-          "symbol_trade": "ADA/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 1704.43,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 86848.334,
-            "winrate": 100.0,
-            "dd": -74.22,
-            "trades": 185.0
-          }
-        },
-        {
-          "tag": "near_wide_low_lev_counter",
-          "kind": "wt",
-          "asset": "NEAR",
-          "tf": 1,
-          "symbol_trade": "NEAR/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 1674.173,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 1.666,
-            "winrate": 91.45,
-            "dd": -52.18,
-            "trades": 377510.0
-          }
-        },
-        {
-          "tag": "sweep_doge_26m_wide",
-          "kind": "sweep",
-          "asset": "DOGE",
-          "tf": 26,
-          "symbol_trade": "DOGE/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 1644.76,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 92484.958,
-            "winrate": 100.0,
-            "dd": -28.33,
-            "trades": 91.0
-          }
-        },
-        {
-          "tag": "near_tight_low_lev_9m_counter",
-          "kind": "wt",
-          "asset": "NEAR",
-          "tf": 9,
-          "symbol_trade": "NEAR/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 1419.04,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 2.0,
-            "winrate": 54.27,
-            "dd": -62.36,
-            "trades": 295292.0
-          }
-        },
-        {
-          "tag": "sweep_near_9m_wide",
-          "kind": "sweep",
-          "asset": "NEAR",
-          "tf": 9,
-          "symbol_trade": "NEAR/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 1354.2,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 68776.479,
-            "winrate": 100.0,
-            "dd": -75.47,
-            "trades": 203.0
-          }
-        },
-        {
-          "tag": "sweep_doge_6m_wide",
-          "kind": "sweep",
-          "asset": "DOGE",
-          "tf": 6,
-          "symbol_trade": "DOGE/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 1272.25,
-            "roe_monthly": 7.089,
-            "roe_yearly": 127.34,
-            "pf": 73344.584,
-            "winrate": 100.0,
-            "dd": -35.89,
-            "trades": 168.0
-          }
-        },
-        {
-          "tag": "sweep_ena_26m_tight",
-          "kind": "sweep",
-          "asset": "ENA",
-          "tf": 26,
-          "symbol_trade": "ENA/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 1270.47,
-            "roe_monthly": 9.732,
-            "roe_yearly": 204.53,
-            "pf": 64652.73,
-            "winrate": 100.0,
-            "dd": -61.19,
-            "trades": 414.0
-          }
-        },
-        {
-          "tag": "doge_wide_low_lev_9m_counter",
-          "kind": "wt",
-          "asset": "DOGE",
-          "tf": 9,
-          "symbol_trade": "DOGE/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 1236.23,
-            "roe_monthly": 6.91,
-            "roe_yearly": 125.45,
-            "pf": 4.869,
-            "winrate": 69.87,
-            "dd": -58.06,
-            "trades": 232139.0
-          }
-        },
-        {
-          "tag": "sweep_ada_6m_wide",
-          "kind": "sweep",
-          "asset": "ADA",
-          "tf": 6,
-          "symbol_trade": "ADA/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 1217.21,
-            "roe_monthly": 6.974,
-            "roe_yearly": 124.44,
-            "pf": 61376.062,
-            "winrate": 100.0,
-            "dd": -78.23,
-            "trades": 174.0
-          }
-        },
-        {
-          "tag": "sweep_xag_26m_tight",
-          "kind": "sweep",
-          "asset": "XAG",
-          "tf": 26,
-          "symbol_trade": "XAG/USDT:USDT",
-          "bybit_tradeable": false,
-          "stats": {
-            "roe": 1211.84,
-            "roe_monthly": 49.453,
-            "roe_yearly": 12272.12,
-            "pf": 61353.789,
-            "winrate": 100.0,
-            "dd": -69.22,
-            "trades": 27.0
-          }
-        },
-        {
-          "tag": "xrp_wide_low_lev_3m_counter",
+          "tag": "XRP180mW_C",
           "kind": "wt",
           "asset": "XRP",
-          "tf": 3,
+          "tf": 180,
           "symbol_trade": "XRP/USDT:USDT",
-          "bybit_tradeable": true,
+          "bybit_tradeable": null,
           "stats": {
-            "roe": 1088.689,
-            "roe_monthly": null,
+            "roe": 705.33,
+            "roe_monthly": 5.61,
             "roe_yearly": null,
-            "pf": 1.588,
-            "winrate": 79.33,
-            "dd": -83.94,
-            "trades": 372053.0
+            "pf": 11.227,
+            "winrate": 64.99,
+            "dd": -66.6,
+            "trades": 14798
           }
         },
         {
-          "tag": "sweep_ada_9m_wide",
-          "kind": "sweep",
-          "asset": "ADA",
-          "tf": 9,
-          "symbol_trade": "ADA/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 1067.78,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 53702.023,
-            "winrate": 100.0,
-            "dd": -63.78,
-            "trades": 75.0
-          }
-        },
-        {
-          "tag": "sweep_doge_9m_tight",
-          "kind": "sweep",
-          "asset": "DOGE",
-          "tf": 9,
-          "symbol_trade": "DOGE/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 1048.61,
-            "roe_monthly": 6.592,
-            "roe_yearly": 115.0,
-            "pf": 55197.23,
-            "winrate": 100.0,
-            "dd": -24.62,
-            "trades": 3135.0
-          }
-        },
-        {
-          "tag": "sweep_ena_3m_wide",
-          "kind": "sweep",
-          "asset": "ENA",
-          "tf": 3,
-          "symbol_trade": "ENA/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 1034.47,
-            "roe_monthly": 8.999,
-            "roe_yearly": 181.01,
-            "pf": 53137.053,
-            "winrate": 100.0,
-            "dd": -50.41,
-            "trades": 1075.0
-          }
-        },
-        {
-          "tag": "ena_wide_low_lev_6m_counter",
+          "tag": "BMEX9mT_C",
           "kind": "wt",
-          "asset": "ENA",
-          "tf": 6,
-          "symbol_trade": "ENA/USDT:USDT",
-          "bybit_tradeable": true,
+          "asset": "BMEX",
+          "tf": 9,
+          "symbol_trade": "BMEX/USDT",
+          "bybit_tradeable": null,
           "stats": {
-            "roe": 988.38,
-            "roe_monthly": null,
+            "roe": 623.87,
+            "roe_monthly": 5.32,
             "roe_yearly": null,
-            "pf": 1.551,
-            "winrate": 70.56,
-            "dd": -69.39,
-            "trades": 412861.0
+            "pf": 3.222,
+            "winrate": 47.55,
+            "dd": -38.66,
+            "trades": 185719
           }
         },
         {
-          "tag": "sweep_xag_9m_wide",
-          "kind": "sweep",
+          "tag": "PBTC26mT_C",
+          "kind": "wt",
+          "asset": "BTC",
+          "tf": 26,
+          "symbol_trade": "BTC/USDT:USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 480.92,
+            "roe_monthly": 4.72,
+            "roe_yearly": null,
+            "pf": 1.519,
+            "winrate": 72.36,
+            "dd": -80.52,
+            "trades": 28216
+          }
+        },
+        {
+          "tag": "XAG9mW_C",
+          "kind": "wt",
           "asset": "XAG",
           "tf": 9,
-          "symbol_trade": "XAG/USDT:USDT",
-          "bybit_tradeable": false,
+          "symbol_trade": "XAG/USD",
+          "bybit_tradeable": null,
           "stats": {
-            "roe": 979.93,
-            "roe_monthly": 40.956,
-            "roe_yearly": 6032.33,
-            "pf": 49769.957,
-            "winrate": 100.0,
-            "dd": -52.09,
-            "trades": 44.0
+            "roe": 462.06,
+            "roe_monthly": 30.42,
+            "roe_yearly": null,
+            "pf": 84.101,
+            "winrate": 69.59,
+            "dd": -22.26,
+            "trades": 24803
           }
         },
         {
-          "tag": "sweep_ada_3m_wide",
-          "kind": "sweep",
-          "asset": "ADA",
+          "tag": "BMEX3mW_C",
+          "kind": "wt",
+          "asset": "BMEX",
           "tf": 3,
-          "symbol_trade": "ADA/USDT:USDT",
-          "bybit_tradeable": true,
+          "symbol_trade": "BMEX/USDT",
+          "bybit_tradeable": null,
           "stats": {
-            "roe": 939.18,
-            "roe_monthly": null,
+            "roe": 416.34,
+            "roe_monthly": 4.39,
             "roe_yearly": null,
-            "pf": 47429.876,
-            "winrate": 100.0,
-            "dd": -77.64,
-            "trades": 201.0
+            "pf": 2.645,
+            "winrate": 42.3,
+            "dd": -29.23,
+            "trades": 181309
           }
         },
         {
-          "tag": "sweep_ada_6m_tight",
-          "kind": "sweep",
-          "asset": "ADA",
-          "tf": 6,
-          "symbol_trade": "ADA/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 931.62,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 55589.193,
-            "winrate": 100.0,
-            "dd": -77.74,
-            "trades": 1249.0
-          }
-        },
-        {
-          "tag": "sweep_ena_6m_tight",
-          "kind": "sweep",
-          "asset": "ENA",
-          "tf": 6,
-          "symbol_trade": "ENA/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 844.7,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 43469.598,
-            "winrate": 100.0,
-            "dd": -63.49,
-            "trades": 1294.0
-          }
-        },
-        {
-          "tag": "ena_tight_low_lev_counter",
+          "tag": "BMEX3mT_C",
           "kind": "wt",
-          "asset": "ENA",
-          "tf": 1,
-          "symbol_trade": "ENA/USDT:USDT",
-          "bybit_tradeable": true,
+          "asset": "BMEX",
+          "tf": 3,
+          "symbol_trade": "BMEX/USDT",
+          "bybit_tradeable": null,
           "stats": {
-            "roe": 844.57,
-            "roe_monthly": null,
+            "roe": 389.53,
+            "roe_monthly": 4.54,
             "roe_yearly": null,
-            "pf": 1.633,
-            "winrate": 65.1,
-            "dd": -62.66,
-            "trades": 2032613.0
+            "pf": 4.957,
+            "winrate": 36.95,
+            "dd": -61.61,
+            "trades": 27544
           }
         },
         {
-          "tag": "near_wide_low_lev_26m_counter",
+          "tag": "XAG9mT_C",
           "kind": "wt",
-          "asset": "NEAR",
+          "asset": "XAG",
+          "tf": 9,
+          "symbol_trade": "XAG/USD",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 382.48,
+            "roe_monthly": 27.4,
+            "roe_yearly": null,
+            "pf": 92.858,
+            "winrate": 73.6,
+            "dd": -7.65,
+            "trades": 45470
+          }
+        },
+        {
+          "tag": "PBTC9mT_C",
+          "kind": "wt",
+          "asset": "BTC",
+          "tf": 9,
+          "symbol_trade": "BTC/USDT:USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 377.32,
+            "roe_monthly": 4.48,
+            "roe_yearly": null,
+            "pf": 1.328,
+            "winrate": 72.28,
+            "dd": -46.68,
+            "trades": 268041
+          }
+        },
+        {
+          "tag": "BMEX9mW_C",
+          "kind": "wt",
+          "asset": "BMEX",
+          "tf": 9,
+          "symbol_trade": "BMEX/USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 371.55,
+            "roe_monthly": 4.15,
+            "roe_yearly": null,
+            "pf": 2.668,
+            "winrate": 50.24,
+            "dd": -38.47,
+            "trades": 107399
+          }
+        },
+        {
+          "tag": "BTC1440mT_C",
+          "kind": "wt",
+          "asset": "BTC",
+          "tf": 1440,
+          "symbol_trade": "BTC/USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 367.61,
+            "roe_monthly": 1.43,
+            "roe_yearly": null,
+            "pf": 4.206,
+            "winrate": 70.8,
+            "dd": -59.52,
+            "trades": 3678
+          }
+        },
+        {
+          "tag": "BTC1440mW_C",
+          "kind": "wt",
+          "asset": "BTC",
+          "tf": 1440,
+          "symbol_trade": "BTC/USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 357.26,
+            "roe_monthly": 1.41,
+            "roe_yearly": null,
+            "pf": 3.286,
+            "winrate": 50.84,
+            "dd": -61.69,
+            "trades": 2912
+          }
+        },
+        {
+          "tag": "PBTC180mW_C",
+          "kind": "wt",
+          "asset": "BTC",
+          "tf": 180,
+          "symbol_trade": "BTC/USDT:USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 356.71,
+            "roe_monthly": 4.06,
+            "roe_yearly": null,
+            "pf": 2.317,
+            "winrate": 78.83,
+            "dd": -75.55,
+            "trades": 16373
+          }
+        },
+        {
+          "tag": "PBTC26mW_C",
+          "kind": "wt",
+          "asset": "BTC",
           "tf": 26,
-          "symbol_trade": "NEAR/USDT:USDT",
-          "bybit_tradeable": true,
+          "symbol_trade": "BTC/USDT:USDT",
+          "bybit_tradeable": null,
           "stats": {
-            "roe": 761.99,
-            "roe_monthly": null,
+            "roe": 355.17,
+            "roe_monthly": 4.06,
             "roe_yearly": null,
-            "pf": 1.333,
-            "winrate": 66.25,
-            "dd": -68.66,
-            "trades": 108095.0
+            "pf": 1.747,
+            "winrate": 69.95,
+            "dd": -55.77,
+            "trades": 35544
           }
         },
         {
-          "tag": "ada_wide_low_lev_26m_counter",
+          "tag": "BMEX26mT_C",
           "kind": "wt",
-          "asset": "ADA",
+          "asset": "BMEX",
           "tf": 26,
-          "symbol_trade": "ADA/USDT:USDT",
-          "bybit_tradeable": true,
+          "symbol_trade": "BMEX/USDT",
+          "bybit_tradeable": null,
           "stats": {
-            "roe": 743.43,
-            "roe_monthly": null,
+            "roe": 335.15,
+            "roe_monthly": 3.93,
             "roe_yearly": null,
-            "pf": 3.456,
-            "winrate": 70.85,
-            "dd": -44.31,
-            "trades": 116905.0
+            "pf": 4.029,
+            "winrate": 49.06,
+            "dd": -33.13,
+            "trades": 87791
           }
         },
         {
-          "tag": "sweep_ena_1m_tight",
-          "kind": "sweep",
-          "asset": "ENA",
-          "tf": 1,
-          "symbol_trade": "ENA/USDT:USDT",
-          "bybit_tradeable": true,
+          "tag": "BMEX26mW_C",
+          "kind": "wt",
+          "asset": "BMEX",
+          "tf": 26,
+          "symbol_trade": "BMEX/USDT",
+          "bybit_tradeable": null,
           "stats": {
-            "roe": 742.19,
-            "roe_monthly": null,
+            "roe": 299.49,
+            "roe_monthly": 3.96,
             "roe_yearly": null,
-            "pf": 39888.455,
-            "winrate": 100.0,
-            "dd": -74.88,
-            "trades": 3789.0
+            "pf": 4.293,
+            "winrate": 56.48,
+            "dd": -34.71,
+            "trades": 55795
           }
         },
         {
-          "tag": "xrp_wide_low_lev_9m_counter",
+          "tag": "BMEX6mW_C",
+          "kind": "wt",
+          "asset": "BMEX",
+          "tf": 6,
+          "symbol_trade": "BMEX/USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 273.96,
+            "roe_monthly": 3.52,
+            "roe_yearly": null,
+            "pf": 3.087,
+            "winrate": 44.01,
+            "dd": -21.39,
+            "trades": 118570
+          }
+        },
+        {
+          "tag": "BTC26mT_C",
+          "kind": "wt",
+          "asset": "BTC",
+          "tf": 26,
+          "symbol_trade": "BTC/USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 234.25,
+            "roe_monthly": 3.44,
+            "roe_yearly": null,
+            "pf": 1.554,
+            "winrate": 63.0,
+            "dd": -19.32,
+            "trades": 133115
+          }
+        },
+        {
+          "tag": "PBTC180mT_C",
+          "kind": "wt",
+          "asset": "BTC",
+          "tf": 180,
+          "symbol_trade": "BTC/USDT:USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 231.17,
+            "roe_monthly": 3.19,
+            "roe_yearly": null,
+            "pf": 2.008,
+            "winrate": 59.85,
+            "dd": -70.92,
+            "trades": 14732
+          }
+        },
+        {
+          "tag": "XAG6mT_C",
+          "kind": "wt",
+          "asset": "XAG",
+          "tf": 6,
+          "symbol_trade": "XAG/USD",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 210.86,
+            "roe_monthly": 19.08,
+            "roe_yearly": null,
+            "pf": 27.304,
+            "winrate": 68.52,
+            "dd": -10.95,
+            "trades": 57951
+          }
+        },
+        {
+          "tag": "BMEX6mT_C",
+          "kind": "wt",
+          "asset": "BMEX",
+          "tf": 6,
+          "symbol_trade": "BMEX/USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 205.61,
+            "roe_monthly": 2.97,
+            "roe_yearly": null,
+            "pf": 1.873,
+            "winrate": 43.36,
+            "dd": -39.91,
+            "trades": 190208
+          }
+        },
+        {
+          "tag": "XRP360mW_C",
           "kind": "wt",
           "asset": "XRP",
-          "tf": 9,
+          "tf": 360,
           "symbol_trade": "XRP/USDT:USDT",
-          "bybit_tradeable": true,
+          "bybit_tradeable": null,
           "stats": {
-            "roe": 713.107,
-            "roe_monthly": null,
+            "roe": 161.0,
+            "roe_monthly": 2.54,
             "roe_yearly": null,
-            "pf": 2.221,
-            "winrate": 89.31,
-            "dd": -51.59,
-            "trades": 146362.0
+            "pf": 9.016,
+            "winrate": 79.79,
+            "dd": -24.05,
+            "trades": 6501
           }
         },
         {
-          "tag": "sweep_ena_6m_wide",
-          "kind": "sweep",
-          "asset": "ENA",
-          "tf": 6,
-          "symbol_trade": "ENA/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 697.45,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 35140.834,
-            "winrate": 100.0,
-            "dd": -50.06,
-            "trades": 168.0
-          }
-        },
-        {
-          "tag": "near_wide_low_lev_9m_counter",
+          "tag": "XRP540mW_C",
           "kind": "wt",
-          "asset": "NEAR",
-          "tf": 9,
-          "symbol_trade": "NEAR/USDT:USDT",
-          "bybit_tradeable": true,
+          "asset": "XRP",
+          "tf": 540,
+          "symbol_trade": "XRP/USDT:USDT",
+          "bybit_tradeable": null,
           "stats": {
-            "roe": 668.344,
-            "roe_monthly": null,
+            "roe": 158.99,
+            "roe_monthly": 2.52,
+            "roe_yearly": null,
+            "pf": 3.711,
+            "winrate": 73.87,
+            "dd": -41.5,
+            "trades": 3078
+          }
+        },
+        {
+          "tag": "XRP180mT_C",
+          "kind": "wt",
+          "asset": "XRP",
+          "tf": 180,
+          "symbol_trade": "XRP/USDT:USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 150.56,
+            "roe_monthly": 2.43,
+            "roe_yearly": null,
+            "pf": 3.72,
+            "winrate": 53.06,
+            "dd": -52.65,
+            "trades": 18097
+          }
+        },
+        {
+          "tag": "BTC26mW_C",
+          "kind": "wt",
+          "asset": "BTC",
+          "tf": 26,
+          "symbol_trade": "BTC/USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 146.71,
+            "roe_monthly": 2.39,
+            "roe_yearly": null,
+            "pf": 1.434,
+            "winrate": 63.76,
+            "dd": -19.49,
+            "trades": 105722
+          }
+        },
+        {
+          "tag": "PBTC1440mW_C",
+          "kind": "wt",
+          "asset": "BTC",
+          "tf": 1440,
+          "symbol_trade": "BTC/USDT:USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 121.53,
+            "roe_monthly": 0.73,
+            "roe_yearly": null,
+            "pf": 3.014,
+            "winrate": 61.31,
+            "dd": -21.13,
+            "trades": 3698
+          }
+        },
+        {
+          "tag": "BTC180mW_C",
+          "kind": "wt",
+          "asset": "BTC",
+          "tf": 180,
+          "symbol_trade": "BTC/USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 121.26,
+            "roe_monthly": 2.1,
+            "roe_yearly": null,
+            "pf": 1.757,
+            "winrate": 62.57,
+            "dd": -21.59,
+            "trades": 19070
+          }
+        },
+        {
+          "tag": "XAG3mW_C",
+          "kind": "wt",
+          "asset": "XAG",
+          "tf": 3,
+          "symbol_trade": "XAG/USD",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 120.86,
+            "roe_monthly": 12.98,
+            "roe_yearly": null,
+            "pf": 7.031,
+            "winrate": 78.48,
+            "dd": -18.35,
+            "trades": 42528
+          }
+        },
+        {
+          "tag": "PBTC1440mT_C",
+          "kind": "wt",
+          "asset": "BTC",
+          "tf": 1440,
+          "symbol_trade": "BTC/USDT:USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 119.22,
+            "roe_monthly": 0.72,
+            "roe_yearly": null,
+            "pf": 5.077,
+            "winrate": 90.57,
+            "dd": -35.52,
+            "trades": 796
+          }
+        },
+        {
+          "tag": "BTC360mW_C",
+          "kind": "wt",
+          "asset": "BTC",
+          "tf": 360,
+          "symbol_trade": "BTC/USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 101.63,
+            "roe_monthly": 1.85,
+            "roe_yearly": null,
+            "pf": 5.496,
+            "winrate": 78.76,
+            "dd": -21.19,
+            "trades": 2343
+          }
+        },
+        {
+          "tag": "BTC360mT_C",
+          "kind": "wt",
+          "asset": "BTC",
+          "tf": 360,
+          "symbol_trade": "BTC/USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 91.87,
+            "roe_monthly": 1.72,
+            "roe_yearly": null,
+            "pf": 1.963,
+            "winrate": 60.39,
+            "dd": -24.03,
+            "trades": 7536
+          }
+        },
+        {
+          "tag": "BTC9mT_C",
+          "kind": "wt",
+          "asset": "BTC",
+          "tf": 9,
+          "symbol_trade": "BTC/USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 90.27,
+            "roe_monthly": 1.7,
+            "roe_yearly": null,
+            "pf": 1.325,
+            "winrate": 61.28,
+            "dd": -24.79,
+            "trades": 228603
+          }
+        },
+        {
+          "tag": "BTC6mT_C",
+          "kind": "wt",
+          "asset": "BTC",
+          "tf": 6,
+          "symbol_trade": "BTC/USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 84.31,
+            "roe_monthly": 1.61,
+            "roe_yearly": null,
+            "pf": 1.317,
+            "winrate": 59.54,
+            "dd": -27.66,
+            "trades": 278890
+          }
+        },
+        {
+          "tag": "XRP1440mW_C",
+          "kind": "wt",
+          "asset": "XRP",
+          "tf": 1440,
+          "symbol_trade": "XRP/USDT:USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 82.49,
+            "roe_monthly": 0.6,
+            "roe_yearly": null,
+            "pf": 3.225,
+            "winrate": 60.06,
+            "dd": -58.95,
+            "trades": 831
+          }
+        },
+        {
+          "tag": "BTC9mW_C",
+          "kind": "wt",
+          "asset": "BTC",
+          "tf": 9,
+          "symbol_trade": "BTC/USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 80.25,
+            "roe_monthly": 1.55,
+            "roe_yearly": null,
+            "pf": 1.379,
+            "winrate": 71.26,
+            "dd": -25.96,
+            "trades": 47700
+          }
+        },
+        {
+          "tag": "PBTC1mT_C",
+          "kind": "wt",
+          "asset": "BTC",
+          "tf": 1,
+          "symbol_trade": "BTC/USDT:USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 80.17,
+            "roe_monthly": 1.55,
+            "roe_yearly": null,
+            "pf": 1.297,
+            "winrate": 77.15,
+            "dd": -82.62,
+            "trades": 128197
+          }
+        },
+        {
+          "tag": "BTC3mT_C",
+          "kind": "wt",
+          "asset": "BTC",
+          "tf": 3,
+          "symbol_trade": "BTC/USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 70.75,
+            "roe_monthly": 1.41,
+            "roe_yearly": null,
+            "pf": 1.452,
+            "winrate": 60.04,
+            "dd": -28.8,
+            "trades": 54045
+          }
+        },
+        {
+          "tag": "XRP360mT_C",
+          "kind": "wt",
+          "asset": "XRP",
+          "tf": 360,
+          "symbol_trade": "XRP/USDT:USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 67.27,
+            "roe_monthly": 1.36,
+            "roe_yearly": null,
+            "pf": 33.48,
+            "winrate": 73.25,
+            "dd": -5.6,
+            "trades": 3265
+          }
+        },
+        {
+          "tag": "XRP540mT_C",
+          "kind": "wt",
+          "asset": "XRP",
+          "tf": 540,
+          "symbol_trade": "XRP/USDT:USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 65.78,
+            "roe_monthly": 1.33,
+            "roe_yearly": null,
+            "pf": 2.438,
+            "winrate": 90.0,
+            "dd": -42.03,
+            "trades": 991
+          }
+        },
+        {
+          "tag": "XAG6mW_C",
+          "kind": "wt",
+          "asset": "XAG",
+          "tf": 6,
+          "symbol_trade": "XAG/USD",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 57.87,
+            "roe_monthly": 7.3,
+            "roe_yearly": null,
+            "pf": 9.552,
+            "winrate": 72.94,
+            "dd": -7.57,
+            "trades": 32864
+          }
+        },
+        {
+          "tag": "BTC540mW_C",
+          "kind": "wt",
+          "asset": "BTC",
+          "tf": 540,
+          "symbol_trade": "BTC/USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 52.36,
+            "roe_monthly": 1.11,
+            "roe_yearly": null,
+            "pf": 2.389,
+            "winrate": 63.55,
+            "dd": -13.39,
+            "trades": 3742
+          }
+        },
+        {
+          "tag": "BTC3mW_C",
+          "kind": "wt",
+          "asset": "BTC",
+          "tf": 3,
+          "symbol_trade": "BTC/USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 51.72,
+            "roe_monthly": 1.1,
+            "roe_yearly": null,
+            "pf": 1.426,
+            "winrate": 38.81,
+            "dd": -35.42,
+            "trades": 30791
+          }
+        },
+        {
+          "tag": "BTC6mW_C",
+          "kind": "wt",
+          "asset": "BTC",
+          "tf": 6,
+          "symbol_trade": "BTC/USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 46.67,
+            "roe_monthly": 1.01,
             "roe_yearly": null,
             "pf": 1.421,
-            "winrate": 71.55,
-            "dd": -54.21,
-            "trades": 130568.0
+            "winrate": 48.65,
+            "dd": -36.77,
+            "trades": 15668
           }
         },
         {
-          "tag": "sweep_ada_1m_wide",
-          "kind": "sweep",
-          "asset": "ADA",
-          "tf": 1,
-          "symbol_trade": "ADA/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 667.03,
-            "roe_monthly": 5.472,
-            "roe_yearly": 89.43,
-            "pf": 37459.568,
-            "winrate": 100.0,
-            "dd": -83.79,
-            "trades": 517.0
-          }
-        },
-        {
-          "tag": "xrp_wide_low_lev_6m_counter",
-          "kind": "wt",
-          "asset": "XRP",
-          "tf": 6,
-          "symbol_trade": "XRP/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 657.04,
-            "roe_monthly": 5.32,
-            "roe_yearly": 87.96,
-            "pf": 1.6,
-            "winrate": 69.63,
-            "dd": -75.05,
-            "trades": 223420.0
-          }
-        },
-        {
-          "tag": "doge_tight_low_lev_3m_counter",
-          "kind": "wt",
-          "asset": "DOGE",
-          "tf": 3,
-          "symbol_trade": "DOGE/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 631.41,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 2.056,
-            "winrate": 74.85,
-            "dd": -77.16,
-            "trades": 942741.0
-          }
-        },
-        {
-          "tag": "sweep_ena_1m_wide",
-          "kind": "sweep",
-          "asset": "ENA",
-          "tf": 1,
-          "symbol_trade": "ENA/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 588.04,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 72789.525,
-            "winrate": 100.0,
-            "dd": -58.51,
-            "trades": 929.0
-          }
-        },
-        {
-          "tag": "sweep_ena_3m_tight",
-          "kind": "sweep",
-          "asset": "ENA",
-          "tf": 3,
-          "symbol_trade": "ENA/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 580.83,
-            "roe_monthly": 7.042,
-            "roe_yearly": 126.14,
-            "pf": 31239.262,
-            "winrate": 100.0,
-            "dd": -34.23,
-            "trades": 2998.0
-          }
-        },
-        {
-          "tag": "sweep_near_26m_tight",
-          "kind": "sweep",
-          "asset": "NEAR",
-          "tf": 26,
-          "symbol_trade": "NEAR/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 485.45,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 25393.249,
-            "winrate": 100.0,
-            "dd": -43.37,
-            "trades": 345.0
-          }
-        },
-        {
-          "tag": "sweep_near_9m_tight",
-          "kind": "sweep",
-          "asset": "NEAR",
-          "tf": 9,
-          "symbol_trade": "NEAR/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 457.4,
-            "roe_monthly": 4.596,
-            "roe_yearly": 71.39,
-            "pf": 24682.391,
-            "winrate": 100.0,
-            "dd": -50.29,
-            "trades": 1040.0
-          }
-        },
-        {
-          "tag": "sweep_ada_3m_tight",
-          "kind": "sweep",
-          "asset": "ADA",
-          "tf": 3,
-          "symbol_trade": "ADA/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 444.97,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 27974.079,
-            "winrate": 100.0,
-            "dd": -65.95,
-            "trades": 1400.0
-          }
-        },
-        {
-          "tag": "xrp_tight_low_lev_6m_counter",
-          "kind": "wt",
-          "asset": "XRP",
-          "tf": 6,
-          "symbol_trade": "XRP/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 444.825,
-            "roe_monthly": 4.44,
-            "roe_yearly": 69.63,
-            "pf": 1.626,
-            "winrate": 69.36,
-            "dd": -47.95,
-            "trades": 193876.0
-          }
-        },
-        {
-          "tag": "sweep_ada_26m_wide",
-          "kind": "sweep",
-          "asset": "ADA",
-          "tf": 26,
-          "symbol_trade": "ADA/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 442.05,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 22211.212,
-            "winrate": 100.0,
-            "dd": -81.84,
-            "trades": 62.0
-          }
-        },
-        {
-          "tag": "xrp_tight_low_lev_3m_counter",
-          "kind": "wt",
-          "asset": "XRP",
-          "tf": 3,
-          "symbol_trade": "XRP/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 400.256,
-            "roe_monthly": 4.21,
-            "roe_yearly": 65.39,
-            "pf": 1.372,
-            "winrate": 75.76,
-            "dd": -71.71,
-            "trades": 280285.0
-          }
-        },
-        {
-          "tag": "sweep_near_6m_tight",
-          "kind": "sweep",
-          "asset": "NEAR",
-          "tf": 6,
-          "symbol_trade": "NEAR/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 399.3,
-            "roe_monthly": 4.295,
-            "roe_yearly": 65.57,
-            "pf": 20561.736,
-            "winrate": 100.0,
-            "dd": -41.54,
-            "trades": 1410.0
-          }
-        },
-        {
-          "tag": "sweep_doge_1m_tight",
-          "kind": "sweep",
-          "asset": "DOGE",
-          "tf": 1,
-          "symbol_trade": "DOGE/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 385.2,
-            "roe_monthly": 4.217,
-            "roe_yearly": 64.09,
-            "pf": 29533.601,
-            "winrate": 100.0,
-            "dd": -43.3,
-            "trades": 7232.0
-          }
-        },
-        {
-          "tag": "sweep_doge_6m_tight",
-          "kind": "sweep",
-          "asset": "DOGE",
-          "tf": 6,
-          "symbol_trade": "DOGE/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 373.92,
-            "roe_monthly": 4.153,
-            "roe_yearly": 62.89,
-            "pf": 41859.343,
-            "winrate": 100.0,
-            "dd": -50.36,
-            "trades": 1290.0
-          }
-        },
-        {
-          "tag": "ena_tight_low_lev_3m_counter",
-          "kind": "wt",
-          "asset": "ENA",
-          "tf": 3,
-          "symbol_trade": "ENA/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 363.0,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 1.371,
-            "winrate": 71.76,
-            "dd": -78.28,
-            "trades": 696384.0
-          }
-        },
-        {
-          "tag": "xrp_tight_low_lev_9m_counter",
-          "kind": "wt",
-          "asset": "XRP",
-          "tf": 9,
-          "symbol_trade": "XRP/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 349.502,
-            "roe_monthly": 3.93,
-            "roe_yearly": 59.72,
-            "pf": 1.787,
-            "winrate": 71.2,
-            "dd": -67.73,
-            "trades": 138360.0
-          }
-        },
-        {
-          "tag": "sweep_near_3m_tight",
-          "kind": "sweep",
-          "asset": "NEAR",
-          "tf": 3,
-          "symbol_trade": "NEAR/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 342.71,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 17839.39,
-            "winrate": 100.0,
-            "dd": -55.64,
-            "trades": 1812.0
-          }
-        },
-        {
-          "tag": "sweep_ena_9m_wide",
-          "kind": "sweep",
-          "asset": "ENA",
-          "tf": 9,
-          "symbol_trade": "ENA/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 308.93,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 15563.855,
-            "winrate": 100.0,
-            "dd": -44.77,
-            "trades": 145.0
-          }
-        },
-        {
-          "tag": "sweep_ada_9m_tight",
-          "kind": "sweep",
-          "asset": "ADA",
-          "tf": 9,
-          "symbol_trade": "ADA/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 288.89,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 18585.199,
-            "winrate": 100.0,
-            "dd": -71.08,
-            "trades": 612.0
-          }
-        },
-        {
-          "tag": "sweep_doge_3m_tight",
-          "kind": "sweep",
-          "asset": "DOGE",
-          "tf": 3,
-          "symbol_trade": "DOGE/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 283.22,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 20731.767,
-            "winrate": 100.0,
-            "dd": -40.57,
-            "trades": 1304.0
-          }
-        },
-        {
-          "tag": "sweep_ena_26m_wide",
-          "kind": "sweep",
-          "asset": "ENA",
-          "tf": 26,
-          "symbol_trade": "ENA/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 260.18,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 13054.865,
-            "winrate": 100.0,
-            "dd": -49.65,
-            "trades": 31.0
-          }
-        },
-        {
-          "tag": "ada_tight_low_lev_9m_counter",
-          "kind": "wt",
-          "asset": "ADA",
-          "tf": 9,
-          "symbol_trade": "ADA/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 243.24,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 1.639,
-            "winrate": 70.54,
-            "dd": -39.58,
-            "trades": 413927.0
-          }
-        },
-        {
-          "tag": "xrp_wide_low_lev_counter",
-          "kind": "wt",
-          "asset": "XRP",
-          "tf": 1,
-          "symbol_trade": "XRP/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 214.276,
-            "roe_monthly": 2.97,
-            "roe_yearly": 44.1,
-            "pf": 1.271,
-            "winrate": 69.37,
-            "dd": -80.07,
-            "trades": 369999.0
-          }
-        },
-        {
-          "tag": "sweep_xrp_1m_tight",
-          "kind": "sweep",
-          "asset": "XRP",
-          "tf": 1,
-          "symbol_trade": "XRP/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 209.531,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 1127.495,
-            "winrate": 100.0,
-            "dd": -47.64,
-            "trades": 2222.0
-          }
-        },
-        {
-          "tag": "sweep_xrp_9m_wide",
-          "kind": "sweep",
-          "asset": "XRP",
-          "tf": 9,
-          "symbol_trade": "XRP/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 207.033,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 1042.924,
-            "winrate": 100.0,
-            "dd": -40.45,
-            "trades": 79.0
-          }
-        },
-        {
-          "tag": "doge_tight_low_lev_counter",
-          "kind": "wt",
-          "asset": "DOGE",
-          "tf": 1,
-          "symbol_trade": "DOGE/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 204.39,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 1.419,
-            "winrate": 74.89,
-            "dd": -61.23,
-            "trades": 2451925.0
-          }
-        },
-        {
-          "tag": "sweep_near_1m_tight",
-          "kind": "sweep",
-          "asset": "NEAR",
-          "tf": 1,
-          "symbol_trade": "NEAR/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 191.6,
-            "roe_monthly": 2.838,
-            "roe_yearly": 39.88,
-            "pf": 10854.407,
-            "winrate": 100.0,
-            "dd": -45.57,
-            "trades": 5821.0
-          }
-        },
-        {
-          "tag": "doge_tight_low_lev_6m_counter",
-          "kind": "wt",
-          "asset": "DOGE",
-          "tf": 6,
-          "symbol_trade": "DOGE/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 187.45,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 2.488,
-            "winrate": 67.89,
-            "dd": -26.62,
-            "trades": 465899.0
-          }
-        },
-        {
-          "tag": "sweep_ada_1m_tight",
-          "kind": "sweep",
-          "asset": "ADA",
-          "tf": 1,
-          "symbol_trade": "ADA/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 185.35,
-            "roe_monthly": 2.78,
-            "roe_yearly": 38.93,
-            "pf": 9956.894,
-            "winrate": 100.0,
-            "dd": -72.97,
-            "trades": 1725.0
-          }
-        },
-        {
-          "tag": "sweep_near_26m_wide",
-          "kind": "sweep",
-          "asset": "NEAR",
-          "tf": 26,
-          "symbol_trade": "NEAR/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 169.425,
-            "roe_monthly": 1266356260941581.2,
-            "roe_yearly": 36.45,
-            "pf": 867.777,
-            "winrate": 100.0,
-            "dd": -18.62,
-            "trades": 68.0
-          }
-        },
-        {
-          "tag": "sweep_xrp_3m_wide",
-          "kind": "sweep",
-          "asset": "XRP",
-          "tf": 3,
-          "symbol_trade": "XRP/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 168.925,
-            "roe_monthly": 1196614640196827.5,
-            "roe_yearly": 36.05,
-            "pf": 859.725,
-            "winrate": 100.0,
-            "dd": -41.78,
-            "trades": 176.0
-          }
-        },
-        {
-          "tag": "sweep_xrp_1m_wide",
-          "kind": "sweep",
-          "asset": "XRP",
-          "tf": 1,
-          "symbol_trade": "XRP/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 153.825,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 782.944,
-            "winrate": 100.0,
-            "dd": -70.91,
-            "trades": 517.0
-          }
-        },
-        {
-          "tag": "xrp_tight_low_lev_counter",
-          "kind": "wt",
-          "asset": "XRP",
-          "tf": 1,
-          "symbol_trade": "XRP/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 150.596,
-            "roe_monthly": 2.38,
-            "roe_yearly": 33.19,
-            "pf": 1.272,
-            "winrate": 59.9,
-            "dd": -78.41,
-            "trades": 505889.0
-          }
-        },
-        {
-          "tag": "sweep_xrp_6m_wide",
-          "kind": "sweep",
-          "asset": "XRP",
-          "tf": 6,
-          "symbol_trade": "XRP/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 120.83,
-            "roe_monthly": 2972547477150.159,
-            "roe_yearly": 27.96,
-            "pf": 942.7,
-            "winrate": 100.0,
-            "dd": -35.79,
-            "trades": 83.0
-          }
-        },
-        {
-          "tag": "sweep_xag_6m_tight",
-          "kind": "sweep",
-          "asset": "XAG",
-          "tf": 6,
-          "symbol_trade": "XAG/USDT:USDT",
-          "bybit_tradeable": false,
-          "stats": {
-            "roe": 108.272,
-            "roe_monthly": 500195196131.427,
-            "roe_yearly": 234.1,
-            "pf": 555.892,
-            "winrate": 100.0,
-            "dd": -24.42,
-            "trades": 112.0
-          }
-        },
-        {
-          "tag": "sweep_xrp_6m_tight",
-          "kind": "sweep",
-          "asset": "XRP",
-          "tf": 6,
-          "symbol_trade": "XRP/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 100.683,
-            "roe_monthly": 161606279587.4,
-            "roe_yearly": 24.2,
-            "pf": 534.352,
-            "winrate": 100.0,
-            "dd": -24.74,
-            "trades": 716.0
-          }
-        },
-        {
-          "tag": "sweep_xrp_3m_tight",
-          "kind": "sweep",
-          "asset": "XRP",
-          "tf": 3,
-          "symbol_trade": "XRP/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 96.969,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 684.905,
-            "winrate": 100.0,
-            "dd": -14.35,
-            "trades": 2332.0
-          }
-        },
-        {
-          "tag": "ada_tight_low_lev_26m_counter",
-          "kind": "wt",
-          "asset": "ADA",
-          "tf": 26,
-          "symbol_trade": "ADA/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 90.6,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 3.063,
-            "winrate": 68.57,
-            "dd": -15.58,
-            "trades": 69365.0
-          }
-        },
-        {
-          "tag": "ena_tight_low_lev_9m_counter",
-          "kind": "wt",
-          "asset": "ENA",
-          "tf": 9,
-          "symbol_trade": "ENA/USDT:USDT",
-          "bybit_tradeable": true,
-          "stats": {
-            "roe": 85.25,
-            "roe_monthly": 2.18,
-            "roe_yearly": 29.99,
-            "pf": 1.458,
-            "winrate": 65.9,
-            "dd": -22.96,
-            "trades": 252801.0
-          }
-        },
-        {
-          "tag": "sweep_xag_3m_wide",
-          "kind": "sweep",
-          "asset": "XAG",
-          "tf": 3,
-          "symbol_trade": "XAG/USDT:USDT",
-          "bybit_tradeable": false,
-          "stats": {
-            "roe": 57.26,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 289.119,
-            "winrate": 100.0,
-            "dd": -54.79,
-            "trades": 22.0
-          }
-        },
-        {
-          "tag": "sweep_xag_1m_wide",
-          "kind": "sweep",
-          "asset": "XAG",
-          "tf": 1,
-          "symbol_trade": "XAG/USDT:USDT",
-          "bybit_tradeable": false,
-          "stats": {
-            "roe": 52.301,
-            "roe_monthly": 36434066.502,
-            "roe_yearly": 99.71,
-            "pf": 267.533,
-            "winrate": 100.0,
-            "dd": -46.51,
-            "trades": 84.0
-          }
-        },
-        {
-          "tag": "sweep_xag_1m_tight",
-          "kind": "sweep",
-          "asset": "XAG",
-          "tf": 1,
-          "symbol_trade": "XAG/USDT:USDT",
-          "bybit_tradeable": false,
-          "stats": {
-            "roe": 40.515,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 219.201,
-            "winrate": 100.0,
-            "dd": -45.19,
-            "trades": 450.0
-          }
-        },
-        {
-          "tag": "sweep_xag_3m_tight",
-          "kind": "sweep",
-          "asset": "XAG",
-          "tf": 3,
-          "symbol_trade": "XAG/USDT:USDT",
-          "bybit_tradeable": false,
-          "stats": {
-            "roe": 31.327,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 164.327,
-            "winrate": 100.0,
-            "dd": -9.76,
-            "trades": 241.0
-          }
-        },
-        {
-          "tag": "sweep_xag_6m_wide",
-          "kind": "sweep",
-          "asset": "XAG",
-          "tf": 6,
-          "symbol_trade": "XAG/USDT:USDT",
-          "bybit_tradeable": false,
-          "stats": {
-            "roe": 29.069,
-            "roe_monthly": null,
-            "roe_yearly": null,
-            "pf": 160.621,
-            "winrate": 100.0,
-            "dd": -32.68,
-            "trades": 26.0
-          }
-        },
-        {
-          "tag": "xag_wide_low_lev_9m_counter",
+          "tag": "XAG1mT_C",
           "kind": "wt",
           "asset": "XAG",
-          "tf": 9,
-          "symbol_trade": "XAG/USDT:USDT",
-          "bybit_tradeable": false,
+          "tf": 1,
+          "symbol_trade": "XAG/USD",
+          "bybit_tradeable": null,
           "stats": {
-            "roe": 25.83,
-            "roe_monthly": null,
+            "roe": 43.44,
+            "roe_monthly": 5.8,
             "roe_yearly": null,
-            "pf": 2.059,
-            "winrate": 79.45,
-            "dd": -11.47,
-            "trades": 30414.0
+            "pf": 1.79,
+            "winrate": 55.66,
+            "dd": -15.99,
+            "trades": 144235
           }
         },
         {
-          "tag": "xag_wide_low_lev_6m_counter",
+          "tag": "XRP1440mT_C",
+          "kind": "wt",
+          "asset": "XRP",
+          "tf": 1440,
+          "symbol_trade": "XRP/USDT:USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 39.35,
+            "roe_monthly": 0.33,
+            "roe_yearly": null,
+            "pf": 5.188,
+            "winrate": 57.42,
+            "dd": -25.4,
+            "trades": 2431
+          }
+        },
+        {
+          "tag": "BTC540mT_C",
+          "kind": "wt",
+          "asset": "BTC",
+          "tf": 540,
+          "symbol_trade": "BTC/USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 30.11,
+            "roe_monthly": 0.69,
+            "roe_yearly": null,
+            "pf": 2.797,
+            "winrate": 69.94,
+            "dd": -11.51,
+            "trades": 2028
+          }
+        },
+        {
+          "tag": "PBTC1mW_C",
+          "kind": "wt",
+          "asset": "BTC",
+          "tf": 1,
+          "symbol_trade": "BTC/USDT:USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 28.48,
+            "roe_monthly": 0.66,
+            "roe_yearly": null,
+            "pf": 1.314,
+            "winrate": 76.8,
+            "dd": -39.79,
+            "trades": 247376
+          }
+        },
+        {
+          "tag": "XAG1mW_C",
           "kind": "wt",
           "asset": "XAG",
-          "tf": 6,
-          "symbol_trade": "XAG/USDT:USDT",
-          "bybit_tradeable": false,
+          "tf": 1,
+          "symbol_trade": "XAG/USD",
+          "bybit_tradeable": null,
           "stats": {
-            "roe": 19.133,
-            "roe_monthly": null,
+            "roe": 28.25,
+            "roe_monthly": 3.92,
             "roe_yearly": null,
-            "pf": 1.799,
-            "winrate": 81.73,
-            "dd": -12.3,
-            "trades": 28885.0
+            "pf": 1.467,
+            "winrate": 86.82,
+            "dd": -14.52,
+            "trades": 137308
           }
         },
         {
-          "tag": "sweep_xag_9m_tight",
-          "kind": "sweep",
-          "asset": "XAG",
-          "tf": 9,
-          "symbol_trade": "XAG/USDT:USDT",
-          "bybit_tradeable": false,
+          "tag": "PBTC360mW_C",
+          "kind": "wt",
+          "asset": "BTC",
+          "tf": 360,
+          "symbol_trade": "BTC/USDT:USDT",
+          "bybit_tradeable": null,
           "stats": {
-            "roe": 17.653,
-            "roe_monthly": 13998.704,
-            "roe_yearly": 30.8,
-            "pf": 91.339,
-            "winrate": 100.0,
-            "dd": -21.1,
-            "trades": 102.0
+            "roe": 27.02,
+            "roe_monthly": 0.63,
+            "roe_yearly": null,
+            "pf": 7522.719,
+            "winrate": 98.06,
+            "dd": -13.65,
+            "trades": 589
           }
         },
         {
-          "tag": "xag_tight_low_lev_6m_counter",
+          "tag": "PBTC360mT_C",
+          "kind": "wt",
+          "asset": "BTC",
+          "tf": 360,
+          "symbol_trade": "BTC/USDT:USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 25.17,
+            "roe_monthly": 0.59,
+            "roe_yearly": null,
+            "pf": 58.448,
+            "winrate": 78.99,
+            "dd": -11.17,
+            "trades": 1144
+          }
+        },
+        {
+          "tag": "XAG3mT_C",
           "kind": "wt",
           "asset": "XAG",
-          "tf": 6,
-          "symbol_trade": "XAG/USDT:USDT",
-          "bybit_tradeable": false,
+          "tf": 3,
+          "symbol_trade": "XAG/USD",
+          "bybit_tradeable": null,
           "stats": {
-            "roe": 17.53,
-            "roe_monthly": 2.23,
-            "roe_yearly": 30.65,
-            "pf": 1.766,
-            "winrate": 85.89,
-            "dd": -9.38,
-            "trades": 36070.0
+            "roe": 19.18,
+            "roe_monthly": 2.74,
+            "roe_yearly": null,
+            "pf": 1.602,
+            "winrate": 95.41,
+            "dd": -10.08,
+            "trades": 69468
           }
         },
         {
-          "tag": "xag_wide_low_lev_26m_counter",
+          "tag": "BMEX180mW_C",
+          "kind": "wt",
+          "asset": "BMEX",
+          "tf": 180,
+          "symbol_trade": "BMEX/USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 16.83,
+            "roe_monthly": 0.41,
+            "roe_yearly": null,
+            "pf": 2.496,
+            "winrate": 48.77,
+            "dd": -8.46,
+            "trades": 3102
+          }
+        },
+        {
+          "tag": "BTC1mW_C",
+          "kind": "wt",
+          "asset": "BTC",
+          "tf": 1,
+          "symbol_trade": "BTC/USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 16.36,
+            "roe_monthly": 0.4,
+            "roe_yearly": null,
+            "pf": 1.129,
+            "winrate": 53.98,
+            "dd": -34.24,
+            "trades": 261755
+          }
+        },
+        {
+          "tag": "XAG26mW_C",
           "kind": "wt",
           "asset": "XAG",
           "tf": 26,
-          "symbol_trade": "XAG/USDT:USDT",
-          "bybit_tradeable": false,
+          "symbol_trade": "XAG/USD",
+          "bybit_tradeable": null,
           "stats": {
-            "roe": 14.535,
-            "roe_monthly": 1.87,
-            "roe_yearly": 25.16,
-            "pf": 2.234,
-            "winrate": 94.01,
-            "dd": -9.13,
-            "trades": 6498.0
+            "roe": 15.17,
+            "roe_monthly": 3.62,
+            "roe_yearly": null,
+            "pf": 174.545,
+            "winrate": 75.83,
+            "dd": -10.66,
+            "trades": 4943
           }
         },
         {
-          "tag": "xag_tight_low_lev_26m_counter",
+          "tag": "PBTC540mT_C",
+          "kind": "wt",
+          "asset": "BTC",
+          "tf": 540,
+          "symbol_trade": "BTC/USDT:USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 14.73,
+            "roe_monthly": 0.36,
+            "roe_yearly": null,
+            "pf": 999.0,
+            "winrate": 100.0,
+            "dd": -13.11,
+            "trades": 405
+          }
+        },
+        {
+          "tag": "PBTC540mW_C",
+          "kind": "wt",
+          "asset": "BTC",
+          "tf": 540,
+          "symbol_trade": "BTC/USDT:USDT",
+          "bybit_tradeable": null,
+          "stats": {
+            "roe": 14.63,
+            "roe_monthly": 0.36,
+            "roe_yearly": null,
+            "pf": 999.0,
+            "winrate": 100.0,
+            "dd": -12.91,
+            "trades": 292
+          }
+        },
+        {
+          "tag": "XAG26mT_C",
           "kind": "wt",
           "asset": "XAG",
           "tf": 26,
-          "symbol_trade": "XAG/USDT:USDT",
-          "bybit_tradeable": false,
+          "symbol_trade": "XAG/USD",
+          "bybit_tradeable": null,
           "stats": {
-            "roe": 13.805,
-            "roe_monthly": 1.78,
-            "roe_yearly": 23.99,
-            "pf": 2.539,
-            "winrate": 80.0,
-            "dd": -7.65,
-            "trades": 5059.0
+            "roe": 14.55,
+            "roe_monthly": 3.48,
+            "roe_yearly": null,
+            "pf": 221.051,
+            "winrate": 75.2,
+            "dd": -4.6,
+            "trades": 4523
           }
         },
         {
-          "tag": "sweep_xag_26m_wide",
-          "kind": "sweep",
-          "asset": "XAG",
-          "tf": 26,
-          "symbol_trade": "XAG/USDT:USDT",
-          "bybit_tradeable": false,
+          "tag": "BTC1mT_C",
+          "kind": "wt",
+          "asset": "BTC",
+          "tf": 1,
+          "symbol_trade": "BTC/USDT",
+          "bybit_tradeable": null,
           "stats": {
-            "roe": 8.898,
-            "roe_monthly": null,
+            "roe": 7.68,
+            "roe_monthly": 0.19,
             "roe_yearly": null,
-            "pf": 42.607,
-            "winrate": 100.0,
-            "dd": -5.39,
-            "trades": 15.0
+            "pf": 1.138,
+            "winrate": 53.97,
+            "dd": -8.34,
+            "trades": 23704
           }
         }
       ]
@@ -2365,7 +1617,7 @@
     }
   },
   "chain_telemetry": {
-    "height": 124,
+    "height": 125,
     "total_b4l": 1000000.0,
     "consensus_ops": [
       {
@@ -2414,26 +1666,21 @@
         "type": "nav_commit",
         "ts_ms": 1787073912124,
         "height": 112
-      },
-      {
-        "type": "nav_commit",
-        "ts_ms": 1787071789758,
-        "height": 110
       }
     ],
-    "sync_lag_s": 870,
+    "sync_lag_s": 62,
     "workers_online": 19,
-    "coordinator_uptime_sec": 115849,
+    "coordinator_uptime_sec": 116060,
     "node_uptime_pct": 100.0
   },
   "engine_telemetry": {
     "ok": true,
     "source": "engine",
-    "ts": 1787097070,
-    "uptime_s": 115849,
-    "active_strategies": 114,
-    "node_height": 124,
-    "consensus_age_s": 870,
+    "ts": 1787097281,
+    "uptime_s": 116060,
+    "active_strategies": 70,
+    "node_height": 125,
+    "consensus_age_s": 62,
     "last_strategy_update_ts": 1787096199813,
     "health_score": 1.0
   },
@@ -2458,12 +1705,12 @@
     ],
     "dex_price_usd": 0.0023876,
     "nav_vs_dex_spread": 0.2499,
-    "last_verified_ts": 1787097069,
+    "last_verified_ts": 1787097280,
     "staleness_s": 1,
     "verifier": "Bull4Life peg-drift-watch CI (independent, every 15 min) \u2014 supply verified vs live external chain supply"
   },
   "genesis_agnostic_note": "chain-side read surface; nav.* echoes the last on-chain nav_commit (Cludia produces + signs NAV).",
-  "sig": "d86c4f0bedd0c8f6b1c4c8220110392fd1494417de53468e3de63219ffcb94e44e790452d628dca217efe07a256cb82f76c526837b2131af2c28abf84eaa3c08",
+  "sig": "d4f7b416ba67c11385a690cd2d37a5e708bf0f4a12b9f6fe075622538a25e1ec26001040d97ff5fc9bf1d3e6e0e702aca633141f0806e45acd7b42ef8ca2960b",
   "pubkey": "aac44d07cf44e663402fd4f42107a167756647d059cb6e8534f96c8c8f05a053",
   "signed": true
 }
