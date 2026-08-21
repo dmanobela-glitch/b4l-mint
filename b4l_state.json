@@ -5,12 +5,12 @@
     "peg_ok": true,
     "supply_b4l": 1000000.0,
     "reserve_b4l": 87126.0,
-    "reserves_usd": 2458.32,
-    "nav_per_b4l_usd": 0.002458316611,
+    "reserves_usd": 2492.99,
+    "nav_per_b4l_usd": 0.002492987637,
     "live_chains": [
       "solana"
     ],
-    "last_verified_ts": 1787347441,
+    "last_verified_ts": 1787348341,
     "verifier": "Bull4Life peg-drift-watch CI (independent, every 15 min) \u2014 supply verified vs live external chain supply",
     "freeze_authority": "revoked",
     "description": "Bull4Life (B4L) \u2014 reserve-backed 1:1 by the canonical fund; NAV-priced; freeze authority revoked; wrapped supply verifiably == on-chain reserve.",
@@ -44,12 +44,12 @@
           "status": "OK"
         }
       },
-      "checked_ts": 1787347441
+      "checked_ts": 1787348340
     }
   },
   "header": {
-    "height": 403,
-    "hash": "bb7adf09b9af898ad055bb455c33b6d03062535e9e6714eea8ceda16d0d30372",
+    "height": 404,
+    "hash": "3d74e100f3d1a1632a98a0c6fc26ee5af0f13554cf5d5cdf933de4ef3a8a40be",
     "genesis_hash": "22648a4d9a6a9a2a472ed81f2b023d95a32994565be6130c53875a2dae9a6c60"
   },
   "account": {
@@ -63,13 +63,13 @@
     "total_b4l": 1000000.0
   },
   "nav": {
-    "as_of_height": 402,
-    "as_of_ts": 1787346697,
-    "nav_per_b4l_usd": 0.002458316611,
-    "nav_per_b4l": 0.002458316611,
+    "as_of_height": 403,
+    "as_of_ts": 1787347304,
+    "nav_per_b4l_usd": 0.002492987637,
+    "nav_per_b4l": 0.002492987637,
     "supply_total": 1000000.0,
     "supply_circulating": 87130.359,
-    "reserves_usd_total": 2458.316611,
+    "reserves_usd_total": 2492.987637,
     "reserves": {
       "chain_wallets": {
         "solana_mm": {
@@ -155,7 +155,7 @@
   "onboarding": {
     "activation_b4l": 100.0,
     "subscription_live": true,
-    "nav_per_b4l_usd": 0.002458316611,
+    "nav_per_b4l_usd": 0.002492987637,
     "tiers": [
       {
         "id": "helot",
@@ -180,8 +180,8 @@
         "usd_month": 9,
         "usd_annual": 90,
         "is_free": false,
-        "b4l_month": 3661.04185268,
-        "b4l_annual": 36610.41852676
+        "b4l_month": 3610.12620617,
+        "b4l_annual": 36101.26206173
       },
       {
         "id": "hypomeiones",
@@ -193,8 +193,8 @@
         "usd_month": 19,
         "usd_annual": 190,
         "is_free": false,
-        "b4l_month": 7728.86613343,
-        "b4l_annual": 77288.66133427
+        "b4l_month": 7621.37754637,
+        "b4l_annual": 76213.77546366
       },
       {
         "id": "spartiate",
@@ -206,8 +206,8 @@
         "usd_month": 29,
         "usd_annual": 290,
         "is_free": false,
-        "b4l_month": 11796.69041418,
-        "b4l_annual": 117966.90414179
+        "b4l_month": 11632.62888656,
+        "b4l_annual": 116326.28886559
       },
       {
         "id": "hippeis",
@@ -219,8 +219,8 @@
         "usd_month": 49,
         "usd_annual": 490,
         "is_free": false,
-        "b4l_month": 19932.33897568,
-        "b4l_annual": 199323.38975681
+        "b4l_month": 19655.13156694,
+        "b4l_annual": 196551.31566944
       },
       {
         "id": "enomotarchos",
@@ -232,8 +232,8 @@
         "usd_month": 69,
         "usd_annual": 690,
         "is_free": false,
-        "b4l_month": 28067.98753718,
-        "b4l_annual": 280679.87537184
+        "b4l_month": 27677.63424733,
+        "b4l_annual": 276776.34247329
       },
       {
         "id": "pentekonter",
@@ -245,8 +245,8 @@
         "usd_month": 89,
         "usd_annual": 890,
         "is_free": false,
-        "b4l_month": 36203.63609869,
-        "b4l_annual": 362036.36098686
+        "b4l_month": 35700.13692771,
+        "b4l_annual": 357001.36927715
       },
       {
         "id": "lochagos",
@@ -258,8 +258,8 @@
         "usd_month": 119,
         "usd_annual": 1190,
         "is_free": false,
-        "b4l_month": 48407.10894094,
-        "b4l_annual": 484071.0894094
+        "b4l_month": 47733.89094829,
+        "b4l_annual": 477338.90948293
       },
       {
         "id": "taxiarchos",
@@ -271,8 +271,8 @@
         "usd_month": 149,
         "usd_annual": 1490,
         "is_free": false,
-        "b4l_month": 60610.58178319,
-        "b4l_annual": 606105.81783194
+        "b4l_month": 59767.64496887,
+        "b4l_annual": 597676.44968871
       },
       {
         "id": "polemarch",
@@ -284,8 +284,8 @@
         "usd_month": 179,
         "usd_annual": 1790,
         "is_free": false,
-        "b4l_month": 72814.05462545,
-        "b4l_annual": 728140.54625448
+        "b4l_month": 71801.39898945,
+        "b4l_annual": 718013.98989449
       },
       {
         "id": "king",
@@ -297,8 +297,8 @@
         "usd_month": 200,
         "usd_annual": 2000,
         "is_free": false,
-        "b4l_month": 81356.48561503,
-        "b4l_annual": 813564.85615026
+        "b4l_month": 80225.02680385,
+        "b4l_annual": 802250.26803853
       },
       {
         "id": "hero",
@@ -310,8 +310,8 @@
         "usd_month": 250,
         "usd_annual": 2500,
         "is_free": false,
-        "b4l_month": 101695.60701878,
-        "b4l_annual": 1016956.07018782
+        "b4l_month": 100281.28350482,
+        "b4l_annual": 1002812.83504817
       }
     ],
     "catalog": {
@@ -1512,8 +1512,8 @@
   },
   "chain_mm": {
     "arbitrum": {
-      "nav_per_b4l_usd": 0.002458316611,
-      "nav_per_b4l": 0.002458316611,
+      "nav_per_b4l_usd": 0.002492987637,
+      "nav_per_b4l": 0.002492987637,
       "token_address": null,
       "decimals": null,
       "deposit_addr": "0x80f20c483f65b98853332b5a9d84e7e9690d4bbf",
@@ -1525,8 +1525,8 @@
       "pool": null
     },
     "optimism": {
-      "nav_per_b4l_usd": 0.002458316611,
-      "nav_per_b4l": 0.002458316611,
+      "nav_per_b4l_usd": 0.002492987637,
+      "nav_per_b4l": 0.002492987637,
       "token_address": null,
       "decimals": null,
       "deposit_addr": "0x80f20c483f65b98853332b5a9d84e7e9690d4bbf",
@@ -1538,8 +1538,8 @@
       "pool": null
     },
     "base": {
-      "nav_per_b4l_usd": 0.002458316611,
-      "nav_per_b4l": 0.002458316611,
+      "nav_per_b4l_usd": 0.002492987637,
+      "nav_per_b4l": 0.002492987637,
       "token_address": null,
       "decimals": null,
       "deposit_addr": null,
@@ -1551,8 +1551,8 @@
       "pool": null
     },
     "solana": {
-      "nav_per_b4l_usd": 0.002458316611,
-      "nav_per_b4l": 0.002458316611,
+      "nav_per_b4l_usd": 0.002492987637,
+      "nav_per_b4l": 0.002492987637,
       "token_address": "E12u4QcyhAnmrREHUUsgdySGjtTXeL4W26QdiLB6DUND",
       "decimals": 9,
       "deposit_addr": "GfqWjDGcwFHoYK5v5CUe28bNKUuLyURehJN5CnamV5hh",
@@ -1577,8 +1577,8 @@
       }
     },
     "ethereum": {
-      "nav_per_b4l_usd": 0.002458316611,
-      "nav_per_b4l": 0.002458316611,
+      "nav_per_b4l_usd": 0.002492987637,
+      "nav_per_b4l": 0.002492987637,
       "token_address": null,
       "decimals": null,
       "deposit_addr": null,
@@ -1590,8 +1590,8 @@
       "pool": null
     },
     "bsc": {
-      "nav_per_b4l_usd": 0.002458316611,
-      "nav_per_b4l": 0.002458316611,
+      "nav_per_b4l_usd": 0.002492987637,
+      "nav_per_b4l": 0.002492987637,
       "token_address": null,
       "decimals": null,
       "deposit_addr": null,
@@ -1603,8 +1603,8 @@
       "pool": null
     },
     "tron": {
-      "nav_per_b4l_usd": 0.002458316611,
-      "nav_per_b4l": 0.002458316611,
+      "nav_per_b4l_usd": 0.002492987637,
+      "nav_per_b4l": 0.002492987637,
       "token_address": null,
       "decimals": null,
       "deposit_addr": "THQDyEABKY1R9F2aDnvpFeBD8J5hoedJhb",
@@ -1617,16 +1617,21 @@
     }
   },
   "chain_telemetry": {
-    "height": 403,
+    "height": 404,
     "total_b4l": 1000000.0,
     "consensus_ops": [
       {
         "type": "nav_commit",
-        "count": 11,
-        "ts_ms": 1787347091738
+        "count": 12,
+        "ts_ms": 1787348299953
       }
     ],
     "recent_ops": [
+      {
+        "type": "nav_commit",
+        "ts_ms": 1787348299953,
+        "height": 404
+      },
       {
         "type": "nav_commit",
         "ts_ms": 1787347091738,
@@ -1663,20 +1668,20 @@
         "height": 390
       }
     ],
-    "sync_lag_s": 350,
+    "sync_lag_s": 41,
     "workers_online": 16,
-    "coordinator_uptime_sec": 18327,
+    "coordinator_uptime_sec": 19226,
     "node_uptime_pct": 100.0
   },
   "engine_telemetry": {
     "ok": true,
     "source": "engine",
-    "ts": 1787347442,
-    "uptime_s": 18327,
+    "ts": 1787348342,
+    "uptime_s": 19226,
     "active_strategies": 70,
-    "node_height": 403,
-    "consensus_age_s": 350,
-    "last_strategy_update_ts": 1787347091738,
+    "node_height": 404,
+    "consensus_age_s": 41,
+    "last_strategy_update_ts": 1787348299953,
     "health_score": 1.0
   },
   "token_credibility": {
@@ -1686,8 +1691,8 @@
     "peg_ok": true,
     "supply_b4l": 1000000.0,
     "reserve_b4l": 87126.0,
-    "reserves_usd": 2458.32,
-    "nav_per_b4l_usd": 0.002458316611,
+    "reserves_usd": 2492.99,
+    "nav_per_b4l_usd": 0.002492987637,
     "max_drift_b4l": 0.0,
     "per_chain": [
       {
@@ -1699,13 +1704,13 @@
       }
     ],
     "dex_price_usd": 0.0023876,
-    "nav_vs_dex_spread": -0.0288,
-    "last_verified_ts": 1787347441,
+    "nav_vs_dex_spread": -0.0423,
+    "last_verified_ts": 1787348341,
     "staleness_s": 1,
     "verifier": "Bull4Life peg-drift-watch CI (independent, every 15 min) \u2014 supply verified vs live external chain supply"
   },
   "genesis_agnostic_note": "chain-side read surface; nav.* echoes the last on-chain nav_commit (Cludia produces + signs NAV).",
-  "sig": "ec084acfbd3c8bf2b722dab56fb8e171232af57c6f9552c9ce1fece7f02c376b11a21b56dabdd496482203a4261e3bb922e8d305723a7aeb529978dfb0a4a60e",
+  "sig": "365bc44266e8dc449bcb2e2b7cf74caa06a166e414540257898a5bfda8f49fb44d249b152e1cedd1cd2fc43cbe653b8c272cbb74f362b2cfb7e9763a1d8bd40a",
   "pubkey": "aac44d07cf44e663402fd4f42107a167756647d059cb6e8534f96c8c8f05a053",
   "signed": true
 }
