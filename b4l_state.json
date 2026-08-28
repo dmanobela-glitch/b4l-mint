@@ -10,7 +10,7 @@
     "live_chains": [
       "solana"
     ],
-    "last_verified_ts": 1787935839,
+    "last_verified_ts": 1787957040,
     "verifier": "Bull4Life peg-drift-watch CI (independent, every 15 min) \u2014 supply verified vs live external chain supply",
     "freeze_authority": "revoked",
     "description": "Bull4Life (B4L) \u2014 reserve-backed 1:1 by the canonical fund; NAV-priced; freeze authority revoked; wrapped supply verifiably == on-chain reserve.",
@@ -44,7 +44,7 @@
           "status": "OK"
         }
       },
-      "checked_ts": 1787935839
+      "checked_ts": 1787957040
     }
   },
   "header": {
@@ -1637,21 +1637,21 @@
         "height": 885
       }
     ],
-    "sync_lag_s": 29,
-    "workers_online": 17,
-    "coordinator_uptime_sec": 131564,
+    "sync_lag_s": 21230,
+    "workers_online": 15,
+    "coordinator_uptime_sec": 1350,
     "node_uptime_pct": 100.0
   },
   "engine_telemetry": {
     "ok": true,
     "source": "engine",
-    "ts": 1787935840,
-    "uptime_s": 131564,
+    "ts": 1787957041,
+    "uptime_s": 1350,
     "active_strategies": 70,
     "node_height": 885,
-    "consensus_age_s": 29,
+    "consensus_age_s": 21230,
     "last_strategy_update_ts": 1787935810268,
-    "health_score": 1.0
+    "health_score": 0.7
   },
   "token_credibility": {
     "status": "GREEN",
@@ -1674,12 +1674,12 @@
     ],
     "dex_price_usd": 0.0023876,
     "nav_vs_dex_spread": -0.0812,
-    "last_verified_ts": 1787935839,
+    "last_verified_ts": 1787957040,
     "staleness_s": 1,
     "verifier": "Bull4Life peg-drift-watch CI (independent, every 15 min) \u2014 supply verified vs live external chain supply"
   },
   "genesis_agnostic_note": "chain-side read surface; nav.* echoes the last on-chain nav_commit (Cludia produces + signs NAV).",
-  "sig": "bc2ef1550568e1542738b916719df7412daa3a5713ac3771dd6b15da1ed51b42a68282e25c2a783c962a4b625b1f73bb517844322d0f21b151131d267a32750f",
+  "sig": "51e5d3904ce25240b9348cdd162247e39e9198fecf5ae16ef909049b797c8f41a89b6767a75c7c0476fc927b7797c582ace2b324ae9c2cd3778a30fc4a071900",
   "pubkey": "aac44d07cf44e663402fd4f42107a167756647d059cb6e8534f96c8c8f05a053",
   "signed": true
 }
