@@ -46,6 +46,7 @@ jobs:
           B4L_COORDINATOR: https://compute.bull4life.com
           B4L_DRAIN_TOKEN: ${{ secrets.B4L_DRAIN_TOKEN }}
           B4L_CANON_SIZING: '1'
+          B4L_NEW_SETTINGS: '1'   # HONEST FILLS: verify/mint on the v1.15.0 honest-fill engine (kills B3 ~54%% sweep overstatement) so 'verified' means real, not phantom
           B4L_CREDIT_SHARD: ${{ matrix.shard }}
           B4L_CYCLE_BUDGET_SEC: '3900'
         run: python strategy_plan.py --once --no-deliver || true
