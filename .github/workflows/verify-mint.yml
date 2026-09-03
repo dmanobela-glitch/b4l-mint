@@ -40,6 +40,24 @@ jobs:
       - name: Install deps
         working-directory: engine
         run: pip install -r requirements-node.txt ccxt matplotlib   # matplotlib for the marketing chart render (folded-in step; #90 — was missing -> 0 PNGs)
+      - name: Mount the PINNED engine tree the fleet binary was built from (compute/verify_env.json engine_ref)
+        working-directory: engine
+        run: |
+          # __B4L_REGIME_PIN__ (2026-09-03): fleet diamonds are hunted on the engine COMMIT the node binary was built
+          # from (verify_env.json engine_ref = d89bf97 / fan-1.0.0), while master HEAD carries the in-dev tree
+          # (fan-1.0.1 tier tree). Re-running fleet rows on HEAD reproduces NONE of them (2026-09-01: 0 fleet credits,
+          # the "verifier inversion"). With B4L_ENGINE_REF_DIR set the verifier re-runs WT rows through
+          # compute/rerun_worker.py on THIS checkout (per-row regime + candle window); unset = in-process on HEAD.
+          REF=$(python -c "import json;print(json.load(open('compute/verify_env.json')).get('engine_ref',''))" 2>/dev/null || true)
+          if [ -z "$REF" ]; then
+            echo "[pin] no engine_ref in compute/verify_env.json — verifier re-runs in-process on HEAD"; exit 0
+          fi
+          if git worktree add --detach "$HOME/engine_ref" "$REF" 2>/dev/null; then
+            echo "B4L_ENGINE_REF_DIR=$HOME/engine_ref" >> "$GITHUB_ENV"
+            echo "[pin] engine_ref=$REF mounted at $HOME/engine_ref ($(git -C "$HOME/engine_ref" log -1 --format='%h %ad' --date=short))"
+          else
+            echo "[pin] engine_ref=$REF is not in this clone — verifier re-runs in-process on HEAD (fleet rows will NOT credit)"
+          fi
       - name: Cache coordinator candles (delta top-up after first run)
         uses: actions/cache@v4
         with:
