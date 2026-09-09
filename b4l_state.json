@@ -10,7 +10,7 @@
     "live_chains": [
       "solana"
     ],
-    "last_verified_ts": 1788954729,
+    "last_verified_ts": 1788954974,
     "verifier": "Bull4Life peg-drift-watch CI (independent, every 15 min) \u2014 supply verified vs live external chain supply",
     "freeze_authority": "revoked",
     "description": "Bull4Life (B4L) \u2014 reserve-backed 1:1 by the canonical fund; NAV-priced; freeze authority revoked; wrapped supply verifiably == on-chain reserve.",
@@ -44,7 +44,7 @@
           "status": "OK"
         }
       },
-      "checked_ts": 1788954729
+      "checked_ts": 1788954974
     }
   },
   "header": {
@@ -1472,19 +1472,19 @@
     "total_b4l": 1000000.0,
     "consensus_ops": [],
     "recent_ops": [],
-    "sync_lag_s": 4607,
+    "sync_lag_s": 4852,
     "workers_online": 49,
-    "coordinator_uptime_sec": 165282,
+    "coordinator_uptime_sec": 165527,
     "node_uptime_pct": 100.0
   },
   "engine_telemetry": {
     "ok": true,
     "source": "engine",
-    "ts": 1788954730,
-    "uptime_s": 165282,
+    "ts": 1788954976,
+    "uptime_s": 165527,
     "active_strategies": 61,
     "node_height": 1422,
-    "consensus_age_s": 4607,
+    "consensus_age_s": 4852,
     "last_strategy_update_ts": null,
     "health_score": 1.0
   },
@@ -1509,12 +1509,12 @@
     ],
     "dex_price_usd": 0.0023876,
     "nav_vs_dex_spread": 0.0757,
-    "last_verified_ts": 1788954729,
-    "staleness_s": 1,
+    "last_verified_ts": 1788954974,
+    "staleness_s": 2,
     "verifier": "Bull4Life peg-drift-watch CI (independent, every 15 min) \u2014 supply verified vs live external chain supply"
   },
   "genesis_agnostic_note": "chain-side read surface; nav.* echoes the last on-chain nav_commit (Cludia produces + signs NAV).",
-  "sig": "a96ba791d3e796aee5dcee2da916bcf57aad765fc9d1adeb76772eb7069536055dc7eaa10a1f7aedc94486c2226dbbff840fb144ed94c12c7c9ec543b3a0a30b",
+  "sig": "866821c27a38f40006188c99f93d217f21804049ce31c190acd1e5426175398c980fdcd78b0275c0bd7e4ddb2ddba205980c291dcc34da724fd303d21fa50805",
   "pubkey": "aac44d07cf44e663402fd4f42107a167756647d059cb6e8534f96c8c8f05a053",
   "signed": true
 }
