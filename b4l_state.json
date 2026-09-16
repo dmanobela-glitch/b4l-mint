@@ -10,7 +10,7 @@
     "live_chains": [
       "solana"
     ],
-    "last_verified_ts": 1789518701,
+    "last_verified_ts": 1789521982,
     "verifier": "Bull4Life peg-drift-watch CI (independent, every 15 min) \u2014 supply verified vs live external chain supply",
     "freeze_authority": "revoked",
     "description": "Bull4Life (B4L) \u2014 reserve-backed 1:1 by the canonical fund; NAV-priced; freeze authority revoked; wrapped supply verifiably == on-chain reserve.",
@@ -44,7 +44,7 @@
           "status": "OK"
         }
       },
-      "checked_ts": 1789518700
+      "checked_ts": 1789521982
     }
   },
   "header": {
@@ -1519,19 +1519,19 @@
         "height": 1465
       }
     ],
-    "sync_lag_s": 1798,
+    "sync_lag_s": 5079,
     "workers_online": 36,
-    "coordinator_uptime_sec": 324080,
+    "coordinator_uptime_sec": 327361,
     "node_uptime_pct": 100.0
   },
   "engine_telemetry": {
     "ok": true,
     "source": "engine",
-    "ts": 1789518702,
-    "uptime_s": 324080,
+    "ts": 1789521983,
+    "uptime_s": 327361,
     "active_strategies": 61,
     "node_height": 1479,
-    "consensus_age_s": 1798,
+    "consensus_age_s": 5079,
     "last_strategy_update_ts": 1789503065463,
     "health_score": 1.0
   },
@@ -1556,12 +1556,12 @@
     ],
     "dex_price_usd": 0.0023876,
     "nav_vs_dex_spread": 0.6209,
-    "last_verified_ts": 1789518701,
+    "last_verified_ts": 1789521982,
     "staleness_s": 1,
     "verifier": "Bull4Life peg-drift-watch CI (independent, every 15 min) \u2014 supply verified vs live external chain supply"
   },
   "genesis_agnostic_note": "chain-side read surface; nav.* echoes the last on-chain nav_commit (Cludia produces + signs NAV).",
-  "sig": "2293e25fbd85fd22f60d170a6dba6b135f87f36857fd6efe4579171339fbc4fa63e8ecc4c151ed78e74326ec326768463ced2dd822b13e687e6e2761527c5706",
+  "sig": "8315a08a4a725d7fa67557c1eb4d236d2dcd3b1cd5ba16bf111cc08a28a8cc61e7dfdf34e368a0a1b01378450fa1b8c063056492801730a49acba069348ed706",
   "pubkey": "aac44d07cf44e663402fd4f42107a167756647d059cb6e8534f96c8c8f05a053",
   "signed": true
 }
