@@ -10,7 +10,7 @@
     "live_chains": [
       "solana"
     ],
-    "last_verified_ts": 1789838647,
+    "last_verified_ts": 1789844256,
     "verifier": "Bull4Life peg-drift-watch CI (independent, every 15 min) \u2014 supply verified vs live external chain supply",
     "freeze_authority": "revoked",
     "description": "Bull4Life (B4L) \u2014 reserve-backed 1:1 by the canonical fund; NAV-priced; freeze authority revoked; wrapped supply verifiably == on-chain reserve.",
@@ -44,7 +44,7 @@
           "status": "OK"
         }
       },
-      "checked_ts": 1789838647
+      "checked_ts": 1789844256
     }
   },
   "header": {
@@ -83,7 +83,7 @@
     "oracle_marks": {},
     "committed": true,
     "tip_height": 1512,
-    "age_s": 146140.95,
+    "age_s": 151749.599,
     "max_age_s": 172800,
     "stale": false,
     "usable": true
@@ -1504,21 +1504,21 @@
         "height": 1499
       }
     ],
-    "sync_lag_s": 4322,
+    "sync_lag_s": 9931,
     "workers_online": 36,
-    "coordinator_uptime_sec": 644027,
+    "coordinator_uptime_sec": 649636,
     "node_uptime_pct": 100.0
   },
   "engine_telemetry": {
     "ok": true,
     "source": "engine",
-    "ts": 1789838648,
-    "uptime_s": 644027,
+    "ts": 1789844257,
+    "uptime_s": 649636,
     "active_strategies": 61,
     "node_height": 1512,
-    "consensus_age_s": 4322,
+    "consensus_age_s": 9931,
     "last_strategy_update_ts": 1789708835804,
-    "health_score": 1.0
+    "health_score": 0.7
   },
   "token_credibility": {
     "status": "GREEN",
@@ -1542,14 +1542,14 @@
     "dex_price_usd": 0.0023876,
     "nav_vs_dex_spread": 0.3836,
     "nav_stale": false,
-    "nav_age_s": 146140.95,
+    "nav_age_s": 151749.599,
     "nav_max_age_s": 172800,
-    "last_verified_ts": 1789838647,
+    "last_verified_ts": 1789844256,
     "staleness_s": 1,
     "verifier": "Bull4Life peg-drift-watch CI (independent, every 15 min) \u2014 supply verified vs live external chain supply"
   },
   "genesis_agnostic_note": "chain-side read surface; nav.* echoes the last on-chain nav_commit (Cludia produces + signs NAV).",
-  "sig": "993ad256931ad623242a5d8e5ed6fa7762253801a42cc5406359565a7b9a55fbd1f489753f841aed4e2696eb88f6058e7de0a5ce5da583874214081edab26d00",
+  "sig": "3ee2144e75e438de33f7569c47cc24d1e7ff3ddc045490e3d1a5697fe4ee56dedac60f3908fe148b2ab4948e714d7483ccca3d6c9fb656605dd6d798d3e3f805",
   "pubkey": "aac44d07cf44e663402fd4f42107a167756647d059cb6e8534f96c8c8f05a053",
   "signed": true
 }
