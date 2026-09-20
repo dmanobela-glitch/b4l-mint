@@ -10,7 +10,7 @@
     "live_chains": [
       "solana"
     ],
-    "last_verified_ts": 1789930367,
+    "last_verified_ts": 1789937984,
     "verifier": "Bull4Life peg-drift-watch CI (independent, every 15 min) \u2014 supply verified vs live external chain supply",
     "freeze_authority": "revoked",
     "description": "Bull4Life (B4L) \u2014 reserve-backed 1:1 by the canonical fund; NAV-priced; freeze authority revoked; wrapped supply verifiably == on-chain reserve.",
@@ -44,22 +44,22 @@
           "status": "OK"
         }
       },
-      "checked_ts": 1789930367
+      "checked_ts": 1789937984
     }
   },
   "header": {
-    "height": 1519,
-    "hash": "cd9d97d7f064e499d95207014be416db17ef01b1856e66e162c59b2b8f271a8b",
+    "height": 1520,
+    "hash": "55ac015e43c138a4a3ce3ecc6d8fbb0bd15bdc3a2c19461beaebfc60cd499b24",
     "genesis_hash": "22648a4d9a6a9a2a472ed81f2b023d95a32994565be6130c53875a2dae9a6c60"
   },
   "account": {
-    "b4l12h3b67w2xbshqg7i4wuv2hstv74aklcwocr2ta": 912841.3162
+    "b4l12h3b67w2xbshqg7i4wuv2hstv74aklcwocr2ta": 912841.2154
   },
   "mint_status": {
-    "verified_total": 32683800.0,
+    "verified_total": 32784600.0,
     "verified_total_source": "verified_credits.json",
     "last_mint_height": null,
-    "tip_total_coresec": 32683800.0,
+    "tip_total_coresec": 32784600.0,
     "total_b4l": 1000000.0
   },
   "nav": {
@@ -68,7 +68,7 @@
     "nav_per_b4l_usd": 0.001725598126,
     "nav_per_b4l": 0.001725598126,
     "supply_total": 1000000.0,
-    "supply_circulating": 87158.6838,
+    "supply_circulating": 87158.7846,
     "reserves_usd_total": 1725.598126,
     "reserves": {
       "chain_wallets": {
@@ -82,8 +82,8 @@
     },
     "oracle_marks": {},
     "committed": true,
-    "tip_height": 1519,
-    "age_s": 237860.64,
+    "tip_height": 1520,
+    "age_s": 245477.394,
     "max_age_s": 172800,
     "stale": true,
     "usable": false
@@ -91,8 +91,8 @@
   "total_b4l": 1000000.0,
   "mint_reward_budget": {
     "cap": 1000000.0,
-    "redistributed": 32.6838,
-    "remaining": 999967.3162
+    "redistributed": 32.7846,
+    "remaining": 999967.2154
   },
   "chain_wallets": {
     "arbitrum": {
@@ -1473,7 +1473,7 @@
     }
   },
   "chain_telemetry": {
-    "height": 1519,
+    "height": 1520,
     "total_b4l": 1000000.0,
     "consensus_ops": [
       {
@@ -1483,21 +1483,21 @@
       }
     ],
     "recent_ops": [],
-    "sync_lag_s": 10957,
+    "sync_lag_s": 6267,
     "workers_online": 36,
-    "coordinator_uptime_sec": 735747,
+    "coordinator_uptime_sec": 743364,
     "node_uptime_pct": 100.0
   },
   "engine_telemetry": {
     "ok": true,
     "source": "engine",
-    "ts": 1789930368,
-    "uptime_s": 735747,
+    "ts": 1789937985,
+    "uptime_s": 743364,
     "active_strategies": 61,
-    "node_height": 1519,
-    "consensus_age_s": 10957,
+    "node_height": 1520,
+    "consensus_age_s": 6267,
     "last_strategy_update_ts": null,
-    "health_score": 0.7
+    "health_score": 1.0
   },
   "token_credibility": {
     "status": "YELLOW",
@@ -1521,14 +1521,14 @@
     "dex_price_usd": 0.0023876,
     "nav_vs_dex_spread": 0.3836,
     "nav_stale": true,
-    "nav_age_s": 237860.64,
+    "nav_age_s": 245477.394,
     "nav_max_age_s": 172800,
-    "last_verified_ts": 1789930367,
+    "last_verified_ts": 1789937984,
     "staleness_s": 1,
     "verifier": "Bull4Life peg-drift-watch CI (independent, every 15 min) \u2014 supply verified vs live external chain supply"
   },
   "genesis_agnostic_note": "chain-side read surface; nav.* echoes the last on-chain nav_commit (Cludia produces + signs NAV).",
-  "sig": "96921b596254c20efbd7eb9e4883013e938c910fac75e38e0304377ca7348af64deba09f8b99c4f2d3adc38e97629f6834c6912d9cff33f81addb2e66b06fd03",
+  "sig": "078b76e376816fa1e7dcc5fa810356e0ffc79dcba01e514aa794142ffc93e5db823ebb725ed7eb6ec4189421ac22fdd74bbb3ab7ad3fd084e7400ba83df40c02",
   "pubkey": "aac44d07cf44e663402fd4f42107a167756647d059cb6e8534f96c8c8f05a053",
   "signed": true
 }
