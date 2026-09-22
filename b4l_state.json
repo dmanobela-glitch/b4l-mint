@@ -10,7 +10,7 @@
     "live_chains": [
       "solana"
     ],
-    "last_verified_ts": 1790056402,
+    "last_verified_ts": 1790057707,
     "verifier": "Bull4Life peg-drift-watch CI (independent, every 15 min) \u2014 supply verified vs live external chain supply",
     "freeze_authority": "revoked",
     "description": "Bull4Life (B4L) \u2014 reserve-backed 1:1 by the canonical fund; NAV-priced; freeze authority revoked; wrapped supply verifiably == on-chain reserve.",
@@ -44,7 +44,7 @@
           "status": "OK"
         }
       },
-      "checked_ts": 1790056402
+      "checked_ts": 1790057707
     }
   },
   "header": {
@@ -83,7 +83,7 @@
     "oracle_marks": {},
     "committed": true,
     "tip_height": 1528,
-    "age_s": 363895.284,
+    "age_s": 365200.638,
     "max_age_s": 172800,
     "stale": true,
     "usable": false
@@ -1477,19 +1477,19 @@
     "total_b4l": 1000000.0,
     "consensus_ops": [],
     "recent_ops": [],
-    "sync_lag_s": 399,
+    "sync_lag_s": 1705,
     "workers_online": 36,
-    "coordinator_uptime_sec": 861781,
+    "coordinator_uptime_sec": 863087,
     "node_uptime_pct": 100.0
   },
   "engine_telemetry": {
     "ok": true,
     "source": "engine",
-    "ts": 1790056403,
-    "uptime_s": 861781,
+    "ts": 1790057708,
+    "uptime_s": 863087,
     "active_strategies": 61,
     "node_height": 1528,
-    "consensus_age_s": 399,
+    "consensus_age_s": 1705,
     "last_strategy_update_ts": null,
     "health_score": 1.0
   },
@@ -1515,14 +1515,14 @@
     "dex_price_usd": 0.0023876,
     "nav_vs_dex_spread": 0.3836,
     "nav_stale": true,
-    "nav_age_s": 363895.284,
+    "nav_age_s": 365200.638,
     "nav_max_age_s": 172800,
-    "last_verified_ts": 1790056402,
+    "last_verified_ts": 1790057707,
     "staleness_s": 1,
     "verifier": "Bull4Life peg-drift-watch CI (independent, every 15 min) \u2014 supply verified vs live external chain supply"
   },
   "genesis_agnostic_note": "chain-side read surface; nav.* echoes the last on-chain nav_commit (Cludia produces + signs NAV).",
-  "sig": "7ed1a9c238ce59dfdfc5572e45f6324561e8de660abec55fc8555da208db49354dd96f3447cc17990d94a722678eb6230ebcca844addf369809023e75255e80d",
+  "sig": "06ef068125619ab977ad3b8bcfbfc88673b45d5e998d1028d5308181dcc054ba6895795e0190682ce8c9e8548a1a488c8ce4eabc77044d2b80d408d01356380b",
   "pubkey": "aac44d07cf44e663402fd4f42107a167756647d059cb6e8534f96c8c8f05a053",
   "signed": true
 }
