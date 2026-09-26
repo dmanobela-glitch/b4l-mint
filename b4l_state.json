@@ -10,7 +10,7 @@
     "live_chains": [
       "solana"
     ],
-    "last_verified_ts": 1790384207,
+    "last_verified_ts": 1790388822,
     "verifier": "Bull4Life peg-drift-watch CI (independent, every 15 min) \u2014 supply verified vs live external chain supply",
     "freeze_authority": "revoked",
     "description": "Bull4Life (B4L) \u2014 reserve-backed 1:1 by the canonical fund; NAV-priced; freeze authority revoked; wrapped supply verifiably == on-chain reserve.",
@@ -44,7 +44,7 @@
           "status": "OK"
         }
       },
-      "checked_ts": 1790384206
+      "checked_ts": 1790388822
     }
   },
   "header": {
@@ -83,7 +83,7 @@
     "oracle_marks": {},
     "committed": true,
     "tip_height": 1548,
-    "age_s": 691700.043,
+    "age_s": 696315.633,
     "max_age_s": 172800,
     "stale": true,
     "usable": false
@@ -1477,19 +1477,19 @@
     "total_b4l": 1000000.0,
     "consensus_ops": [],
     "recent_ops": [],
-    "sync_lag_s": 2070,
+    "sync_lag_s": 6686,
     "workers_online": 34,
-    "coordinator_uptime_sec": 66715,
+    "coordinator_uptime_sec": 71331,
     "node_uptime_pct": 100.0
   },
   "engine_telemetry": {
     "ok": true,
     "source": "engine",
-    "ts": 1790384207,
-    "uptime_s": 66715,
+    "ts": 1790388823,
+    "uptime_s": 71331,
     "active_strategies": 61,
     "node_height": 1548,
-    "consensus_age_s": 2070,
+    "consensus_age_s": 6686,
     "last_strategy_update_ts": null,
     "health_score": 1.0
   },
@@ -1515,14 +1515,14 @@
     "dex_price_usd": 0.0023876,
     "nav_vs_dex_spread": 0.3836,
     "nav_stale": true,
-    "nav_age_s": 691700.043,
+    "nav_age_s": 696315.633,
     "nav_max_age_s": 172800,
-    "last_verified_ts": 1790384207,
-    "staleness_s": 0,
+    "last_verified_ts": 1790388822,
+    "staleness_s": 1,
     "verifier": "Bull4Life peg-drift-watch CI (independent, every 15 min) \u2014 supply verified vs live external chain supply"
   },
   "genesis_agnostic_note": "chain-side read surface; nav.* echoes the last on-chain nav_commit (Cludia produces + signs NAV).",
-  "sig": "3bcb54bb2eb560ba347ed5a8e07a8fb6842cb97aafbae223886341dd0b4ca4ea0e256674d7cf20e4fe600a91632cc18810f1aa2709629bb25f5a87f62d22bf0b",
+  "sig": "a70b566fe2275e409582bdf920841a454c6cf37b1e36da73fec8ba7b8dbb63153159d45b9a5c9398ec6fce96e83251d75d8b71012aecadb22aeb92e5e082d008",
   "pubkey": "aac44d07cf44e663402fd4f42107a167756647d059cb6e8534f96c8c8f05a053",
   "signed": true
 }
