@@ -10,8 +10,8 @@
     "live_chains": [
       "solana"
     ],
-    "last_verified_ts": 1790401991,
-    "verifier": "Bull4Life peg-drift-watch CI (independent, every 15 min) \u2014 supply verified vs live external chain supply",
+    "last_verified_ts": 1790408574,
+    "verifier": "Bull4Life peg-drift-watch CI (independent; GitHub-scheduled, about every 1 to 3 hours) \u2014 supply verified vs live external chain supply",
     "freeze_authority": "revoked",
     "description": "Bull4Life (B4L) \u2014 reserve-backed 1:1 by the canonical fund; NAV-priced; freeze authority revoked; wrapped supply verifiably == on-chain reserve.",
     "reserves_usd_source": "signed NAV (nav_commit) \u00d7 supply = total fund equity across ALL venues (fund account + per-chain MM inventory + LP + exchange balances). Deployed capital counts. Off-chain balances aggregated by the desk into the signed NAV; on-chain holdings enumerated below.",
@@ -44,7 +44,7 @@
           "status": "OK"
         }
       },
-      "checked_ts": 1790401991
+      "checked_ts": 1790408573
     }
   },
   "header": {
@@ -83,7 +83,7 @@
     "oracle_marks": {},
     "committed": true,
     "tip_height": 1549,
-    "age_s": 709484.369,
+    "age_s": 716067.165,
     "max_age_s": 172800,
     "stale": true,
     "usable": false
@@ -1477,19 +1477,19 @@
     "total_b4l": 1000000.0,
     "consensus_ops": [],
     "recent_ops": [],
-    "sync_lag_s": 12077,
+    "sync_lag_s": 18660,
     "workers_online": 34,
-    "coordinator_uptime_sec": 84500,
+    "coordinator_uptime_sec": 91082,
     "node_uptime_pct": 100.0
   },
   "engine_telemetry": {
     "ok": true,
     "source": "engine",
-    "ts": 1790401992,
-    "uptime_s": 84500,
+    "ts": 1790408575,
+    "uptime_s": 91082,
     "active_strategies": 61,
     "node_height": 1549,
-    "consensus_age_s": 12077,
+    "consensus_age_s": 18660,
     "last_strategy_update_ts": null,
     "health_score": 0.7
   },
@@ -1515,14 +1515,14 @@
     "dex_price_usd": 0.0023876,
     "nav_vs_dex_spread": 0.3836,
     "nav_stale": true,
-    "nav_age_s": 709484.369,
+    "nav_age_s": 716067.165,
     "nav_max_age_s": 172800,
-    "last_verified_ts": 1790401991,
+    "last_verified_ts": 1790408574,
     "staleness_s": 1,
-    "verifier": "Bull4Life peg-drift-watch CI (independent, every 15 min) \u2014 supply verified vs live external chain supply"
+    "verifier": "Bull4Life peg-drift-watch CI (independent; GitHub-scheduled, about every 1 to 3 hours) \u2014 supply verified vs live external chain supply"
   },
   "genesis_agnostic_note": "chain-side read surface; nav.* echoes the last on-chain nav_commit (Cludia produces + signs NAV).",
-  "sig": "6a738b6b3a841e405ac7be19c5ee6592ee133bc374f0784ebbce5b0a5b7fce7d372a9c32bf4e397e206ba1bcfb1fad01a99d2ad463c9c55ebd2048a1e0db2e00",
+  "sig": "3677e08e8dc4a0f26129f1eb990cdba87b5339dacaabf68b2914ffeb7fd34cb16c62e0fb8b80ef18c21e8f71d5b60a79edee21edf1b3d71f7622db8977906f0d",
   "pubkey": "aac44d07cf44e663402fd4f42107a167756647d059cb6e8534f96c8c8f05a053",
   "signed": true
 }
