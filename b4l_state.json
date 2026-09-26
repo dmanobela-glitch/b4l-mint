@@ -10,7 +10,7 @@
     "live_chains": [
       "solana"
     ],
-    "last_verified_ts": 1790423336,
+    "last_verified_ts": 1790431608,
     "verifier": "Bull4Life peg-drift-watch CI (independent; GitHub-scheduled, about every 1 to 3 hours) \u2014 supply verified vs live external chain supply",
     "freeze_authority": "revoked",
     "description": "Bull4Life (B4L) \u2014 reserve-backed 1:1 by the canonical fund; NAV-priced; freeze authority revoked; wrapped supply verifiably == on-chain reserve.",
@@ -44,7 +44,7 @@
           "status": "OK"
         }
       },
-      "checked_ts": 1790423336
+      "checked_ts": 1790431608
     }
   },
   "header": {
@@ -83,7 +83,7 @@
     "oracle_marks": {},
     "committed": true,
     "tip_height": 1550,
-    "age_s": 730829.913,
+    "age_s": 739101.492,
     "max_age_s": 172800,
     "stale": true,
     "usable": false
@@ -1477,19 +1477,19 @@
     "total_b4l": 1000000.0,
     "consensus_ops": [],
     "recent_ops": [],
-    "sync_lag_s": 11979,
+    "sync_lag_s": 20251,
     "workers_online": 34,
-    "coordinator_uptime_sec": 105845,
+    "coordinator_uptime_sec": 114117,
     "node_uptime_pct": 100.0
   },
   "engine_telemetry": {
     "ok": true,
     "source": "engine",
-    "ts": 1790423337,
-    "uptime_s": 105845,
+    "ts": 1790431609,
+    "uptime_s": 114117,
     "active_strategies": 61,
     "node_height": 1550,
-    "consensus_age_s": 11979,
+    "consensus_age_s": 20251,
     "last_strategy_update_ts": null,
     "health_score": 0.7
   },
@@ -1515,14 +1515,14 @@
     "dex_price_usd": 0.0023876,
     "nav_vs_dex_spread": 0.3836,
     "nav_stale": true,
-    "nav_age_s": 730829.913,
+    "nav_age_s": 739101.492,
     "nav_max_age_s": 172800,
-    "last_verified_ts": 1790423336,
+    "last_verified_ts": 1790431608,
     "staleness_s": 1,
     "verifier": "Bull4Life peg-drift-watch CI (independent; GitHub-scheduled, about every 1 to 3 hours) \u2014 supply verified vs live external chain supply"
   },
   "genesis_agnostic_note": "chain-side read surface; nav.* echoes the last on-chain nav_commit (Cludia produces + signs NAV).",
-  "sig": "5d3b136cb63dc35713f96c1be83f49930c9acc4cc85cbf302d71dd3470b0cbec6cfd8e5fd21c236e72a0797aecd8698c0b6f61e7b6b5dec6aedc5a57f3271f0e",
+  "sig": "83cc8854df3cd53c39ec6d0995c3ec53291b9aa29c9474d66f28baa703f3872e06f9db2dcdcbca37f227900a243dbd5a3316041d29f4760c4c89d1fd0b8b980c",
   "pubkey": "aac44d07cf44e663402fd4f42107a167756647d059cb6e8534f96c8c8f05a053",
   "signed": true
 }
