@@ -10,7 +10,7 @@
     "live_chains": [
       "solana"
     ],
-    "last_verified_ts": 1790756497,
+    "last_verified_ts": 1790757858,
     "verifier": "Bull4Life peg-drift-watch CI (independent; GitHub-scheduled, about every 1 to 3 hours) \u2014 supply verified vs live external chain supply",
     "freeze_authority": "revoked",
     "description": "Bull4Life (B4L) \u2014 reserve-backed 1:1 by the canonical fund; NAV-priced; freeze authority revoked; wrapped supply verifiably == on-chain reserve.",
@@ -44,7 +44,7 @@
           "status": "OK"
         }
       },
-      "checked_ts": 1790756497
+      "checked_ts": 1790757857
     }
   },
   "header": {
@@ -83,7 +83,7 @@
     "oracle_marks": {},
     "committed": true,
     "tip_height": 1597,
-    "age_s": 22334.621,
+    "age_s": 23695.13,
     "max_age_s": 172800,
     "stale": false,
     "usable": true
@@ -1524,19 +1524,19 @@
         "height": 1583
       }
     ],
-    "sync_lag_s": 32,
+    "sync_lag_s": 1393,
     "workers_online": 26,
-    "coordinator_uptime_sec": 4958,
+    "coordinator_uptime_sec": 6318,
     "node_uptime_pct": 100.0
   },
   "engine_telemetry": {
     "ok": true,
     "source": "engine",
-    "ts": 1790756498,
-    "uptime_s": 4958,
+    "ts": 1790757859,
+    "uptime_s": 6318,
     "active_strategies": 61,
     "node_height": 1597,
-    "consensus_age_s": 32,
+    "consensus_age_s": 1393,
     "last_strategy_update_ts": 1790756465352,
     "health_score": 1.0
   },
@@ -1562,14 +1562,14 @@
     "dex_price_usd": 0.0023876,
     "nav_vs_dex_spread": -0.4734,
     "nav_stale": false,
-    "nav_age_s": 22334.621,
+    "nav_age_s": 23695.13,
     "nav_max_age_s": 172800,
-    "last_verified_ts": 1790756497,
+    "last_verified_ts": 1790757858,
     "staleness_s": 1,
     "verifier": "Bull4Life peg-drift-watch CI (independent; GitHub-scheduled, about every 1 to 3 hours) \u2014 supply verified vs live external chain supply"
   },
   "genesis_agnostic_note": "chain-side read surface; nav.* echoes the last on-chain nav_commit (Cludia produces + signs NAV).",
-  "sig": "cda6f957f361f0df6f0ff6c3f29709aa17fe8b9b984d42399c6f1129dc79bf093d0c235099aabe7f1ccaa9b5d20d8f9e883eb26c9f7ff737fa7be1cc130e880f",
+  "sig": "c86cd6f30dba9970747b9691b9a03cfaca93353bc5ce0064826f36ace12820e7d5202dad928dc32dd6618d259bb224438537bc0fe0773a9e92e938068112f60f",
   "pubkey": "aac44d07cf44e663402fd4f42107a167756647d059cb6e8534f96c8c8f05a053",
   "signed": true
 }
