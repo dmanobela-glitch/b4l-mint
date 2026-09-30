@@ -145,7 +145,9 @@ jobs:
           mkdir -p compute
           gh release download best-configs -R dmanobela-glitch/b4l-mint -p best_configs.json -O compute/best_configs.json 2>/dev/null \
             && echo "[configs] merged onto the prior published bundle" || echo "[configs] no prior release asset (first run) — starting fresh"
-          python tools/export_best_configs.py || { echo "[configs] export failed — skip (mint unaffected)"; exit 0; }
+          # __B4L_EXPORT_SWEEP_EFF__ ON: sweep entries carry tp_eff/limit_eff/set_off_eff/ss_off_eff (additive keys;
+          # WT entries untouched; OFF proven identical 720d09e). Master GO via bot seq47711 item (c), 2026-09-30.
+          B4L_EXPORT_SWEEP_EFF=1 python tools/export_best_configs.py || { echo "[configs] export failed — skip (mint unaffected)"; exit 0; }
           [ -f compute/best_configs.json ] || { echo "[configs] no bundle produced — skip"; exit 0; }
           N=$(python -c "import json;print(json.load(open('compute/best_configs.json')).get('count',0))" 2>/dev/null || echo '?')
           echo "[configs] publishing $N Bybit-perp configs to the best-configs release"
