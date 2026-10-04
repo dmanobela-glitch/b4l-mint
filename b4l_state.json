@@ -10,7 +10,7 @@
     "live_chains": [
       "solana"
     ],
-    "last_verified_ts": 1791138220,
+    "last_verified_ts": 1791145771,
     "verifier": "Bull4Life peg-drift-watch CI (independent; GitHub-scheduled, about every 1 to 3 hours) \u2014 supply verified vs live external chain supply",
     "freeze_authority": "revoked",
     "description": "Bull4Life (B4L) \u2014 reserve-backed 1:1 by the canonical fund; NAV-priced; freeze authority revoked; wrapped supply verifiably == on-chain reserve.",
@@ -44,22 +44,22 @@
           "status": "OK"
         }
       },
-      "checked_ts": 1791138220
+      "checked_ts": 1791145770
     }
   },
   "header": {
-    "height": 1645,
-    "hash": "f46968fe20f028a21f34b7929f4a13823dc60969f58119ca3ab54fb834c6ba24",
+    "height": 1646,
+    "hash": "980429de242a97afe50a2191a4dfad0be5874df92aa62bca59bfe997a0ff55fd",
     "genesis_hash": "22648a4d9a6a9a2a472ed81f2b023d95a32994565be6130c53875a2dae9a6c60"
   },
   "account": {
-    "b4l12h3b67w2xbshqg7i4wuv2hstv74aklcwocr2ta": 912831.868
+    "b4l12h3b67w2xbshqg7i4wuv2hstv74aklcwocr2ta": 912831.7684
   },
   "mint_status": {
-    "verified_total": 42132000.0,
+    "verified_total": 42231600.0,
     "verified_total_source": "verified_credits.json",
     "last_mint_height": null,
-    "tip_total_coresec": 42132000.0,
+    "tip_total_coresec": 42231600.0,
     "total_b4l": 1000000.0
   },
   "nav": {
@@ -68,7 +68,7 @@
     "nav_per_b4l_usd": 0.003995635354,
     "nav_per_b4l": 0.003995635354,
     "supply_total": 1000000.0,
-    "supply_circulating": 87168.132,
+    "supply_circulating": 87168.2316,
     "reserves_usd_total": 3995.635354,
     "reserves": {
       "chain_wallets": {
@@ -82,8 +82,8 @@
     },
     "oracle_marks": {},
     "committed": true,
-    "tip_height": 1645,
-    "age_s": 13217.984,
+    "tip_height": 1646,
+    "age_s": 20768.15,
     "max_age_s": 172800,
     "stale": false,
     "usable": true
@@ -91,8 +91,8 @@
   "total_b4l": 1000000.0,
   "mint_reward_budget": {
     "cap": 1000000.0,
-    "redistributed": 42.132,
-    "remaining": 999957.868
+    "redistributed": 42.2316,
+    "remaining": 999957.7684
   },
   "chain_wallets": {
     "arbitrum": {
@@ -1473,12 +1473,12 @@
     }
   },
   "chain_telemetry": {
-    "height": 1645,
+    "height": 1646,
     "total_b4l": 1000000.0,
     "consensus_ops": [
       {
         "type": "nav_commit",
-        "count": 14,
+        "count": 13,
         "ts_ms": 1791138189939
       }
     ],
@@ -1534,19 +1534,19 @@
         "height": 1632
       }
     ],
-    "sync_lag_s": 31,
+    "sync_lag_s": 6956,
     "workers_online": 30,
-    "coordinator_uptime_sec": 386681,
+    "coordinator_uptime_sec": 394231,
     "node_uptime_pct": 100.0
   },
   "engine_telemetry": {
     "ok": true,
     "source": "engine",
-    "ts": 1791138221,
-    "uptime_s": 386681,
+    "ts": 1791145772,
+    "uptime_s": 394231,
     "active_strategies": 61,
-    "node_height": 1645,
-    "consensus_age_s": 31,
+    "node_height": 1646,
+    "consensus_age_s": 6956,
     "last_strategy_update_ts": 1791138189939,
     "health_score": 1.0
   },
@@ -1572,14 +1572,14 @@
     "dex_price_usd": 0.0023876,
     "nav_vs_dex_spread": -0.4024,
     "nav_stale": false,
-    "nav_age_s": 13217.984,
+    "nav_age_s": 20768.15,
     "nav_max_age_s": 172800,
-    "last_verified_ts": 1791138220,
+    "last_verified_ts": 1791145771,
     "staleness_s": 1,
     "verifier": "Bull4Life peg-drift-watch CI (independent; GitHub-scheduled, about every 1 to 3 hours) \u2014 supply verified vs live external chain supply"
   },
   "genesis_agnostic_note": "chain-side read surface; nav.* echoes the last on-chain nav_commit (Cludia produces + signs NAV).",
-  "sig": "75b57701c7cbdbc286138c87ceeea5880c048a411e452549ff67d7d9fed5a8052e83c30262277b5597a4622619ecb7a5f7ae4e057636c6f237f4ffed619d1f07",
+  "sig": "702f0e2fcf9e1e37c6d49e234d96598bbd7cc0551c5490d06a72d2cdd7875461572576f13ac4ca28a2a33d6144fcb4ae09a1b9e81e2fcf4052344eb4ad830d04",
   "pubkey": "aac44d07cf44e663402fd4f42107a167756647d059cb6e8534f96c8c8f05a053",
   "signed": true
 }
