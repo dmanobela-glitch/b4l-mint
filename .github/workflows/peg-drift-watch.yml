@@ -24,7 +24,7 @@ jobs:
         shell: bash
     steps:
       - name: Clone private engine source (read-only token, never logged)
-        run: git clone --depth 1 "https://x-access-token:${ENGINE_TOKEN}@github.com/Bull4Life/bull4life-engine.git" engine 2>/dev/null
+        run: git clone --depth 1 "https://x-access-token:${ENGINE_TOKEN}@github.com/dmanobela-glitch/bull4life-engine.git" engine 2>/dev/null
         env:
           ENGINE_TOKEN: ${{ secrets.ENGINE_TOKEN }}
       - uses: actions/setup-python@v5

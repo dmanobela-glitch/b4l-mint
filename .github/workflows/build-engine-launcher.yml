@@ -31,7 +31,7 @@ jobs:
         shell: bash
     steps:
       - name: Clone private engine source (read-only token, never logged)
-        run: git clone --depth 1 "https://x-access-token:${ENGINE_TOKEN}@github.com/Bull4Life/bull4life-engine.git" engine 2>/dev/null
+        run: git clone --depth 1 "https://x-access-token:${ENGINE_TOKEN}@github.com/dmanobela-glitch/bull4life-engine.git" engine 2>/dev/null
         env:
           ENGINE_TOKEN: ${{ secrets.ENGINE_TOKEN }}
       - uses: actions/setup-python@v5
@@ -104,8 +104,8 @@ jobs:
         run: |
           VER="${{ github.event.inputs.app_version }}"
           TAG="engine-app-v$VER"
-          gh release upload "$TAG" "Bull4LifeLauncher.exe" --clobber -R Bull4Life/bull4life-build
-          echo "=== LAUNCHER_URL https://github.com/Bull4Life/bull4life-build/releases/download/$TAG/Bull4LifeLauncher.exe ==="
+          gh release upload "$TAG" "Bull4LifeLauncher.exe" --clobber -R dmanobela-glitch/bull4life-build
+          echo "=== LAUNCHER_URL https://github.com/dmanobela-glitch/bull4life-build/releases/download/$TAG/Bull4LifeLauncher.exe ==="
           echo "=== launcher-only: bundle + signed manifest for $VER left intact ==="
       - name: ZIP-ONLY — clobber just the AV-safe zip onto the existing release (launcher/bundle/manifest untouched)
         if: ${{ github.event.inputs.zip_only == 'true' }}
@@ -114,8 +114,8 @@ jobs:
         run: |
           VER="${{ github.event.inputs.app_version }}"
           TAG="engine-app-v$VER"
-          gh release upload "$TAG" "Bull4LifeEngine-$VER-windows.zip" --clobber -R Bull4Life/bull4life-build
-          echo "=== ZIP_URL https://github.com/Bull4Life/bull4life-build/releases/download/$TAG/Bull4LifeEngine-$VER-windows.zip ==="
+          gh release upload "$TAG" "Bull4LifeEngine-$VER-windows.zip" --clobber -R dmanobela-glitch/bull4life-build
+          echo "=== ZIP_URL https://github.com/dmanobela-glitch/bull4life-build/releases/download/$TAG/Bull4LifeEngine-$VER-windows.zip ==="
           echo "=== zip-only: launcher + bundle.tar.gz + signed manifest for $VER left intact ==="
       - name: Publish a GitHub release (public assets — launcher + bundle.tar.gz + AV-safe zip)
         if: ${{ github.event.inputs.launcher_only != 'true' && github.event.inputs.zip_only != 'true' }}
@@ -128,10 +128,10 @@ jobs:
           ZIP="Bull4LifeEngine-$VER-windows.zip"
           SHA=$(sha256sum "$BUNDLE" | cut -d' ' -f1)
           echo "=== BUNDLE_SHA256 $SHA ==="
-          gh release delete "$TAG" -R Bull4Life/bull4life-build --yes --cleanup-tag 2>/dev/null || true
-          gh release create "$TAG" -R Bull4Life/bull4life-build --title "Engine App $VER" \
+          gh release delete "$TAG" -R dmanobela-glitch/bull4life-build --yes --cleanup-tag 2>/dev/null || true
+          gh release create "$TAG" -R dmanobela-glitch/bull4life-build --title "Engine App $VER" \
             --notes "Bull4Life Engine app $VER — thin launcher + bundle + AV-safe zip. bundle sha256=$SHA" \
             "Bull4LifeLauncher.exe" "$BUNDLE" "$ZIP"
-          echo "=== LAUNCHER_URL https://github.com/Bull4Life/bull4life-build/releases/download/$TAG/Bull4LifeLauncher.exe ==="
-          echo "=== BUNDLE_URL https://github.com/Bull4Life/bull4life-build/releases/download/$TAG/$BUNDLE ==="
-          echo "=== ZIP_URL https://github.com/Bull4Life/bull4life-build/releases/download/$TAG/$ZIP ==="
+          echo "=== LAUNCHER_URL https://github.com/dmanobela-glitch/bull4life-build/releases/download/$TAG/Bull4LifeLauncher.exe ==="
+          echo "=== BUNDLE_URL https://github.com/dmanobela-glitch/bull4life-build/releases/download/$TAG/$BUNDLE ==="
+          echo "=== ZIP_URL https://github.com/dmanobela-glitch/bull4life-build/releases/download/$TAG/$ZIP ==="
