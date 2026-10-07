@@ -168,6 +168,11 @@ jobs:
           B4L_MARKETING_MAX_SLUGS: '6'                                   # top-6 by ROE per cycle (replays are sequential ~15min ea); accumulate grows coverage across days
           FORCE_MKT: ${{ github.event.inputs.render_marketing }}
         run: |
+          # 2026-10-07 (engine, admin: "update our marketing"): marketing is built on the engine laptop by the P4 pipeline
+          # (compute/best_configs.json verified entries + the reproduction gate + the config strip) and published to
+          # this release by engine. This CI render uses the old hof showcase and ACCUMULATES the prior bundle, so it kept
+          # re-adding dead slugs (pxmr/pbtc) over the verified set. It runs now only when forced (render_marketing=true).
+          if [ "${FORCE_MKT}" != "true" ]; then echo "[mkt] marketing is published by engine (P4); CI render off unless forced"; exit 0; fi
           # Self-gate to ~once/24h (06:00 UTC) so the 3h mint doesn't re-render every cycle; a manual dispatch with
           # render_marketing=true forces it. Runs AFTER mint+push, so an overrun/timeout here never costs tokens. The
           # hofs verify regenerated (this job's workspace) feed showcase.resolve_showcase (optimizer-hof fallback under
