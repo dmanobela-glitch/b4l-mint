@@ -194,6 +194,41 @@ jobs:
               && git -C "$DST" push -q origin HEAD && echo "[configs-private] pushed $N configs" || echo "[configs-private] push failed - skip"
           fi
           rm -f "$KEY"
+      - name: Build the app's full kit (every coin the runners hunt) into the PRIVATE store
+        working-directory: engine
+        continue-on-error: true          # the app's kit never breaks the mint or the bot's delivery
+        timeout-minutes: 25
+        env:
+          CONFIGS_DEPLOY_KEY: ${{ secrets.CONFIGS_DEPLOY_KEY }}
+        run: |
+          # The export above delivers Bybit perps to the bot. The runners also hunt BTC, PBTC, Monero and Silver; the
+          # Engine app shows every coin. tools/app_kit.py asks the same picker for every target (scope widened in its
+          # own process only) and keeps the best per target across cycles. It goes to the private store as app_kit.json.
+          # THIS LOG IS PUBLIC: fixed words and counts only; the tool's own output is not shown.
+          [ -n "$CONFIGS_DEPLOY_KEY" ] || { echo "[app-kit] no deploy key - skip"; exit 0; }
+          [ -f tools/app_kit.py ] || { echo "[app-kit] this engine tree has no tools/app_kit.py - skip"; exit 0; }
+          KEY="$RUNNER_TEMP/kit_key"
+          ( umask 077; printf '%s\n' "$CONFIGS_DEPLOY_KEY" > "$KEY" )
+          export GIT_SSH_COMMAND="ssh -i $KEY -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
+          DST="$RUNNER_TEMP/b4l-configs-kit"; rm -rf "$DST" "$RUNNER_TEMP/kit_out"; mkdir -p "$RUNNER_TEMP/kit_out"
+          git clone -q --depth 1 git@github.com:dmanobela-glitch/b4l-configs.git "$DST" 2>/dev/null || { echo "[app-kit] clone failed - skip"; rm -f "$KEY"; exit 0; }
+          python tools/app_kit.py build --out "$RUNNER_TEMP/kit_out" --prior "$DST/app_kit.json" >/dev/null 2>&1 || { echo "[app-kit] build failed - skip"; rm -f "$KEY"; exit 0; }
+          [ -f "$RUNNER_TEMP/kit_out/app_kit.json" ] || { echo "[app-kit] no kit produced - skip"; rm -f "$KEY"; exit 0; }
+          SAME=$(python -c "import json,sys
+          a=json.load(open(sys.argv[1])).get('configs'); b=None
+          try: b=json.load(open(sys.argv[2])).get('configs')
+          except Exception: pass
+          print('same' if a==b else 'changed')" "$RUNNER_TEMP/kit_out/app_kit.json" "$DST/app_kit.json" 2>/dev/null || echo changed)
+          N=$(python -c "import json;print(json.load(open('$RUNNER_TEMP/kit_out/app_kit.json')).get('count','?'))" 2>/dev/null || echo '?')
+          if [ "$SAME" = "same" ]; then
+            echo "[app-kit] $N targets, unchanged - no commit"
+          else
+            cp "$RUNNER_TEMP/kit_out/app_kit.json" "$DST/app_kit.json"
+            git -C "$DST" add app_kit.json
+            git -C "$DST" -c user.name="Bull4Life CI (mint)" -c user.email="ci@b4l.invalid" commit -q -m "app kit: $N targets, every coin (mint run $GITHUB_RUN_ID)" \
+              && git -C "$DST" push -q origin HEAD && echo "[app-kit] pushed $N targets" || echo "[app-kit] push failed - skip"
+          fi
+          rm -f "$KEY"
       - name: Marketing render + publish (fleet, ~once/24h) — reuses the hofs verify just regenerated
         working-directory: engine
         continue-on-error: true          # NEVER break the token mint over marketing
