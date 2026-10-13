@@ -130,11 +130,12 @@ jobs:
             [ "$ok" = 0 ] && { echo "[mint] could NOT land mint after 5 attempts (retries next cycle)"; exit 1; }
             echo "[mint] land done (status=$ok: 1=pushed, 2=noop-after-resync)"
           fi
-      - name: Export + publish best configs (Bybit perps) for the bot
+      - name: Export best configs (Bybit perps) for the bot
         working-directory: engine
         continue-on-error: true          # NEVER break the token mint over config delivery
         env:
           GH_TOKEN: ${{ github.token }}
+          CONFIGS_DEPLOY_KEY: ${{ secrets.CONFIGS_DEPLOY_KEY }}
         run: |
           # The verify above refreshed the PERSISTENT HoFs (committed with the chain), so they hold the all-time best per
           # target. Export the best config per BYBIT-PERP strategy in the bot's exact tag schema (Cludia 0728) and publish
@@ -142,22 +143,27 @@ jobs:
           # ACCUMULATE across cycles: the release asset is the persistent all-time store (git doesn't carry best_configs.json).
           # Pull the current published bundle as the MERGE prior, so this cycle's regenerated targets ADD to it instead of
           # replacing it. Without this, --clobber would reset the release to only the ~handful of targets verified this run.
+          # 2026-10-13: the bundle lives in the PRIVATE repository b4l-configs (it holds settings; the public release
+          # asset could be downloaded by anyone and is gone). The prior bundle is read from there; the step after this
+          # one writes the result back there. Nothing of it is published on this public repository any more.
           mkdir -p compute
-          gh release download best-configs -R dmanobela-glitch/b4l-mint -p best_configs.json -O compute/best_configs.json 2>/dev/null \
-            && echo "[configs] merged onto the prior published bundle" || echo "[configs] no prior release asset (first run) — starting fresh"
+          if [ -n "$CONFIGS_DEPLOY_KEY" ]; then
+            PKEY="$RUNNER_TEMP/configs_prior_key"; ( umask 077; printf '%s\n' "$CONFIGS_DEPLOY_KEY" > "$PKEY" )
+            rm -rf "$RUNNER_TEMP/b4l-configs-prior"
+            GIT_SSH_COMMAND="ssh -i $PKEY -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new" \
+              git clone -q --depth 1 git@github.com:dmanobela-glitch/b4l-configs.git "$RUNNER_TEMP/b4l-configs-prior" 2>/dev/null \
+              && cp "$RUNNER_TEMP/b4l-configs-prior/best_configs.json" compute/best_configs.json \
+              && echo "[configs] merged onto the prior bundle (private store)" || echo "[configs] no prior bundle could be read - starting fresh"
+            rm -f "$PKEY"
+          else
+            echo "[configs] no deploy key - no prior bundle, starting fresh"
+          fi
           # __B4L_EXPORT_SWEEP_EFF__ ON: sweep entries carry tp_eff/limit_eff/set_off_eff/ss_off_eff (additive keys;
           # WT entries untouched; OFF proven identical 720d09e). Master GO via bot seq47711 item (c), 2026-09-30.
           B4L_EXPORT_SWEEP_EFF=1 python tools/export_best_configs.py || { echo "[configs] export failed — skip (mint unaffected)"; exit 0; }
           [ -f compute/best_configs.json ] || { echo "[configs] no bundle produced — skip"; exit 0; }
           N=$(python -c "import json;print(json.load(open('compute/best_configs.json')).get('count',0))" 2>/dev/null || echo '?')
-          echo "[configs] publishing $N Bybit-perp configs to the best-configs release"
-          if gh release view best-configs -R dmanobela-glitch/b4l-mint >/dev/null 2>&1; then
-            gh release upload best-configs compute/best_configs.json --clobber -R dmanobela-glitch/b4l-mint
-          else
-            gh release create best-configs compute/best_configs.json -R dmanobela-glitch/b4l-mint -t "Best configs (Bybit perps)" \
-              -n "Best VERIFIED config per Bybit-perp strategy, in the bot tag schema. Regenerated every mint cycle (~3h) from the persistent HoFs. The bot curls this asset into incoming_configs/."
-          fi
-          echo "[configs] LIVE -> https://github.com/dmanobela-glitch/b4l-mint/releases/download/best-configs/best_configs.json"
+          echo "[configs] $N Bybit-perp configs built; the next step writes them to the private store, the only place they go"
       - name: Publish best configs to the PRIVATE store (b4l-configs) - the bot's source after the move of 2026-10-13
         working-directory: engine
         continue-on-error: true          # NEVER break the token mint over config delivery
