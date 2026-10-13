@@ -158,6 +158,36 @@ jobs:
               -n "Best VERIFIED config per Bybit-perp strategy, in the bot tag schema. Regenerated every mint cycle (~3h) from the persistent HoFs. The bot curls this asset into incoming_configs/."
           fi
           echo "[configs] LIVE -> https://github.com/dmanobela-glitch/b4l-mint/releases/download/best-configs/best_configs.json"
+      - name: Publish best configs to the PRIVATE store (b4l-configs) - the bot's source after the move of 2026-10-13
+        working-directory: engine
+        continue-on-error: true          # NEVER break the token mint over config delivery
+        env:
+          CONFIGS_DEPLOY_KEY: ${{ secrets.CONFIGS_DEPLOY_KEY }}
+        run: |
+          # The settings file must not sit where anyone can download it. It goes to a private repository through a
+          # deploy key that can write there and nowhere else; the bot box reads it with its own read-only key.
+          # One commit per real change (the file's own time stamp is ignored), so the history is the record.
+          [ -n "$CONFIGS_DEPLOY_KEY" ] || { echo "[configs-private] no deploy key - skip"; exit 0; }
+          [ -f compute/best_configs.json ] || { echo "[configs-private] no bundle - skip"; exit 0; }
+          KEY="$RUNNER_TEMP/configs_key"
+          ( umask 077; printf '%s\n' "$CONFIGS_DEPLOY_KEY" > "$KEY" )
+          export GIT_SSH_COMMAND="ssh -i $KEY -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new"
+          DST="$RUNNER_TEMP/b4l-configs"; rm -rf "$DST"
+          git clone -q --depth 1 git@github.com:dmanobela-glitch/b4l-configs.git "$DST" 2>/dev/null || { echo "[configs-private] clone failed - skip"; rm -f "$KEY"; exit 0; }
+          SAME=$(python -c "import json,sys
+          a=json.load(open(sys.argv[1])).get('configs'); b=None
+          try: b=json.load(open(sys.argv[2])).get('configs')
+          except Exception: pass
+          print('same' if a==b else 'changed')" compute/best_configs.json "$DST/best_configs.json" 2>/dev/null || echo changed)
+          if [ "$SAME" = "same" ]; then
+            echo "[configs-private] unchanged - no commit"
+          else
+            cp compute/best_configs.json "$DST/best_configs.json"
+            N=$(python -c "import json;print(json.load(open('compute/best_configs.json')).get('count','?'))" 2>/dev/null || echo '?')
+            git -C "$DST" -c user.name="Bull4Life CI (mint)" -c user.email="ci@b4l.invalid" commit -q -am "best configs: $N verified (mint run $GITHUB_RUN_ID)" \
+              && git -C "$DST" push -q origin HEAD && echo "[configs-private] pushed $N configs" || echo "[configs-private] push failed - skip"
+          fi
+          rm -f "$KEY"
       - name: Marketing render + publish (fleet, ~once/24h) — reuses the hofs verify just regenerated
         working-directory: engine
         continue-on-error: true          # NEVER break the token mint over marketing
