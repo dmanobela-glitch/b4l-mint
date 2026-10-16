@@ -10,7 +10,7 @@
     "live_chains": [
       "solana"
     ],
-    "last_verified_ts": 1792175058,
+    "last_verified_ts": 1792177282,
     "verifier": "Bull4Life peg-drift-watch CI (independent; GitHub-scheduled, about every 1 to 3 hours) \u2014 supply verified vs live external chain supply",
     "freeze_authority": "revoked",
     "description": "Bull4Life (B4L) \u2014 reserve-backed 1:1 by the canonical fund; NAV-priced; freeze authority revoked; wrapped supply verifiably == on-chain reserve.",
@@ -44,7 +44,7 @@
           "status": "OK"
         }
       },
-      "checked_ts": 1792175058
+      "checked_ts": 1792177282
     }
   },
   "header": {
@@ -83,7 +83,7 @@
     "oracle_marks": {},
     "committed": true,
     "tip_height": 1753,
-    "age_s": 8770.182,
+    "age_s": 10994.594,
     "max_age_s": 172800,
     "stale": false,
     "usable": true
@@ -1539,19 +1539,19 @@
         "height": 1740
       }
     ],
-    "sync_lag_s": 27,
+    "sync_lag_s": 2251,
     "workers_online": 31,
-    "coordinator_uptime_sec": 275328,
+    "coordinator_uptime_sec": 277552,
     "node_uptime_pct": 100.0
   },
   "engine_telemetry": {
     "ok": true,
     "source": "engine",
-    "ts": 1792175059,
-    "uptime_s": 275328,
+    "ts": 1792177283,
+    "uptime_s": 277552,
     "active_strategies": 61,
     "node_height": 1753,
-    "consensus_age_s": 27,
+    "consensus_age_s": 2251,
     "last_strategy_update_ts": 1792175031152,
     "health_score": 1.0
   },
@@ -1577,14 +1577,14 @@
     "dex_price_usd": 0.0023876,
     "nav_vs_dex_spread": -0.3618,
     "nav_stale": false,
-    "nav_age_s": 8770.182,
+    "nav_age_s": 10994.594,
     "nav_max_age_s": 172800,
-    "last_verified_ts": 1792175058,
+    "last_verified_ts": 1792177282,
     "staleness_s": 1,
     "verifier": "Bull4Life peg-drift-watch CI (independent; GitHub-scheduled, about every 1 to 3 hours) \u2014 supply verified vs live external chain supply"
   },
   "genesis_agnostic_note": "chain-side read surface; nav.* echoes the last on-chain nav_commit (Cludia produces + signs NAV).",
-  "sig": "515f883e1971cdbb3a728b2b2fbabf6ff3add98bab20a18f4b17e8c22966b83b1eafa87214c71934671ba7965bddd2f7054d351f83c2d8cdc980f879b0fc9908",
+  "sig": "cfafe1e3c87712f8651e59570ba05f90d8b3eb948d4be548642076e69fe0b0afd41878be485f69c0f8fd621de2c281e20edfc4850e4f0d65561e0a1d61f9480e",
   "pubkey": "aac44d07cf44e663402fd4f42107a167756647d059cb6e8534f96c8c8f05a053",
   "signed": true
 }
