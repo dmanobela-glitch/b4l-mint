@@ -10,7 +10,7 @@
     "live_chains": [
       "solana"
     ],
-    "last_verified_ts": 1792330024,
+    "last_verified_ts": 1792330080,
     "verifier": "Bull4Life peg-drift-watch CI (independent; GitHub-scheduled, about every 1 to 3 hours) \u2014 supply verified vs live external chain supply",
     "freeze_authority": "revoked",
     "description": "Bull4Life (B4L) \u2014 reserve-backed 1:1 by the canonical fund; NAV-priced; freeze authority revoked; wrapped supply verifiably == on-chain reserve.",
@@ -44,7 +44,7 @@
           "status": "OK"
         }
       },
-      "checked_ts": 1792330024
+      "checked_ts": 1792330080
     }
   },
   "header": {
@@ -83,7 +83,7 @@
     "oracle_marks": {},
     "committed": true,
     "tip_height": 1779,
-    "age_s": 14126.632,
+    "age_s": 14182.57,
     "max_age_s": 172800,
     "stale": false,
     "usable": true
@@ -1524,19 +1524,19 @@
         "height": 1766
       }
     ],
-    "sync_lag_s": 31,
+    "sync_lag_s": 87,
     "workers_online": 31,
-    "coordinator_uptime_sec": 430294,
+    "coordinator_uptime_sec": 430350,
     "node_uptime_pct": 100.0
   },
   "engine_telemetry": {
     "ok": true,
     "source": "engine",
-    "ts": 1792330025,
-    "uptime_s": 430294,
+    "ts": 1792330081,
+    "uptime_s": 430350,
     "active_strategies": 61,
     "node_height": 1779,
-    "consensus_age_s": 31,
+    "consensus_age_s": 87,
     "last_strategy_update_ts": 1792329993895,
     "health_score": 1.0
   },
@@ -1562,14 +1562,14 @@
     "dex_price_usd": 0.0023876,
     "nav_vs_dex_spread": -0.3754,
     "nav_stale": false,
-    "nav_age_s": 14126.632,
+    "nav_age_s": 14182.57,
     "nav_max_age_s": 172800,
-    "last_verified_ts": 1792330024,
+    "last_verified_ts": 1792330080,
     "staleness_s": 1,
     "verifier": "Bull4Life peg-drift-watch CI (independent; GitHub-scheduled, about every 1 to 3 hours) \u2014 supply verified vs live external chain supply"
   },
   "genesis_agnostic_note": "chain-side read surface; nav.* echoes the last on-chain nav_commit (Cludia produces + signs NAV).",
-  "sig": "67ed579db5b2984a16658cea1f3bf1b3107fd97f7fdabee077ed1fdc9afc1c5c9d120ea2f12c8587b04373bf0f37496c02c20fee5a8a4ef4bb159baa1a1f5702",
+  "sig": "6918fae3a130a5ec7e001d275d69313722bdad679a2351e3c422113c7d78f82d3fcde2b093a8540e2ffe5d2411616720c2d030d8887c1dd3e219a39d97d2e90a",
   "pubkey": "aac44d07cf44e663402fd4f42107a167756647d059cb6e8534f96c8c8f05a053",
   "signed": true
 }
