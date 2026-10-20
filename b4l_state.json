@@ -10,7 +10,7 @@
     "live_chains": [
       "solana"
     ],
-    "last_verified_ts": 1792453407,
+    "last_verified_ts": 1792461574,
     "verifier": "Bull4Life peg-drift-watch CI (independent; GitHub-scheduled, about every 1 to 3 hours) \u2014 supply verified vs live external chain supply",
     "freeze_authority": "revoked",
     "description": "Bull4Life (B4L) \u2014 reserve-backed 1:1 by the canonical fund; NAV-priced; freeze authority revoked; wrapped supply verifiably == on-chain reserve.",
@@ -44,22 +44,22 @@
           "status": "OK"
         }
       },
-      "checked_ts": 1792453407
+      "checked_ts": 1792461574
     }
   },
   "header": {
-    "height": 1801,
-    "hash": "0affe7724e8a59c1861ca103691cab06af9e63816b80982fac3686e14c903124",
+    "height": 1802,
+    "hash": "36f47ac4f9e1f3d10317337849ed2bff596bd7532f21b573f80c4b03676c7447",
     "genesis_hash": "22648a4d9a6a9a2a472ed81f2b023d95a32994565be6130c53875a2dae9a6c60"
   },
   "account": {
-    "b4l12h3b67w2xbshqg7i4wuv2hstv74aklcwocr2ta": 912829.648
+    "b4l12h3b67w2xbshqg7i4wuv2hstv74aklcwocr2ta": 912829.6462
   },
   "mint_status": {
-    "verified_total": 44352000.0,
+    "verified_total": 44353800.0,
     "verified_total_source": "verified_credits.json",
     "last_mint_height": null,
-    "tip_total_coresec": 44352000.0,
+    "tip_total_coresec": 44353800.0,
     "total_b4l": 1000000.0
   },
   "nav": {
@@ -68,7 +68,7 @@
     "nav_per_b4l_usd": 0.00380896515,
     "nav_per_b4l": 0.00380896515,
     "supply_total": 1000000.0,
-    "supply_circulating": 87170.352,
+    "supply_circulating": 87170.3538,
     "reserves_usd_total": 3808.96515,
     "reserves": {
       "chain_wallets": {
@@ -82,8 +82,8 @@
     },
     "oracle_marks": {},
     "committed": true,
-    "tip_height": 1801,
-    "age_s": 1159.812,
+    "tip_height": 1802,
+    "age_s": 9326.909,
     "max_age_s": 172800,
     "stale": false,
     "usable": true
@@ -91,8 +91,8 @@
   "total_b4l": 1000000.0,
   "mint_reward_budget": {
     "cap": 1000000.0,
-    "redistributed": 44.352,
-    "remaining": 999955.648
+    "redistributed": 44.3538,
+    "remaining": 999955.6462
   },
   "chain_wallets": {
     "arbitrum": {
@@ -1473,12 +1473,12 @@
     }
   },
   "chain_telemetry": {
-    "height": 1801,
+    "height": 1802,
     "total_b4l": 1000000.0,
     "consensus_ops": [
       {
         "type": "nav_commit",
-        "count": 13,
+        "count": 12,
         "ts_ms": 1792453380263
       }
     ],
@@ -1534,19 +1534,19 @@
         "height": 1788
       }
     ],
-    "sync_lag_s": 28,
+    "sync_lag_s": 2463,
     "workers_online": 31,
-    "coordinator_uptime_sec": 553677,
+    "coordinator_uptime_sec": 561844,
     "node_uptime_pct": 100.0
   },
   "engine_telemetry": {
     "ok": true,
     "source": "engine",
-    "ts": 1792453408,
-    "uptime_s": 553677,
+    "ts": 1792461575,
+    "uptime_s": 561844,
     "active_strategies": 61,
-    "node_height": 1801,
-    "consensus_age_s": 28,
+    "node_height": 1802,
+    "consensus_age_s": 2463,
     "last_strategy_update_ts": 1792453380263,
     "health_score": 1.0
   },
@@ -1572,14 +1572,14 @@
     "dex_price_usd": 0.0023876,
     "nav_vs_dex_spread": -0.3732,
     "nav_stale": false,
-    "nav_age_s": 1159.812,
+    "nav_age_s": 9326.909,
     "nav_max_age_s": 172800,
-    "last_verified_ts": 1792453407,
+    "last_verified_ts": 1792461574,
     "staleness_s": 1,
     "verifier": "Bull4Life peg-drift-watch CI (independent; GitHub-scheduled, about every 1 to 3 hours) \u2014 supply verified vs live external chain supply"
   },
   "genesis_agnostic_note": "chain-side read surface; nav.* echoes the last on-chain nav_commit (Cludia produces + signs NAV).",
-  "sig": "158d3c2cbcaa732741bce4ff91311ca479d59cbbecb7741d57b9dc88bb3f7ed3f170b95a6b4ea8be14d7b84fc3bef126809f913fbbdf091cacff1c4a9f42f00b",
+  "sig": "b13e659d27ee38363fa0c0e0ab4d60e1e3372781f17103c0a765c63c120f1ecac55de818d566a9022a35804bdf9b966efd675eb17d54857e85a703233704b104",
   "pubkey": "aac44d07cf44e663402fd4f42107a167756647d059cb6e8534f96c8c8f05a053",
   "signed": true
 }
