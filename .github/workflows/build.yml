@@ -38,7 +38,9 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install build deps
-        run: pip install "nuitka[onefile]" zstandard numpy pandas psutil cryptography certifi
+        # nuitka pinned (engine 10-22, GRID-RELEASE): 4.3.1 crashes cloning a reversed() call ("Problem cloning node
+        # ExpressionBuiltinsReversedCall ... unexpected keyword argument 'object'"); 4.2.2 built 1.23.0 on 10-06
+        run: pip install "nuitka[onefile]==4.2.2" zstandard numpy pandas psutil cryptography certifi
       - name: Build (Nuitka onefile)
         working-directory: engine
         run: python compute/build_node.py
