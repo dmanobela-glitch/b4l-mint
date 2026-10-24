@@ -10,7 +10,7 @@
     "live_chains": [
       "solana"
     ],
-    "last_verified_ts": 1792797187,
+    "last_verified_ts": 1792803753,
     "verifier": "Bull4Life peg-drift-watch CI (independent; GitHub-scheduled, about every 1 to 3 hours) \u2014 supply verified vs live external chain supply",
     "freeze_authority": "revoked",
     "description": "Bull4Life (B4L) \u2014 reserve-backed 1:1 by the canonical fund; NAV-priced; freeze authority revoked; wrapped supply verifiably == on-chain reserve.",
@@ -44,7 +44,7 @@
           "status": "OK"
         }
       },
-      "checked_ts": 1792797187
+      "checked_ts": 1792803753
     }
   },
   "header": {
@@ -83,7 +83,7 @@
     "oracle_marks": {},
     "committed": true,
     "tip_height": 1856,
-    "age_s": 9484.188,
+    "age_s": 16050.363,
     "max_age_s": 172800,
     "stale": false,
     "usable": true
@@ -1529,19 +1529,19 @@
         "height": 1842
       }
     ],
-    "sync_lag_s": 25,
+    "sync_lag_s": 6592,
     "workers_online": 8,
-    "coordinator_uptime_sec": 45997,
+    "coordinator_uptime_sec": 52563,
     "node_uptime_pct": 100.0
   },
   "engine_telemetry": {
     "ok": true,
     "source": "engine",
-    "ts": 1792797188,
-    "uptime_s": 45997,
+    "ts": 1792803754,
+    "uptime_s": 52563,
     "active_strategies": 61,
     "node_height": 1856,
-    "consensus_age_s": 25,
+    "consensus_age_s": 6592,
     "last_strategy_update_ts": 1792797161852,
     "health_score": 1.0
   },
@@ -1567,14 +1567,14 @@
     "dex_price_usd": 0.0023876,
     "nav_vs_dex_spread": -0.345,
     "nav_stale": false,
-    "nav_age_s": 9484.188,
+    "nav_age_s": 16050.363,
     "nav_max_age_s": 172800,
-    "last_verified_ts": 1792797187,
+    "last_verified_ts": 1792803753,
     "staleness_s": 1,
     "verifier": "Bull4Life peg-drift-watch CI (independent; GitHub-scheduled, about every 1 to 3 hours) \u2014 supply verified vs live external chain supply"
   },
   "genesis_agnostic_note": "chain-side read surface; nav.* echoes the last on-chain nav_commit (Cludia produces + signs NAV).",
-  "sig": "95ab0e5d560437219240fa72fdbd8c7152344037e9bbe4eca33f85ab30a697b2bc1fd73e1679e568d38a695165cf2dace194ca17ae238538d7826cf7281d5805",
+  "sig": "7b5f34299928cc20d6fcc01c9a13bdf146fb058d0e68609aa1ee0418f09f9634a4e557503fe31cd87cc3c827e943c84e4ea677038829159c5a70cd34b43af30d",
   "pubkey": "aac44d07cf44e663402fd4f42107a167756647d059cb6e8534f96c8c8f05a053",
   "signed": true
 }
