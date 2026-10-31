@@ -10,7 +10,7 @@
     "live_chains": [
       "solana"
     ],
-    "last_verified_ts": 1793479548,
+    "last_verified_ts": 1793483002,
     "verifier": "Bull4Life peg-drift-watch CI (independent; GitHub-scheduled, about every 1 to 3 hours) \u2014 supply verified vs live external chain supply",
     "freeze_authority": "revoked",
     "description": "Bull4Life (B4L) \u2014 reserve-backed 1:1 by the canonical fund; NAV-priced; freeze authority revoked; wrapped supply verifiably == on-chain reserve.",
@@ -44,22 +44,22 @@
           "status": "OK"
         }
       },
-      "checked_ts": 1793479548
+      "checked_ts": 1793483001
     }
   },
   "header": {
-    "height": 1954,
-    "hash": "18cc907dfd08961cd996763a44acfe9ab4fa32cddfff03c0748eb6be19a0709c",
+    "height": 1955,
+    "hash": "5d22ece9d201b768ae5d9227c6d14b2c922fc75e7666260506056864fd2986af",
     "genesis_hash": "22648a4d9a6a9a2a472ed81f2b023d95a32994565be6130c53875a2dae9a6c60"
   },
   "account": {
-    "b4l12h3b67w2xbshqg7i4wuv2hstv74aklcwocr2ta": 912824.2768
+    "b4l12h3b67w2xbshqg7i4wuv2hstv74aklcwocr2ta": 912824.2078
   },
   "mint_status": {
-    "verified_total": 49723200.0,
+    "verified_total": 49792200.0,
     "verified_total_source": "verified_credits.json",
     "last_mint_height": null,
-    "tip_total_coresec": 49723200.0,
+    "tip_total_coresec": 49792200.0,
     "total_b4l": 1000000.0
   },
   "nav": {
@@ -68,7 +68,7 @@
     "nav_per_b4l_usd": 0.002709344186,
     "nav_per_b4l": 0.002709344186,
     "supply_total": 1000000.0,
-    "supply_circulating": 87175.7232,
+    "supply_circulating": 87175.7922,
     "reserves_usd_total": 2709.344186,
     "reserves": {
       "chain_wallets": {
@@ -82,8 +82,8 @@
     },
     "oracle_marks": {},
     "committed": true,
-    "tip_height": 1954,
-    "age_s": 10700.799,
+    "tip_height": 1955,
+    "age_s": 14154.079,
     "max_age_s": 172800,
     "stale": false,
     "usable": true
@@ -91,8 +91,8 @@
   "total_b4l": 1000000.0,
   "mint_reward_budget": {
     "cap": 1000000.0,
-    "redistributed": 49.7232,
-    "remaining": 999950.2768
+    "redistributed": 49.7922,
+    "remaining": 999950.2078
   },
   "chain_wallets": {
     "arbitrum": {
@@ -1473,12 +1473,12 @@
     }
   },
   "chain_telemetry": {
-    "height": 1954,
+    "height": 1955,
     "total_b4l": 1000000.0,
     "consensus_ops": [
       {
         "type": "nav_commit",
-        "count": 12,
+        "count": 11,
         "ts_ms": 1793479422632
       }
     ],
@@ -1524,19 +1524,19 @@
         "height": 1941
       }
     ],
-    "sync_lag_s": 126,
+    "sync_lag_s": 2515,
     "workers_online": 51,
-    "coordinator_uptime_sec": 728358,
+    "coordinator_uptime_sec": 731812,
     "node_uptime_pct": 100.0
   },
   "engine_telemetry": {
     "ok": true,
     "source": "engine",
-    "ts": 1793479549,
-    "uptime_s": 728358,
+    "ts": 1793483002,
+    "uptime_s": 731812,
     "active_strategies": 61,
-    "node_height": 1954,
-    "consensus_age_s": 126,
+    "node_height": 1955,
+    "consensus_age_s": 2515,
     "last_strategy_update_ts": 1793479422632,
     "health_score": 1.0
   },
@@ -1562,14 +1562,14 @@
     "dex_price_usd": 0.0023876,
     "nav_vs_dex_spread": -0.1188,
     "nav_stale": false,
-    "nav_age_s": 10700.799,
+    "nav_age_s": 14154.079,
     "nav_max_age_s": 172800,
-    "last_verified_ts": 1793479548,
-    "staleness_s": 1,
+    "last_verified_ts": 1793483002,
+    "staleness_s": 0,
     "verifier": "Bull4Life peg-drift-watch CI (independent; GitHub-scheduled, about every 1 to 3 hours) \u2014 supply verified vs live external chain supply"
   },
   "genesis_agnostic_note": "chain-side read surface; nav.* echoes the last on-chain nav_commit (Cludia produces + signs NAV).",
-  "sig": "a414223c0e5ebcf8ef3c489bda270ae4ef01418a461e4bd80f4bd1237e14af711f5c1ff4aa4c9226d7640c8682042ec0fbeff9f3ae96cfdb5c530402535d970b",
+  "sig": "647fbb45fd080299363c8294293994181cc06ad9d8af6cb1dbf3f32ffd1f6dbe081c7e128bc5b0cb9467c6f523214e7af56e38eda2e6a0c5f736902ede9fd205",
   "pubkey": "aac44d07cf44e663402fd4f42107a167756647d059cb6e8534f96c8c8f05a053",
   "signed": true
 }
