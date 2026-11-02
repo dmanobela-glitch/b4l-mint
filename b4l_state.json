@@ -10,7 +10,7 @@
     "live_chains": [
       "solana"
     ],
-    "last_verified_ts": 1793580726,
+    "last_verified_ts": 1793583857,
     "verifier": "Bull4Life peg-drift-watch CI (independent; GitHub-scheduled, about every 1 to 3 hours) \u2014 supply verified vs live external chain supply",
     "freeze_authority": "revoked",
     "description": "Bull4Life (B4L) \u2014 reserve-backed 1:1 by the canonical fund; NAV-priced; freeze authority revoked; wrapped supply verifiably == on-chain reserve.",
@@ -44,7 +44,7 @@
           "status": "OK"
         }
       },
-      "checked_ts": 1793580726
+      "checked_ts": 1793583857
     }
   },
   "header": {
@@ -83,7 +83,7 @@
     "oracle_marks": {},
     "committed": true,
     "tip_height": 1969,
-    "age_s": 12598.547,
+    "age_s": 15729.364,
     "max_age_s": 172800,
     "stale": false,
     "usable": true
@@ -1529,19 +1529,19 @@
         "height": 1956
       }
     ],
-    "sync_lag_s": 32,
+    "sync_lag_s": 3163,
     "workers_online": 51,
-    "coordinator_uptime_sec": 829536,
+    "coordinator_uptime_sec": 832667,
     "node_uptime_pct": 100.0
   },
   "engine_telemetry": {
     "ok": true,
     "source": "engine",
-    "ts": 1793580727,
-    "uptime_s": 829536,
+    "ts": 1793583858,
+    "uptime_s": 832667,
     "active_strategies": 61,
     "node_height": 1969,
-    "consensus_age_s": 32,
+    "consensus_age_s": 3163,
     "last_strategy_update_ts": 1793580694453,
     "health_score": 1.0
   },
@@ -1567,14 +1567,14 @@
     "dex_price_usd": 0.0023876,
     "nav_vs_dex_spread": -0.1342,
     "nav_stale": false,
-    "nav_age_s": 12598.547,
+    "nav_age_s": 15729.364,
     "nav_max_age_s": 172800,
-    "last_verified_ts": 1793580726,
+    "last_verified_ts": 1793583857,
     "staleness_s": 1,
     "verifier": "Bull4Life peg-drift-watch CI (independent; GitHub-scheduled, about every 1 to 3 hours) \u2014 supply verified vs live external chain supply"
   },
   "genesis_agnostic_note": "chain-side read surface; nav.* echoes the last on-chain nav_commit (Cludia produces + signs NAV).",
-  "sig": "971e18e82cd996f15e9fe82978437e7b4a1e505816e140aa134ced2117a5ffa347502e3441bbfac8ac4cf540986a670b89bb97ab4b80adabfc23a1bffaa2a300",
+  "sig": "4234fe2600ebbff933d581f05f381c91a0e56bf595d5d5a5cf030c3728d63b5dcd0ddea1e502ee4e660b606bd1686ec609344390a18516b67237f176eec08109",
   "pubkey": "aac44d07cf44e663402fd4f42107a167756647d059cb6e8534f96c8c8f05a053",
   "signed": true
 }
